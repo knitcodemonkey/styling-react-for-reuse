@@ -1,0 +1,16 @@
+// Common CSS files
+require('normalize.css/normalize.css');
+require('ksl-styles/dist/styles.css');
+require('ddm-menu/src/menu.css');
+require('ddm-modal/dist/modal.css');
+require('ddm-slider/src/slider.css');
+
+// Import the icon font
+var req = require.context(
+  "!!url-loader?limit=1&name=[name].[ext]!ksl-responsive-header/dist/",
+  false,
+  /\.(svg)$/
+);
+req.keys().forEach(function(key) {
+  req(key);
+});

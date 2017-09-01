@@ -1,0 +1,16 @@
+//Common JS files
+require('console-polyfill');
+require('babel-polyfill');
+require('expose?$!expose?jQuery!jquery');
+require('es5-shim/es5-shim.js');
+require('es5-shim/es5-sham.js');
+require('!!script!uglify!../../responsive/breakpoints.js');
+require('expose?React!react');
+require('expose?ReactDOM!react-dom');
+require('!!script!uglify!../../responsive/jquery-mobile-events.js');
+require('expose?ddm.menu!ddm-menu');
+require('!!script!uglify!ddm-modal/dist/modal.js');
+require('!!script!uglify!ddm-collapsible/dist/collapsible.js');
+require('!!script!uglify!ddm-slider/src/slider.js');
+require('expose?KslHeader!ksl-responsive-header');
+require('!!script!uglify!flexslider/jquery.flexslider-min.js');
