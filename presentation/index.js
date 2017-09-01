@@ -54,7 +54,7 @@ const images = {
 preloader(images);
 
 const themeColors = {
-  primary: "radial-gradient(#F5F5F5, #CECECE)",
+  primary: "radial-gradient(#FAFAFA, #CECECE)",
   secondary: "#191919",
   tertiary: "#981804",
   quartenary: "#CECECE",
@@ -75,6 +75,11 @@ const styles = {
   liLargeText: {
     fontSize: '1.5em',
     fontWeight: 'bold'
+  },
+  flexCol: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
   }
 };
 
@@ -85,7 +90,7 @@ export default class Presentation extends React.Component {
         <Slide notes="Software engineer for over 10 years">
           <Layout style={{padding: '0 200px'}}>
             <Fill>
-              <Image margin="0" src={images.me} style={{maxWidth: '100%', borderRadius: '50%'}}/>
+              <Image margin="0" src={images.me} style={{maxWidth: '100%', borderRadius: '50%', boxShadow: "0px 10px 20px #CECECE"}}/>
             </Fill>
             <Fill style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
               <Heading size={1} textFont="secondary">Jen Luker</Heading>
@@ -102,7 +107,7 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
 
-        <Slide bgColor="primary">
+        <Slide bgColor="primary" style={styles.flexCol}>
           <Layout>
             <Fill>
               <Heading size={2} caps lineHeight={1} textColor="secondary">
@@ -111,9 +116,12 @@ export default class Presentation extends React.Component {
               <Heading margin="10px 0 0" textColor="tertiary" size={3} bold>
                 an exploration in extensibility
               </Heading>
-              <br /><br />
-              <br /><br />
-              <Link src="">View slides @ http://styling-react-for-reuse.surge.sh</Link>
+            </Fill>
+          </Layout>
+          <Layout>
+            <Fill>
+              <Text>Follow along with the slides:</Text>
+              <Link src="http://styling-react-for-reuse.surge.sh">http://styling-react-for-reuse.surge.sh</Link>
             </Fill>
           </Layout>
         </Slide>
