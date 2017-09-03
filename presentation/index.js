@@ -51,6 +51,9 @@ const images = {
   iconFont: require("../assets/IconFont.png"),
   waitWhat: require("../assets/waitWhat.png"),
   famous: require("../assets/famous.jpg"),
+  accessibilityGif: require("../assets/AccessibilityGif.gif"),
+  inclusiveDesignToolkit: require("../assets/InclusiveDesignToolkit.png"),
+  globalization: require("../assets/Globalization.jpg"),
 };
 
 preloader(images);
@@ -97,6 +100,8 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={["fade"]} transitionDuration={500} theme={theme} contentWidth="1768" contentHeight="932">
+
+{/* Title Screen */}
         <Slide bgColor="primary" notes="As speakers, we do our best, but sometimes slides are just too difficult to read. You can follow along at styling-react-for-reuse.surge.sh">
           <Layout style={styles.flexCol}>
             <Fill style={styles.spacePlease}>
@@ -110,13 +115,14 @@ export default class Presentation extends React.Component {
             <Fill style={styles.spacePlease}>
               <Link
                 style={styles.standardText}
-                src="http://styling-react-for-reuse.surge.sh">
+                href="http://styling-react-for-reuse.surge.sh">
                 Follow along with the slides: http://styling-react-for-reuse.surge.sh
               </Link>
             </Fill>
           </Layout>
         </Slide>
 
+{/* Jen Luker Intro */}
         <Slide notes="Software engineer for over 10 years">
           <Layout style={{padding: '0 200px'}}>
             <Fill>
@@ -128,7 +134,7 @@ export default class Presentation extends React.Component {
               <Text style={styles.standardText}>Team Lead Software Engineer</Text>
               <Text style={styles.standardText}>with Deseret Digital Media</Text>
               <hr textFont="secondary" />
-              <Link href="http://jenluker.com" >
+              <Link textColor="tertiary" href="http://jenluker.com" >
                 <Text textColor="tertiary" style={styles.standardText}>http://jenluker.com</Text>
               </Link>
               <Text style={styles.standardText}>Github: @knittingcodemonkey</Text>
@@ -138,14 +144,16 @@ export default class Presentation extends React.Component {
           <Layout style={styles.spacePlease}>
             <Fill>
               <Link
+                textColor="tertiary"
                 style={styles.standardText}
-                src="http://styling-react-for-reuse.surge.sh">
+                href="http://styling-react-for-reuse.surge.sh">
                 Follow along with the slides: http://styling-react-for-reuse.surge.sh
               </Link>
             </Fill>
           </Layout>
         </Slide>
 
+{/* Learn from Failure */}
         <Slide notes="Say Quote: 'We learn from failure much more than from success; we often discover what we will do by finding out what we will not do; and probably he who never made a mistake never made a discovery.'
 
 My department decided it was time to break up our one, very large classified product into several, smaller, vertical-based products such as cars, homes, jobs, services, and general classifieds. We realized that in order to maintain branding across all these new products, we would need to figure out a way of sharing UI elements. We started researching methods and technologies for creating independent components we could share.">
@@ -158,6 +166,7 @@ My department decided it was time to break up our one, very large classified pro
           </Layout>
         </Slide>
 
+{/* Grouce Github Image */}
         <Slide
           bgColor="secondary"
           notes="This diagram is a visual representation of our codebase committed to Git around that time. It doesn’t include any additional code brought in through Composer. <br /><br />
@@ -193,10 +202,9 @@ We chose a designer, project manager, and a few developers, and started our pilo
 
         <Slide bgImage={images.mhpNuke} notes="We named ourselves the MANHATTAN HARDCORE PROJECT (because we were going to make Atomic Components, hehe). Clearly we thought highly of ourselves. We had big ideas, and were going to make a big impact on the way we reused code. As soon as we started coding, the lessons started piling in. Clearly, failure was going to be our path to success."/>
 
+{/* The Good: Living style guide */}
         <Slide style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%'}}
-          notes="We built a shiny new living style guide that dynamically updates itself based on changes made to the git repo, and an SVG icon font. All the components were responsive, and the response was TERRIBLE.<br />
-Lessons we learned:
-<ul><li>Forcing all verticals to change their template to match a structure to support our fancy new modal, and menu.</li><li>Immediately changing that structure for other components.</li><li>Promising that our components would be drop-in replacements even if we had hard coded uniform data for the demo pages. (John and Jane Smith are great test names, right?)</li><li>Touting the beauty of changing the base component to change it everywhere. Unfortunately we were right on that one, and we suffered.</li></ul>"
+          notes="We built a shiny new living style guide that dynamically updates itself based on changes made to the git repo, and an SVG icon font. All "
         >
           <Layout style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%', position: 'relative'}}>
             <Fill style={{flex: '1 0 45%', width: '40%'}}>
@@ -214,8 +222,9 @@ Lessons we learned:
           </layout>
         </Slide>
 
-        <Slide>
-
+{/* The Bad: Mistakes */}
+        <Slide notes="Lessons we learned:
+<ul><li>Forcing all verticals to change their template to match a structure to support our fancy new modal, and menu.</li><li>Immediately changing that structure for other components.</li><li>Promising that our components would be drop-in replacements even if we had hard coded uniform data for the demo pages. (John and Jane Smith are great test names, right?)</li><li>Touting the beauty of changing the base component to change it everywhere. Unfortunately we were right on that one, and we suffered.</li></ul>">
           <Layout style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
             <Fill style={{textAlign: 'left', width: '55%', flex: '1 1 55%', position: 'relative'}}>
               <CodePane
@@ -239,6 +248,7 @@ Lessons we learned:
           </Layout>
         </Slide>
 
+{/* React Week */}
         <Slide>
           <Layout style={{display: 'block'}}>
             <Fill style={{width: '100%', height: '100%', position: 'relative'}}>
@@ -250,6 +260,7 @@ Lessons we learned:
           </Layout>
         </Slide>
 
+{/* The Ugly: Just a Header */}
         <Slide bgColor="primary" notes="It turns out our header included dropdown menus, responsive hamburger menus, modals, dynamic login detection, dynamic menu resizing on scroll, weather modules with geolocation, icon fonts, and a search bar. It was huge, required jQuery, and came with a whole host of webpack/bower/gulp build process complexity that none of us knew anything about. As we coded, our designers, and the technology, continued to innovate. We were learning (and refactoring) a lot, but the old Manhattan Hardcore Components were still in circulation, and as we completed the new header components, those were being incorporated into various websites, as well.">
           <Layout>
             <Fill style={{textAlign: 'left', width: '60%', flex: '1 1 60%'}}>
@@ -272,6 +283,7 @@ Lessons we learned:
           <Heading margin="60px auto 0px auto" textColor="secondary" textFont="primary" size={4} style={{fontWeight: 'normal'}}>"Just the header," we said</Heading>
         </Slide>
 
+{/* Important Rabbits */}
         <Slide>
           <Layout style={{display: 'block'}}>
             <Fill style={{width: '100%', height: '100%', position: 'relative'}}>
@@ -280,11 +292,14 @@ Lessons we learned:
           </Layout>
         </Slide>
 
+{/* One True Answer */}
         <Slide>
           <Text>the</Text>
           <Heading size={1} textColor="tertiary" caps>one true answer</Heading>
           <Text>to all our problems is...</Text>
         </Slide>
+
+{/* Be Kind */}
         <Slide>
           <Layout style={{display: 'block'}}>
             <Fill style={{width: '100%', height: '100%', position: 'relative'}}>
@@ -293,6 +308,7 @@ Lessons we learned:
           </Layout>
         </Slide>
 
+{/* Choosing a component */}
         <Slide textColor="secondary">
           <Layout>
             <Fill style={{textAlign: 'left'}}>
@@ -320,21 +336,91 @@ Lessons we learned:
           </Layout>
         </Slide>
 
-        <CodeSlide
-          bgColor="secondary"
-          transition={[]}
-          lang="js"
-          code={require("raw-loader!../assets/code/blah.example")}
-          ranges={[
-            { loc: [0, 270], title: "Walking through some code" },
-            { loc: [0, 1], title: "The Beginning" },
-            { loc: [1, 2] },
-            { loc: [1, 2], note: "Heres a note!" },
-            { loc: [2, 3] },
-            { loc: [4, 7], image: images.me },
-            { loc: [8, 10] },
-            // ...
-          ]}/>
+{/* Accessibility Intro Slide */}
+        <Slide bgColor="#000000" style={{ width: '100%',position: 'relative' >
+          <Heading textColor="quartenary" style={{ marginBottom: -100, zIndex: 10, position: 'relative' }}>Accessibility</Heading>
+          <Image src={images.accessibilityGif} style={{ width: '100%', marginBottom: -100, zIndex: 0, position: 'relative' }} />
+          <Link textColor="quartenary" style={{ zIndex: 10, position: 'relative' }} href="https://www.microsoft.com/en-us/design/inclusive">
+            Image Credit: Inclusive Design at Microsoft
+          </Link>
+        </Slide>
+
+{/* Accessibility links */}
+        <Slide textColor="secondary">
+          <Heading fit caps style={{textAlign: 'center'}}>Accessibility Tools, Testing, and Integrations</Heading>
+          <hr />
+          <Layout>
+            <Fill style={{textAlign: 'left', width: "60%", flex: '1 1 60%'}}>
+              <ul>
+                <li style={[styles.li, {marginTop: 0 }]}>
+                  <Text style={styles.liLargeText}>Best Practices & Resources</Text>
+                  <ul>
+                    <li style={{lineHeight: '1.5em'}}>
+                      <Link textColor="tertiary" href="http://a11yproject.com/checklist.html">
+                        A11y Project: Checklist
+                      </Link>
+                    </li>
+                    <li style={{lineHeight: '1.5em'}}>
+                      <Link textColor="tertiary" href="http://romeo.elsevier.com/accessibility_checklist/">
+                        Elsevier: Web Content Accessibility Guidelines 2.0
+                      </Link>
+                    </li>
+
+                    <li style={{lineHeight: '1.5em'}}>
+                      <Link textColor="tertiary" href="https://www.webaccessibility.com/best_practices.php">
+                        WEB Accessibility: Best Practices
+                      </Link>
+                    </li>
+                    <li style={{lineHeight: '1.5em'}}>
+                      <Link textColor="tertiary" href="https://www.usability.gov/what-and-why/accessibility.html">
+                        Usability.gov: Accessibility Basics
+                      </Link>
+                    </li>
+                    <li style={{lineHeight: '1.5em'}}>
+                      <Link textColor="tertiary" href="https://www.microsoft.com/en-us/design/inclusive">
+                        Inclusive Design at Microsoft Toolkit: Downloadable PDFs, Videos
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+
+                <li style={[styles.li, {marginTop: 30 }]}>
+                  <Text style={styles.liLargeText}>Platform & Automated Testing</Text>
+                  <ul>
+                    <li style={{lineHeight: '1.5em'}}>
+                      <Link textColor="tertiary" href="https://github.com/dequelabs">
+                        Deque Labs Github: axe-core, axe-cli, react-axe, ngA11y, axe-rules<br />ios and android integration, axe-selenium-java
+                      </Link>
+                    </li>
+                    <li style={{lineHeight: '1.5em'}}>
+                      <Link textColor="tertiary" href="https://www.deque.com/products/axe/">Deque Labs aXe Chrome and Firefox extensions</Link>
+                    </li>
+
+                    <li style={{lineHeight: '1.5em'}}>
+                      <Link textColor="tertiary" href="https://www.boia.org/products/a11y-tool/">
+                        Bureau of Internet Accessibility: A11y Testing Platform
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </Fill>
+            <Fill style={{textAlign: 'right', width: "40%", flex: '1 1 40%', padding: 40, marginTop: -20}}>
+              <Image src={images.inclusiveDesignToolkit} style={{width: '100%'}} />
+            </Fill>
+          </Layout>
+        </Slide>
+
+{/*  */}
+        <Slide bgColor="secondary">
+          <Heading textColor="quartenary" size={3}>Globalization/Localization</Heading>
+          <Image src={images.globalization} style={{width: 800}} />
+        </Slide>
+
+        <Slide>
+          <Image src={images.globalization} style={{width: 800}} />
+        </Slide>
+
       </Deck>
     );
   }
