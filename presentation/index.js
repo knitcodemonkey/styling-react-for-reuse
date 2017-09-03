@@ -173,16 +173,16 @@ We chose a designer, project manager, and a few developers, and started our pilo
         >
             <Layout style={{display: 'block'}}>
               <Fill style={{width: '100%', height: '790px', position: 'relative', marginTop: 0}}>
-                <Text textColor="quartenary" style={{fontSize: '2.6rem', position: 'absolute', top: 60, left: 100, zIndex: 4}}>
+                <Text textColor="quartenary" style={{fontSize: '2.6rem', position: 'absolute', top: 0, left: 80, zIndex: 4}}>
                   Committed to Github<br/>
                   December 2015
                 </Text>
                 <Image src={images.github1} style={{height: 780, position: "absolute", top: -40, left: 0, margin: 0, zIndex: 1}} />
                 <Appear>
-                  <Image src={images.github2} style={{height: 780, position: "absolute", top: -40, left: -1, margin: 0, zIndex: 2}} />
+                  <Image src={images.github2} style={{height: 780, position: "absolute", top: -40, left: 0, margin: 0, zIndex: 2}} />
                 </Appear>
                 <Appear>
-                  <Image src={images.github3} style={{height: 780, position: "absolute", top: -43, left: 5, margin: 0, zIndex: 3}} />
+                  <Image src={images.github3} style={{height: 780, position: "absolute", top: -40, left: 0, margin: 0, zIndex: 3}} />
                 </Appear>
               </Fill>
               <Text style={{fontSize: '2.6rem', margin: '-30px 0 30px 0'}} textColor="quartenary">
