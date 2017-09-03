@@ -337,7 +337,7 @@ We chose a designer, project manager, and a few developers, and started our pilo
         </Slide>
 
 {/* Accessibility Intro Slide */}
-        <Slide bgColor="#000000" style={{ width: '100%',position: 'relative' >
+        <Slide bgColor="#000000" style={{ width: '100%',position: 'relative'}} >
           <Heading textColor="quartenary" style={{ marginBottom: -100, zIndex: 10, position: 'relative' }}>Accessibility</Heading>
           <Image src={images.accessibilityGif} style={{ width: '100%', marginBottom: -100, zIndex: 0, position: 'relative' }} />
           <Link textColor="quartenary" style={{ zIndex: 10, position: 'relative' }} href="https://www.microsoft.com/en-us/design/inclusive">
@@ -418,7 +418,10 @@ We chose a designer, project manager, and a few developers, and started our pilo
         </Slide>
 
         <Slide>
-          <Image src={images.globalization} style={{width: 800}} />
+          <Layout>
+            <Fill>
+            </Fill>
+          </Layout>
         </Slide>
 
       </Deck>
