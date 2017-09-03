@@ -1,0 +1,17 @@
+<!-- The modal relies on jQuery, and this html -->
+
+<body>
+<div class="ksl-assets-container">
+  <div class="inner">
+    <!-- modal elements here. -->
+    <div class="ksl-assets-modal">
+      <div class="inner">
+        <div class="head"></div>
+        <div class="body"></div>
+        <div class="foot"></div>
+      </div>
+    </div>
+    <div class="content"></div>
+  </div><!-- /.inner -->
+</div><!-- /.container -->
+</body>

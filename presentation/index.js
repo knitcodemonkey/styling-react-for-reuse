@@ -49,6 +49,8 @@ const images = {
   beKind: require("../assets/beKind.png"),
   livingStyleGuide: require("../assets/LivingStyleGuide.png"),
   iconFont: require("../assets/IconFont.png"),
+  waitWhat: require("../assets/waitWhat.png"),
+  famous: require("../assets/famous.jpg"),
 };
 
 preloader(images);
@@ -69,17 +71,25 @@ const theme = createTheme(
 
 const styles = {
   li: {
-    margin: '70px 40px 0px 40px',
-    lineHeight: '2em'
+    margin: "70px 40px 0px 40px",
+    lineHeight: "2em"
   },
   liLargeText: {
-    fontSize: '1.5em',
-    fontWeight: 'bold'
+    fontSize: "1.5em",
+    fontWeight: "bold",
   },
   flexCol: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between'
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%",
+  },
+  spacePlease: {
+    padding: 60
+  },
+  standardText: {
+    fontSize: '2rem',
+    lineHeight: '2.4rem'
   }
 };
 
@@ -87,6 +97,26 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={["fade"]} transitionDuration={500} theme={theme} contentWidth="1768" contentHeight="932">
+        <Slide bgColor="primary" notes="As speakers, we do our best, but sometimes slides are just too difficult to read. You can follow along at styling-react-for-reuse.surge.sh">
+          <Layout style={styles.flexCol}>
+            <Fill style={styles.spacePlease}>
+              <Heading size={2} caps lineHeight={1} textColor="secondary">
+                Styling React for Reuse
+              </Heading>
+              <Heading margin="10px 0 0" textColor="tertiary" size={3} bold>
+                a story about extensibility
+              </Heading>
+            </Fill>
+            <Fill style={styles.spacePlease}>
+              <Link
+                style={styles.standardText}
+                src="http://styling-react-for-reuse.surge.sh">
+                Follow along with the slides: http://styling-react-for-reuse.surge.sh
+              </Link>
+            </Fill>
+          </Layout>
+        </Slide>
+
         <Slide notes="Software engineer for over 10 years">
           <Layout style={{padding: '0 200px'}}>
             <Fill>
@@ -95,33 +125,23 @@ export default class Presentation extends React.Component {
             <Fill style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
               <Heading size={1} textFont="secondary">Jen Luker</Heading>
               <hr textFont="secondary" />
-              <Text style={{fontSize: '2rem', lineHeight: '2.4rem'}}>Team Lead Software Engineer</Text>
-              <Text style={{fontSize: '2rem', lineHeight: '2.4rem'}}>with Deseret Digital Media</Text>
+              <Text style={styles.standardText}>Team Lead Software Engineer</Text>
+              <Text style={styles.standardText}>with Deseret Digital Media</Text>
               <hr textFont="secondary" />
               <Link href="http://jenluker.com" >
-                <Text textColor="tertiary" style={{fontSize: '2rem', lineHeight: '2.4rem'}}>http://jenluker.com</Text>
+                <Text textColor="tertiary" style={styles.standardText}>http://jenluker.com</Text>
               </Link>
-              <Text style={{fontSize: '2rem', lineHeight: '2.4rem'}}>Github: @knittingcodemonkey</Text>
-              <Text style={{fontSize: '2rem', lineHeight: '2.4rem'}}>Twitter: @knitcodemonkey</Text>
+              <Text style={styles.standardText}>Github: @knittingcodemonkey</Text>
+              <Text style={styles.standardText}>Twitter: @knitcodemonkey</Text>
             </Fill>
           </Layout>
-        </Slide>
-
-        <Slide bgColor="primary" style={styles.flexCol}>
-          <Layout>
+          <Layout style={styles.spacePlease}>
             <Fill>
-              <Heading size={2} caps lineHeight={1} textColor="secondary">
-                Styling React for Reuse
-              </Heading>
-              <Heading margin="10px 0 0" textColor="tertiary" size={3} bold>
-                an exploration in extensibility
-              </Heading>
-            </Fill>
-          </Layout>
-          <Layout>
-            <Fill>
-              <Text>Follow along with the slides:</Text>
-              <Link src="http://styling-react-for-reuse.surge.sh">http://styling-react-for-reuse.surge.sh</Link>
+              <Link
+                style={styles.standardText}
+                src="http://styling-react-for-reuse.surge.sh">
+                Follow along with the slides: http://styling-react-for-reuse.surge.sh
+              </Link>
             </Fill>
           </Layout>
         </Slide>
@@ -149,19 +169,23 @@ Each dot is an individual file, and the little, tiny structure inside the yellow
 
 We were a PHP shop with Zend Framework, jQuery-ui development bundle, and an aging, custom-built, CMS. We had a whole lot of infrastructure to support an equally large amount of information; all of which was being funneled through a very small api. We figured good ole’ javascript and php would be good enough for us. <br /><br />
 
-We chose a designer, project manager, and a few developers, and started our pilot Front End Development Team with the sole purpose of building reusable components.">
-            <Layout style={{display: 'block', transform: 'scale(1.2)'}}>
-              <Fill style={{width: '100%', height: '100%', position: 'relative', marginTop: -50}}>
-                <Text textColor="quartenary" style={{fontSize: '1.8rem', position: 'absolute', top: 60, left: 230}}>Committed to Github<br/>December 2015</Text>
-                <Image src={images.github1} style={{maxHeight: 580, width: 'auto', margin: '0.5em 0 0 -200px' }} />
+We chose a designer, project manager, and a few developers, and started our pilot Front End Development Team with the sole purpose of building reusable components."
+        >
+            <Layout style={{display: 'block'}}>
+              <Fill style={{width: '100%', height: '790px', position: 'relative', marginTop: 0}}>
+                <Text textColor="quartenary" style={{fontSize: '2.6rem', position: 'absolute', top: 60, left: 100, zIndex: 4}}>
+                  Committed to Github<br/>
+                  December 2015
+                </Text>
+                <Image src={images.github1} style={{height: 780, position: "absolute", top: -40, left: 0, margin: 0, zIndex: 1}} />
                 <Appear>
-                  <Image src={images.github2} style={{position: "absolute", bottom: -73, right: 68, transform: 'scale(0.688)'}} />
+                  <Image src={images.github2} style={{height: 780, position: "absolute", top: -40, left: -1, margin: 0, zIndex: 2}} />
                 </Appear>
                 <Appear>
-                  <Image src={images.github3} style={{position: "absolute", bottom: -191, right: 174, transform: 'scale(0.688)'}} />
+                  <Image src={images.github3} style={{height: 780, position: "absolute", top: -43, left: 5, margin: 0, zIndex: 3}} />
                 </Appear>
               </Fill>
-              <Text margin="60px 0 0" style={{fontSize: '2rem'}} textColor="quartenary">
+              <Text style={{fontSize: '2.6rem', margin: '-30px 0 30px 0'}} textColor="quartenary">
                 We just wanted a little consistency; not another framework.
               </Text>
             </Layout>
@@ -169,41 +193,51 @@ We chose a designer, project manager, and a few developers, and started our pilo
 
         <Slide bgImage={images.mhpNuke} notes="We named ourselves the MANHATTAN HARDCORE PROJECT (because we were going to make Atomic Components, hehe). Clearly we thought highly of ourselves. We had big ideas, and were going to make a big impact on the way we reused code. As soon as we started coding, the lessons started piling in. Clearly, failure was going to be our path to success."/>
 
-        <Slide style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', height: '100%'}}
+        <Slide style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%'}}
           notes="We built a shiny new living style guide that dynamically updates itself based on changes made to the git repo, and an SVG icon font. All the components were responsive, and the response was TERRIBLE.<br />
 Lessons we learned:
-<ul><li>Forcing all verticals to change their template to match a structure to support our fancy new modal, and menu.</li><li>Immediately changing that structure for other components.</li><li>Promising that our components would be drop-in replacements even if we had hard coded uniform data for the demo pages. (John and Jane Smith are great test names, right?)</li><li>Touting the beauty of changing the base component to change it everywhere. Unfortunately we were right on that one, and we suffered.</li></ul>">
-
-          <Layout style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-            <Fill>
-              <Image src={images.livingStyleGuide} />
+<ul><li>Forcing all verticals to change their template to match a structure to support our fancy new modal, and menu.</li><li>Immediately changing that structure for other components.</li><li>Promising that our components would be drop-in replacements even if we had hard coded uniform data for the demo pages. (John and Jane Smith are great test names, right?)</li><li>Touting the beauty of changing the base component to change it everywhere. Unfortunately we were right on that one, and we suffered.</li></ul>"
+        >
+          <Layout style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%', position: 'relative'}}>
+            <Fill style={{flex: '1 0 45%', width: '40%'}}>
+              <Image src={images.livingStyleGuide}  style={{textAlign: 'left', width: '100%', margin: '0px auto'}} />
             </Fill>
-            <Fill>
-              <Image src={images.iconFont} />
+            <Fill style={{flex: '1 1 10%', width: '10%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}><Heading> = </Heading></Fill>
+            <Fill style={{flex: '1 0 45%', width: '40%'}}>
+              <Image src={images.famous}  style={{textAlign: 'left', width: '100%', margin: '0px auto'}} />
             </Fill>
           </Layout>
-
-          <Layout style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+          <layout>
             <Fill>
-              <Heading size={4} style={{textAlign: 'center'}}>We are AWESOME!</Heading>
-              <ul style={{textAlign: 'left'}}>
-                <li>Living Style Guide</li>
-                <li>Half a dozen reusable components, including modal and menu</li>
-              </ul>
+              <Text style={styles.standardText}>We built half a dozen reusable components</Text>
             </Fill>
-            <Fill>
-              <Heading size={4} style={{textAlign: 'center'}}>So, that was bad</Heading>
-              <ul style={{textAlign: 'left'}}>
-                <li>Forcing all verticals to change their template to match a structure to support our fancy new modal, and menu.</li>
-                <li>Immediately changing that structure for other components.</li>
-                <li>Promising that our components would be drop-in replacements even if we had hard coded uniform data for the demo pages. (John and Jane Smith are great test names, right?)</li>
-                <li>Touting the beauty of changing the base component to change it everywhere. Unfortunately we were right on that one.</li>
-                <li>SVG Icon Font</li>
+          </layout>
+        </Slide>
+
+        <Slide>
+
+          <Layout style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+            <Fill style={{textAlign: 'left', width: '55%', flex: '1 1 55%', position: 'relative'}}>
+              <CodePane
+                lang="html"
+                source={require("raw-loader!../assets/code/badModal.example")}
+                margin="0px auto"
+                textSize="0.9em"
+              />
+            </Fill>
+
+            <Fill style={{textAlign: 'left', width: '42%', flex: '1 1 42%', marginLeft: '3%'}}>
+              <Heading size={3} style={{textAlign: 'center', marginBottom: 40}}>So, that was bad</Heading>
+              <hr />
+              <ul>
+                <Appear><li style={{fontSize: '1.2em', lineHeight: '1.4em'}}>Forcing all verticals to match a whole-page template structure <br /><span style={{fontStyle: 'italic', textDecoration: "underline"}}>for a modal</span></li></Appear>
+                <Appear><li style={{paddingTop: 30, fontSize: '1.2em', lineHeight: '1.4em'}}>Immediately changing that structure</li></Appear>
+                <Appear><li style={{paddingTop: 30, fontSize: '1.2em', lineHeight: '1.4em'}}>Hard coding ideal test data (John Snow is a GREAT test name! What? Oh.)</li></Appear>
+                <Appear><li style={{paddingTop: 30, fontSize: '1.2em', lineHeight: '1.4em'}}>SVG Icon Font</li></Appear>
               </ul>
             </Fill>
           </Layout>
         </Slide>
-
 
         <Slide>
           <Layout style={{display: 'block'}}>
@@ -218,20 +252,20 @@ Lessons we learned:
 
         <Slide bgColor="primary" notes="It turns out our header included dropdown menus, responsive hamburger menus, modals, dynamic login detection, dynamic menu resizing on scroll, weather modules with geolocation, icon fonts, and a search bar. It was huge, required jQuery, and came with a whole host of webpack/bower/gulp build process complexity that none of us knew anything about. As we coded, our designers, and the technology, continued to innovate. We were learning (and refactoring) a lot, but the old Manhattan Hardcore Components were still in circulation, and as we completed the new header components, those were being incorporated into various websites, as well.">
           <Layout>
-            <Fill>
-          <CodePane
-            lang="js"
-            source={require("raw-loader!../assets/code/header.example")}
-            margin="0px auto"
-            textSize="0.6em"
-          />
+            <Fill style={{textAlign: 'left', width: '60%', flex: '1 1 60%'}}>
+              <CodePane
+                lang="js"
+                source={require("raw-loader!../assets/code/header.example")}
+                margin="0px auto"
+                textSize="0.73em"
+              />
             </Fill>
-            <Fill>
+            <Fill style={{textAlign: 'left', width: '39%', flex: '1 1 40%', marginLeft: '0.5%'}}>
               <CodePane
                 lang="js"
                 source={require("raw-loader!../assets/code/header2.example")}
                 margin="0px auto"
-                textSize="0.6em"
+                textSize="0.73em"
               />
             </Fill>
           </Layout>

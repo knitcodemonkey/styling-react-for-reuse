@@ -7,7 +7,8 @@ require('ddm-slider/src/slider.css');
 
 // Import the icon font
 var req = require.context(
-  "!!url-loader?limit=1&name=[name].[ext]!ksl-responsive-header/dist/",
+  "!!url-loader?limit=1&name=[name].[ext]" +
+  "!ksl-responsive-header/dist/",
   false,
   /\.(svg)$/
 );
