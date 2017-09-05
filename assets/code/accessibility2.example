@@ -1,0 +1,17 @@
+<html>
+<body>
+  <form action="test.php" method="post">
+    <fieldset>
+      <legend>Choose a Fruit</legend>
+      <input type="radio" id="appleRadio" value="apple" />
+      <label for="raappleRadiodio">Apple</label>
+
+      <input type="radio" id="bananaRadio" value="banana" />
+      <label for="bananaRadio">Banana</label>
+
+      <input type="radio" id="pearRadio" value="pear" />
+      <label for="pearRadio">Pear</label>
+    </fieldset>
+  </form>
+</body>
+</html>

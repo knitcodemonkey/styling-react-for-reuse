@@ -54,15 +54,22 @@ const images = {
   accessibilityGif: require("../assets/AccessibilityGif.gif"),
   inclusiveDesignToolkit: require("../assets/InclusiveDesignToolkit.png"),
   globalization: require("../assets/Globalization.jpg"),
+  stylingWithoutStyling: require("../assets/stylingWithoutStyling.png"),
+  cssInJs: require("../assets/cssInJs.jpg"),
+  brickBg: require("../assets/backgrounds/brickBg.jpg"),
+  wheelchair: require("../assets/backgrounds/access-wheelchair.jpg"),
+  mistakes: require("../assets/backgrounds/mistakes.jpg"),
 };
 
 preloader(images);
 
 const themeColors = {
-  primary: "radial-gradient(#FAFAFA, #CECECE)",
+  primary: "#FAFAFA",
   secondary: "#191919",
   tertiary: "#981804",
-  quartenary: "#CECECE",
+  quartenary: "#FAFAFA",
+  faded: "#AAAAAA",
+  background: "linear-gradient(#F8FAFA, #D8DADA)",
 };
 
 const theme = createTheme(
@@ -88,11 +95,11 @@ const styles = {
     height: "100%",
   },
   spacePlease: {
-    padding: 60
+    padding: "60px 0"
   },
   standardText: {
-    fontSize: '2rem',
-    lineHeight: '2.4rem'
+    fontSize: "3rem",
+    lineHeight: "3.4rem"
   }
 };
 
@@ -102,7 +109,7 @@ export default class Presentation extends React.Component {
       <Deck transition={["fade"]} transitionDuration={500} theme={theme} contentWidth="1768" contentHeight="932">
 
 {/* Title Screen */}
-        <Slide bgColor="primary" notes="As speakers, we do our best, but sometimes slides are just too difficult to read. You can follow along at styling-react-for-reuse.surge.sh">
+        <Slide bgColor="background" notes="As speakers, we do our best, but sometimes slides are just too difficult to read. You can follow along at styling-react-for-reuse.surge.sh">
           <Layout style={styles.flexCol}>
             <Fill style={styles.spacePlease}>
               <Heading size={2} caps lineHeight={1} textColor="secondary">
@@ -114,6 +121,7 @@ export default class Presentation extends React.Component {
             </Fill>
             <Fill style={styles.spacePlease}>
               <Link
+                textColor="tertiary"
                 style={styles.standardText}
                 href="http://styling-react-for-reuse.surge.sh">
                 Follow along with the slides: http://styling-react-for-reuse.surge.sh
@@ -124,9 +132,10 @@ export default class Presentation extends React.Component {
 
 {/* Jen Luker Intro */}
         <Slide notes="Software engineer for over 10 years">
-          <Layout style={{padding: '0 200px'}}>
+          <Layout>
             <Fill>
-              <Image margin="0" src={images.me} style={{maxWidth: '100%', borderRadius: '50%', boxShadow: "0px 10px 20px #CECECE"}}/>
+              <Image margin="0" src={images.me} style={{maxWidth: '80%', borderRadius: '50%', boxShadow: "0px 10px" +
+              " 20px #CECECE"}}/>
             </Fill>
             <Fill style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
               <Heading size={1} textFont="secondary">Jen Luker</Heading>
@@ -153,17 +162,16 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
 
-{/* Learn from Failure */}
-        <Slide notes="Say Quote: 'We learn from failure much more than from success; we often discover what we will do by finding out what we will not do; and probably he who never made a mistake never made a discovery.'
+        {/* Learn from Failure */}
+        <Slide bgImage={images.mistakes} bgDarken={0.7}
+               notes="Say Quote: 'We learn from failure much more than from success; we often discover what we will do by finding out what we will not do; and probably he who never made a mistake never made a discovery.'
 
-My department decided it was time to break up our one, very large classified product into several, smaller, vertical-based products such as cars, homes, jobs, services, and general classifieds. We realized that in order to maintain branding across all these new products, we would need to figure out a way of sharing UI elements. We started researching methods and technologies for creating independent components we could share.">
-          <Layout style={{margin: "0 90px"}} >
-            <Fill>
-              <Text fit style={{fontSize: '4.6rem'}}>
-                "We learn from failure much more than from success; we often discover what we will do by finding out what we will not do; and probably he who never made a mistake never made a discovery."</Text>
-              <Text style={{fontSize: '3rem', marginTop: 100}}>~ Samuel Smiles</Text>
-            </Fill>
-          </Layout>
+My department decided it was time to break up our one, very large classified product into several, smaller, vertical-based products such as cars, homes, jobs, services, and general classifieds. We realized that in order to maintain branding across all these new products, we would need to figure out a way of sharing UI elements. We started researching methods and technologies for creating independent components we could share."
+        >
+          <BlockQuote>
+            <Quote style={{marginBottom: 80}}>We learn from failure much more than from success; we often discover what we will do by finding out what we will not do; and probably he who never made a mistake never made a discovery.</Quote>
+            <Cite textColor="primary">Samuel Smiles</Cite>
+          </BlockQuote>
         </Slide>
 
 {/* Grouce Github Image */}
@@ -204,7 +212,7 @@ We chose a designer, project manager, and a few developers, and started our pilo
 
 {/* The Good: Living style guide */}
         <Slide style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%'}}
-          notes="We built a shiny new living style guide that dynamically updates itself based on changes made to the git repo, and an SVG icon font. All "
+          notes="We had some successes, like our shiny new living style guide that dynamically updates itself based on changes made to the git repo."
         >
           <Layout style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%', position: 'relative'}}>
             <Fill style={{flex: '1 0 45%', width: '40%'}}>
@@ -223,8 +231,8 @@ We chose a designer, project manager, and a few developers, and started our pilo
         </Slide>
 
 {/* The Bad: Mistakes */}
-        <Slide notes="Lessons we learned:
-<ul><li>Forcing all verticals to change their template to match a structure to support our fancy new modal, and menu.</li><li>Immediately changing that structure for other components.</li><li>Promising that our components would be drop-in replacements even if we had hard coded uniform data for the demo pages. (John and Jane Smith are great test names, right?)</li><li>Touting the beauty of changing the base component to change it everywhere. Unfortunately we were right on that one, and we suffered.</li></ul>">
+        <Slide notes="And we had some failures">
+
           <Layout style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
             <Fill style={{textAlign: 'left', width: '55%', flex: '1 1 55%', position: 'relative'}}>
               <CodePane
@@ -239,7 +247,8 @@ We chose a designer, project manager, and a few developers, and started our pilo
               <Heading size={3} style={{textAlign: 'center', marginBottom: 40}}>So, that was bad</Heading>
               <hr />
               <ul>
-                <Appear><li style={{fontSize: '1.2em', lineHeight: '1.4em'}}>Forcing all verticals to match a whole-page template structure <br /><span style={{fontStyle: 'italic', textDecoration: "underline"}}>for a modal</span></li></Appear>
+                <li style={{fontSize: '1.2em', lineHeight: '1.4em'}}>Forcing all verticals to match a whole-page template structure <br />
+                  <span style={{fontStyle: 'italic', textDecoration: "underline"}}>for a modal</span></li>
                 <Appear><li style={{paddingTop: 30, fontSize: '1.2em', lineHeight: '1.4em'}}>Immediately changing that structure</li></Appear>
                 <Appear><li style={{paddingTop: 30, fontSize: '1.2em', lineHeight: '1.4em'}}>Hard coding ideal test data (John Snow is a GREAT test name! What? Oh.)</li></Appear>
                 <Appear><li style={{paddingTop: 30, fontSize: '1.2em', lineHeight: '1.4em'}}>SVG Icon Font</li></Appear>
@@ -248,8 +257,8 @@ We chose a designer, project manager, and a few developers, and started our pilo
           </Layout>
         </Slide>
 
-{/* React Week */}
-        <Slide>
+ {/* React Week */}
+        <Slide notes="So we took those lessons, got a little training, and iterated again.">
           <Layout style={{display: 'block'}}>
             <Fill style={{width: '100%', height: '100%', position: 'relative'}}>
               <Image src={images.reactWeek} style={{maxWidth: 1768, maxHeight: 780, width: 'auto', margin: '0 auto'}} />
@@ -284,7 +293,7 @@ We chose a designer, project manager, and a few developers, and started our pilo
         </Slide>
 
 {/* Important Rabbits */}
-        <Slide>
+        <Slide notes="This time, we learned that when you are explicit about your css and js transitions, you end up needing a lot of !important tags.">
           <Layout style={{display: 'block'}}>
             <Fill style={{width: '100%', height: '100%', position: 'relative'}}>
               <Image src={images.importantRabbits} style={{maxWidth: 1768, maxHeight: 852, width: 'auto', margin: '0 auto'}} />
@@ -308,46 +317,27 @@ We chose a designer, project manager, and a few developers, and started our pilo
           </Layout>
         </Slide>
 
-{/* Choosing a component */}
-        <Slide textColor="secondary">
+
+
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
           <Layout>
-            <Fill style={{textAlign: 'left'}}>
-              <Heading fit caps style={{textAlign: 'center'}}>What do I consider When choosing a component?</Heading>
-              <hr />
-              <ul>
-                <li style={styles.li}>
-                  <Text style={styles.liLargeText}>Use traditional DOM elements as they were intended</Text>
-                  <Text style={{fontSize: '1.0em'}}>If you need a button, use a button. Accessibility users will love you for it.</Text>
-                </li>
-                <li style={styles.li}>
-                  <Text style={styles.liLargeText}>Override styles within third-party component with your own styles</Text>
-                  <Text style={{fontSize: '1.0em'}}>Transitions, and animations are easy to embed, but difficult to overwrite.</Text>
-                </li>
-                <li style={styles.li}>
-                  <Text style={styles.liLargeText}>Rearrange component’s visual layout</Text>
-                  <Text style={{fontSize: '1.0em'}}>What if the design places the buttons lined up along the right side instead of the bottom?</Text>
-                </li>
-                <li style={styles.li}>
-                  <Text style={styles.liLargeText}>Use external assets for icons, logos, and images</Text>
-                  <Text style={{fontSize: '1.0em'}}>This is not just for design, but also for globalization. Imagery differs between cultures.</Text>
-                </li>
-              </ul>
+            <Fill>
+              <Heading size={3} fit caps textColor="quartenary" style={{textAlign: 'center'}}>What makes a component</Heading>
+              <Heading size={2} fit caps textColor="quartenary" style={{textAlign: 'center'}}>reusable?</Heading>
             </Fill>
           </Layout>
         </Slide>
 
-{/* Accessibility Intro Slide */}
-        <Slide bgColor="#000000" style={{ width: '100%',position: 'relative'}} >
-          <Heading textColor="quartenary" style={{ marginBottom: -100, zIndex: 10, position: 'relative' }}>Accessibility</Heading>
-          <Image src={images.accessibilityGif} style={{ width: '100%', marginBottom: -100, zIndex: 0, position: 'relative' }} />
-          <Link textColor="quartenary" style={{ zIndex: 10, position: 'relative' }} href="https://www.microsoft.com/en-us/design/inclusive">
-            Image Credit: Inclusive Design at Microsoft
-          </Link>
+        <Slide bgImage={images.wheelchair} bgDarken={0.7}>
+          <BlockQuote style={{marginTop: -50, marginRight: 330}}>
+            <Quote style={{marginBottom: 80}}>I would say like 90% of your day is dictated by technology, and if you, as a person, are not included in that technology, and you can't even use it, what's the point if your app is fast?</Quote>
+            <Cite textColor="primary">Jennifer Van, React Rally 2017</Cite>
+          </BlockQuote>
         </Slide>
 
-{/* Accessibility links */}
-        <Slide textColor="secondary">
-          <Heading fit caps style={{textAlign: 'center'}}>Accessibility Tools, Testing, and Integrations</Heading>
+        {/* Accessibility links */}
+        <Slide textColor="secondary" notes="<ul><li>Make sure to bring up the a11y project checklist and show how it'd make things easier.</li><li>talk about deque labs axe chrome and firefox plugins for testing existing sites.</li><li>explain deque labs has a bunch of other cool resources, including ios and android implementations on their github page</li></ul>">
+          <Heading fit caps textColor="secondary" style={{textAlign: 'center'}}>Accessibility Tools, Testing, and Integrations</Heading>
           <hr />
           <Layout>
             <Fill style={{textAlign: 'left', width: "60%", flex: '1 1 60%'}}>
@@ -411,18 +401,86 @@ We chose a designer, project manager, and a few developers, and started our pilo
           </Layout>
         </Slide>
 
-{/*  */}
+
         <Slide bgColor="secondary">
-          <Heading textColor="quartenary" size={3}>Globalization/Localization</Heading>
-          <Image src={images.globalization} style={{width: 800}} />
+          <Layout>
+            <Fill>
+              <CodePane
+                lang="html"
+                source={require("raw-loader!../assets/code/accessibility.example")}
+                margin="0px auto"
+                textSize="1.6em"
+              />
+            </Fill>
+          </Layout>
         </Slide>
+
+        {/* Accessibility Summary Slide */}
+        <Slide bgColor="#000000" style={{ width: '100%',position: 'relative'}} >
+          <Heading textColor="quartenary" style={{ marginBottom: -100, zIndex: 10, position: 'relative' }}>Accessibility</Heading>
+          <Image src={images.accessibilityGif} style={{ width: '100%', marginBottom: -100, zIndex: 0, position: 'relative' }} />
+          <Link textColor="quartenary" style={{ zIndex: 10, position: 'relative' }} href="https://www.microsoft.com/en-us/design/inclusive">
+            Image Credit: Inclusive Design at Microsoft
+          </Link>
+        </Slide>
+
+
+        <Slide style={{position: 'relative', height: '100%'}} notes="Oh right. That's why.">
+          <Layout style={{display: 'flex', flexDirection: 'column'}}>
+            <Fill>
+              <Image src={images.cssInJs} style={{height: 842, margin: 0}} />
+            </Fill>
+            <Fill style={{textAlign: 'right', marginRight: 210}}>
+              <Link textColor="tertiary" href="https://twitter.com/mfpiccolo/status/904521745196916736" >@mfpiccolo</Link>
+            </Fill>
+          </Layout>
+        </Slide>
+
+
+{/* Choosing a component */}
+        <Slide textColor="secondary">
+          <Layout>
+            <Fill style={{textAlign: 'left'}}>
+              <Heading fit caps style={{textAlign: 'center'}}>What do I consider When choosing a component?</Heading>
+              <hr />
+              <ul>
+                <li style={styles.li}>
+                  <Text style={styles.liLargeText}>Use traditional DOM elements as they were intended</Text>
+                  <Text style={{fontSize: '1.0em'}}>If you need a button, use a button. Accessibility users will love you for it.</Text>
+                </li>
+                <li style={styles.li}>
+                  <Text style={styles.liLargeText}>Override styles within third-party component with your own styles</Text>
+                  <Text style={{fontSize: '1.0em'}}>Transitions, and animations are easy to embed, but difficult to overwrite.</Text>
+                </li>
+                <li style={styles.li}>
+                  <Text style={styles.liLargeText}>Rearrange component’s visual layout</Text>
+                  <Text style={{fontSize: '1.0em'}}>What if the design places the buttons lined up along the right side instead of the bottom?</Text>
+                </li>
+              </ul>
+            </Fill>
+          </Layout>
+        </Slide>
+
+
+
+
+        <Slide notes="This is an interesting question">
+          <Heading textColor="quartenary" size={3}>Question: </Heading>
+          <Image src={images.stylingWithoutStyling} style={{width: '100%'}} />
+        </Slide>
+
+
+
 
         <Slide>
           <Layout>
             <Fill>
+              <Heading></Heading>
+              <Text></Text>
             </Fill>
           </Layout>
         </Slide>
+
 
       </Deck>
     );
