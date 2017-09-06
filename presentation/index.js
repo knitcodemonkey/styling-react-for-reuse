@@ -172,7 +172,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         {/* Learn from Failure */}
-        <Slide bgImage={images.mistakes} bgDarken={0.7}
+        <Slide bgImage={images.mistakes} bgDarken={0.75}
           notes="Say Quote: 'We learn from failure much more than from success; we often discover what we will do by finding out what we will not do; and probably he who never made a mistake never made a discovery.' My department decided it was time to break up our one, very large classified product into several, smaller, vertical-based products such as cars, homes, jobs, services, and general classifieds. We realized that in order to maintain branding across all these new products, we would need to figure out a way of sharing UI elements. We started researching methods and technologies for creating independent components we could share."
         >
           <BlockQuote>
@@ -182,7 +182,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
 
-        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+        <Slide fit bgImage={images.brickBg} bgDarken={0.75}>
           <Heading textColor="primary" caps fit>What makes a component reusable?</Heading>
           <hr />
           <List style={{ textAlign: 'left' }}>
@@ -202,7 +202,7 @@ export default class Presentation extends React.Component {
           </Link>
         </Slide>
 
-        <Slide bgImage={images.wheelchair} bgDarken={0.7}>
+        <Slide bgImage={images.wheelchair} bgDarken={0.75}>
           <Layout>
             <Fill style={{flex: '1 1 30%', display: 'flex', alignItems: 'center'}}>
               <Image src={images.JenniferVan} style={{
@@ -286,7 +286,7 @@ export default class Presentation extends React.Component {
           </Layout >
         </Slide >
 
-        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+        <Slide fit bgImage={images.brickBg} bgDarken={0.75}>
         <Heading textColor="primary" caps fit>What makes a component reusable?</Heading>
         <hr />
         <List style={{ textAlign: 'left' }}>
@@ -447,7 +447,7 @@ export default class Presentation extends React.Component {
           <Heading margin="60px auto 0px auto" textColor="secondary" textFont="primary" size={4} style={{ fontWeight: 'normal' }}>"Just the header," we said</Heading>
         </Slide>
 
-        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+        <Slide fit bgImage={images.brickBg} bgDarken={0.75}>
           <Heading textColor="primary" caps fit>What makes a component reusable?</Heading>
           <hr />
           <List style={{ textAlign: 'left' }}>
@@ -483,13 +483,13 @@ export default class Presentation extends React.Component {
         </Slide>
 
 
-        <Slide fit bgImage={images.brickBg} bgDarken={0.7} notes="This is an interesting question">
+        <Slide fit bgImage={images.brickBg} bgDarken={0.75} notes="This is an interesting question">
           <Heading textColor="quartenary" size={3}>Question: </Heading>
           <Image src={images.stylingWithoutStyling} style={{ width: '100%' }} />
         </Slide>
 
 
-        <Slide fit bgImage={images.brickBg} bgDarken={0.7} style={{ position: 'relative', height: '100%' }} notes="Oh right. That's why.">
+        <Slide fit bgImage={images.brickBg} bgDarken={0.75} style={{ position: 'relative', height: '100%' }} notes="Oh right. That's why.">
           <Layout style={{ display: 'flex', flexDirection: 'column' }}>
             <Fill>
               <Image src={images.cssInJs} style={{ height: 842, margin: 0 }} />
@@ -500,7 +500,7 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
 
-        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+        <Slide fit bgImage={images.brickBg} bgDarken={0.75}>
           <Layout>
             <Fill>
               <Heading></Heading>
