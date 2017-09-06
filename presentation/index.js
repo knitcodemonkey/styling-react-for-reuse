@@ -57,6 +57,7 @@ const images = {
   stylingWithoutStyling: require("../assets/stylingWithoutStyling.png"),
   programmer: require("../assets/programmer.jpg"),
   daenerys: require("../assets/daenerys.png"),
+  JenniferVan: require("../assets/JenniferVan.jpg"),
   cssInJs: require("../assets/cssInJs.jpg"),
   brickBg: require("../assets/backgrounds/brickBg.jpg"),
   wheelchair: require("../assets/backgrounds/access-wheelchair.jpg"),
@@ -202,11 +203,22 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide bgImage={images.wheelchair} bgDarken={0.7}>
-          <BlockQuote style={{ marginTop: -50, marginRight: 330 }}>
-            <Quote style={{ marginBottom: 80 }}>I would say like 90% of your day is dictated by technology, and if you, as a person, are not included in that technology, and you can't even use it, what's the point if your app is fast?</Quote>
-            <Cite textColor="primary">Jennifer Van, React Rally 2017</Cite>
-          </BlockQuote>
+          <Layout>
+            <Fill style={{flex: '1 1 30%', display: 'flex', alignItems: 'center'}}>
+              <Image src={images.JenniferVan} style={{
+                width: 600, height: 600, borderRadius: '50%', marginTop: -80, marginRight: 20
+              }} />
+            </Fill>
+            <Fill style={{flex: '1 1 70%', display: 'flex', alignItems: 'center'}}>
+              <BlockQuote>
+                <Quote style={{ marginBottom: 80 }}>I would say like 90% of your day is dictated by technology, and if you,<br /> as a person, are not included in that technology, what's the point if your app is fast?</Quote>
+                <Cite textColor="dktertiary">Jennifer Van, React Rally 2017</Cite>
+              </BlockQuote>
+            </Fill>
+          </Layout>
         </Slide>
+
+        
 
         {/* Accessibility links */}
         <Slide bgImage={images.wheelchair} bgDarken={0.85} textColor="primary" notes="<ul><li>Make sure to bring up the a11y project checklist and show how it'd make things easier.</li><li>talk about deque labs axe chrome and firefox plugins for testing existing sites.</li><li>explain deque labs has a bunch of other cool resources, including ios and android implementations on their github page</li></ul>">
@@ -274,22 +286,6 @@ export default class Presentation extends React.Component {
           </Layout >
         </Slide >
 
-
-        <Slide bgImage={images.wheelchair} bgDarken={0.85}>
-          <Layout>
-            <Fill>
-              <CodePane
-                lang="html"
-                source={require("raw-loader!../assets/code/accessibility.example")}
-                margin="0px auto"
-                textSize="1.6em"
-              />
-            </Fill>
-          </Layout>
-        </Slide>
-
-
-
         <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
         <Heading textColor="primary" caps fit>What makes a component reusable?</Heading>
         <hr />
@@ -344,7 +340,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         {/* The Bad: Mistakes */}
-        <Slide bgImage={images.mistakes} bgDarken={0.85} notes="And we had some failures">
+        <Slide bgImage={images.mistakes} bgDarken={0.80} notes="And we had some failures">
 
           <Layout style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Fill style={{ textAlign: 'left', width: '55%', flex: '1 1 55%', position: 'relative' }}>
@@ -369,54 +365,57 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
 
-        <Slide bgImage={images.mistakes} bgDarken={0.85} textAlign="left">
+        <Slide bgImage={images.mistakes} bgDarken={0.80} textAlign="left">
           <Heading caps textColor="primary" size={2} style={{ textAlign: 'center', marginBottom: 40 }}>The Ugly</Heading>
           <hr />
-          <Layout style={{marginBottom: 10}}>
-          <Fill style={{flex: '1 1 10%', display: 'flex', alignItems: 'center'}}>
-                <Image margin="0" src={images.programmer} style={{
-                  width: 150, height: 150, borderRadius: '50%'
-                }} />
-              </Fill>
+          <Layout style={{padding: '30px 0 0 0'}}>
+          
               <Fill style={{flex: '1 1 90%'}}>
-                <BlockQuote style={{display: 'block'}}>
-                  <Quote style={{ fontSize: '2em', fontWeight: 'normal' }}>John Snow is a GREAT name for testing!</Quote>
-                  <Cite textColor="dktertiary">Us</Cite>
+                <BlockQuote style={{display: 'block', textAlign: 'right'}}>
+                  <Quote style={{ fontSize: '1.6em', fontWeight: 'normal', borderLeft: 0, paddingLeft: 0, borderRight: '1px solid rgb(250, 250, 250)', paddingRight: 40 }}>Name field: &nbsp; "John Snow"</Quote>
+                  <Cite textColor="dktertiary">Dev</Cite>
                 </BlockQuote>
             </Fill>
+            <Fill style={{flex: '1 1 10%', display: 'flex', alignItems: 'center'}}>
+                <Image margin="0" src={images.me} style={{
+                  width: 150, height: 150, borderRadius: '50%', marginLeft: 20, marginTop: -30
+                }} />
+              </Fill>
           </Layout>
-          <Layout style={{marginBottom: 20}}>
-          <Fill style={{flex: '1 1 10%', display: 'flex', alignItems: 'center'}}>
-              <Image margin="0" src={images.daenerys} style={{
-                width: 250, height: 250, borderRadius: '50%'
-              }} />
-            </Fill>
-            <Fill style={{flex: '1 1 90%'}}>
-            <BlockQuote style={{display: 'block'}}>
-                <Quote style={{ fontSize: '1.4em', fontWeight: 'normal' }}>Daenerys of the House Targaryen, the First of Her Name, The Unburnt, Queen of the Andals, the Rhoynar and the First Men, Queen of Meereen, Khaleesi of the Great Grass Sea, Protector of the Realm, Lady Regnant of the Seven Kingdoms, Breaker of Chains and Mother of Dragons.</Quote>
-                <Cite textColor="dktertiary">See Above</Cite>
-              </BlockQuote>
-            </Fill>
-          </Layout>
+
           <Layout>
           <Fill style={{flex: '1 1 10%', display: 'flex', alignItems: 'center'}}>
-              <Image margin="0" src={images.programmer} style={{
-                width: 150, height: 150, borderRadius: '50%'
+              <Image margin="0" src={images.daenerys} style={{
+                width: 300, height: 300, borderRadius: '50%', marginRight: 20, marginTop: -40
               }} />
             </Fill>
             <Fill style={{flex: '1 1 90%'}}>
             <BlockQuote style={{display: 'block'}}>
-                <Quote style={{ fontSize: '2em', fontWeight: 'normal' }}>Oh.</Quote>
-                <Cite textColor="dktertiary">Also, us</Cite>
+                <Quote style={{ fontSize: '1.6em', fontWeight: 'normal', marginRight: 150 }}>Name field: &nbsp; "Daenerys Stormborn of the House Targaryen, First of Her Name, the Unburnt, Queen of the Andals and the First Men, Khaleesi of the Great Grass Sea,<br />Breaker of Chains, and Mother of Dragons"</Quote>
+                <Cite textColor="dktertiary">The QA Team</Cite>
               </BlockQuote>
+            </Fill>
+          </Layout>
+
+          <Layout style={{marginTop: -20}}>
+            <Fill style={{flex: '1 1 90%'}}>
+              <BlockQuote style={{display: 'block', textAlign: 'right'}}>
+                <Quote style={{ fontSize: '1.6em', fontWeight: 'normal', borderLeft: 0, paddingLeft: 0, borderRight: '1px solid rgb(250, 250, 250)', paddingRight: 40 }}>Oh.</Quote>
+                <Cite textColor="dktertiary">Dev</Cite>
+              </BlockQuote>
+            </Fill>
+            <Fill style={{flex: '1 1 10%', display: 'flex', alignItems: 'center'}}>
+              <Image margin="0" src={images.me} style={{
+                width: 150, height: 150, borderRadius: '50%', marginLeft: 20, marginTop: -30
+              }} />
             </Fill>
           </Layout>
         </Slide>
 
 
         {/* React Week */}
-        <Slide bgImage={images.reactWeek} bgDarken={0.5} notes="So we took those lessons, got a little training, and iterated again.">
-          <Heading textColor="primary" size={1} style={{ textShadow: '0px 0px 20px #000' }}>React Week</Heading>
+        <Slide bgImage={images.reactWeek} bgDarken={0.2} notes="So we took those lessons, got a little training, and iterated again.">
+          <Heading textColor="primary" size={1} style={{ textShadow: '0px 0px 20px #000', textAlign: 'right' }}>React Week</Heading>
           <Appear>
             <Fill>
               <Text textColor="primary" style={{ textShadow: '0px 0px 20px #000', fontWeight: 'bold', marginTop: 160, marginLeft: -190 }}>It's me!</Text>
@@ -448,24 +447,24 @@ export default class Presentation extends React.Component {
           <Heading margin="60px auto 0px auto" textColor="secondary" textFont="primary" size={4} style={{ fontWeight: 'normal' }}>"Just the header," we said</Heading>
         </Slide>
 
-        {/* Important Rabbits */}
-        <Slide notes="This time, we learned that when you are explicit about your css and js transitions, you end up needing a lot of !important tags.">
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+          <Heading textColor="primary" caps fit>What makes a component reusable?</Heading>
+          <hr />
+          <List style={{ textAlign: 'left' }}>
+            <ListItem textColor="primary" style={{fontSize: '2.4em', marginBottom: 30}}>Accessibility</ListItem>
+            <ListItem textColor="primary" style={{fontSize: '2.4em', marginBottom: 30}}>Isolated, but not too isolated</ListItem>
+            <ListItem textColor="dktertiary" style={{fontSize: '3em', marginBottom: 30}}>Brandable</ListItem>
+          </List>
+        </Slide>
+
+         {/* Important Rabbits */}
+         <Slide notes="This time, we learned that when you are explicit about your css and js transitions, you end up needing a lot of !important tags.">
           <Layout style={{ display: 'block' }}>
             <Fill style={{ width: '100%', height: '100%', position: 'relative' }}>
               <Image src={images.importantRabbits} style={{ maxWidth: 1768, maxHeight: 852, width: 'auto', margin: '0 auto' }} />
             </Fill>
           </Layout>
         </Slide>
-
-        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
-        <Heading textColor="primary" caps fit>What makes a component reusable?</Heading>
-        <hr />
-        <List style={{ textAlign: 'left' }}>
-          <ListItem textColor="primary" style={{fontSize: '2.4em', marginBottom: 30}}>Accessibility</ListItem>
-          <ListItem textColor="primary" style={{fontSize: '2.4em', marginBottom: 30}}>Isolated, but not too isolated</ListItem>
-          <ListItem textColor="dktertiary" style={{fontSize: '3em', marginBottom: 30}}>Brandable</ListItem>
-        </List>
-      </Slide>
 
         {/* One True Answer */}
         <Slide>
