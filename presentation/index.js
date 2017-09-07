@@ -206,7 +206,7 @@ export default class Presentation extends React.Component {
           <Layout>
             <Fill style={{flex: '1 1 30%', display: 'flex', alignItems: 'center'}}>
               <Image src={images.JenniferVan} style={{
-                width: 600, height: 600, borderRadius: '50%', marginTop: -80, marginRight: 20
+                width: 500, height: 500, borderRadius: '50%', marginTop: -80, marginRight: 20
               }} />
             </Fill>
             <Fill style={{flex: '1 1 70%', display: 'flex', alignItems: 'center'}}>
