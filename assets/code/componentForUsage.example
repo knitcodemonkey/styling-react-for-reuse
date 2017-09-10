@@ -1,0 +1,12 @@
+// MyApp.js
+
+import { withTheme, ThemeProvider } from 'theme-provider'
+import MyThemedComponent from 'MyThemedComponent'
+
+function MyApp({ theme }) {
+  return (
+    <ThemeProvider theme={theme}>
+      <MyThemedComponent />
+    </ThemeProvider>
+  )
+}
