@@ -67,7 +67,7 @@ const images = {
   mistakes: require("../assets/backgrounds/mistakes.jpg"),
   mistakesBlurred: require("../assets/backgrounds/mistakesBlurred.png"),
   success: require("../assets/backgrounds/success.jpg"),
-
+  discoverableComponents: require("../assets/discoverableComponents.png"),
   
 };
 
@@ -534,8 +534,8 @@ I would also like to say that when choosing a technology, the best answer is usu
 
 
         <Slide fit bgImage={images.brickBg} bgDarken={0.7} notes="This is an interesting question">
-          <Heading textColor="quartenary" size={3}>Question: </Heading>
-          <Image src={images.stylingWithoutStyling} style={{ width: '100%' }} />
+          <Heading textColor="quartenary" size={3}>Question:</Heading>
+          <Image src={images.stylingWithoutStyling} style={{ width: '100%', marginTop: 40 }} />
         </Slide>
 
 
@@ -558,17 +558,32 @@ I would also like to say that when choosing a technology, the best answer is usu
 
         <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
           <Layout>
-            {/* <Fill>
-              <Heading></Heading>
+            <Fill style={{ width: '56%', flex: '1 1 56%' }}>
+              <Heading size={2} textColor="primary" style={{marginBottom: 40}}>Component</Heading>
+              <CodePane
+                lang="js"
+                source={require("raw-loader!../assets/code/componentForUsage.example")}
+                margin="0px auto"
+                textSize="0.8em"
+              />
+            </Fill>
+            <Fill style={{ width: '42%', flex: '1 1 42%', marginLeft: '2%' }}>
+              <Heading size={2} textColor="primary" style={{marginBottom: 40}}>Apply Theme</Heading>
               <CodePane
                 lang="js"
                 source={require("raw-loader!../assets/code/usageWithCSS.example")}
                 margin="0px auto"
-                textSize="0.73em"
+                textSize="0.8em"
               />
-            </Fill> */}
+            </Fill>
+          </Layout>
+        </Slide>
+
+
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+          <Layout>
             <Fill style={{ width: '51%', flex: '1 1 51%', marginRight: '3%' }}>
-              <Heading textColor="primary" style={{marginBottom: 40}}>Aphrodite</Heading>
+              <Heading size={2} textColor="primary" style={{marginBottom: 40}}>Aphrodite</Heading>
               <CodePane
                 lang="js"
                 source={require("raw-loader!../assets/code/usageWithAphrodite.example")}
@@ -577,7 +592,7 @@ I would also like to say that when choosing a technology, the best answer is usu
               />
             </Fill>
             <Fill style={{ width: '45%', flex: '1 1 45%', marginLeft: '1%' }}>
-              <Heading textColor="primary" style={{marginBottom: 40}}>Glamor</Heading>
+              <Heading size={2} textColor="primary" style={{marginBottom: 40}}>Glamor</Heading>
               <CodePane
                 lang="js"
                 source={require("raw-loader!../assets/code/usageWithGlamor.example")}
@@ -588,14 +603,38 @@ I would also like to say that when choosing a technology, the best answer is usu
           </Layout>
         </Slide>
 
-        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
-        <Heading></Heading>
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7} notes="How do we make our components discoverable?">
+          <Heading textColor="quartenary" size={3}>Question:</Heading>
+          <Image src={images.discoverableComponents} style={{ width: '100%', marginTop: 40 }} />
         </Slide>
-        
+
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7} notes="How do we make our components discoverable?">
+          <Heading fit caps textColor="quartenary" size={3}>When to break out a component</Heading>
+          <hr style={{margin: '40px 0'}} />
+          <ul>
+            <li style={[styles.li, { textAlign: 'left', fontSize: '2em', color: themeColors.primary, lineHeight: 'initial' }]}>You use it twice</li>
+            <li style={[styles.li, { textAlign: 'left', fontSize: '2em', color: themeColors.primary, lineHeight: 'initial' }]}>You put it in a function outside render</li>
+            <li style={[styles.li, { textAlign: 'left', fontSize: '2em', color: themeColors.primary, lineHeight: 'initial' }]}>Component has implicit state, state the "product developer" or "app" doesn't care to see <a href="https://twitter.com/ryanflorence" style={{color: themeColors.dktertiary}}>@ryanflorence</a></li>
+          </ul>
+        </Slide>
+
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7} notes="How do we make our components discoverable?">
+          <Heading fit caps textColor="quartenary" size={3}>How to make components discoverable</Heading>
+          <hr style={{margin: '40px 0'}} />
+          <ul>
+            <li style={[styles.li, { textAlign: 'left', fontSize: '2em', color: themeColors.primary, lineHeight: 'initial' }]}>Release to NPM</li>
+            <li style={[styles.li, { textAlign: 'left', fontSize: '2em', color: themeColors.primary, lineHeight: 'initial' }]}>Reusable Component Repo</li>
+          </ul>
+        </Slide>
+
+
+
+
         {/* branding recap slide */}
         <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
-        <Heading>Branding recap slide placeholder</Heading>
+          <Heading>Branding recap slide placeholder</Heading>
         </Slide>
+
         
         {/* Final thank you slide */}
         <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
