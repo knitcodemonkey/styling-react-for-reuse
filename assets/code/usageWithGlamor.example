@@ -1,0 +1,16 @@
+// MyThemedComponent.js
+
+import { style } from 'glamor'
+import { withStyles } from 'theme-provider'
+
+function MyThemedComponent({ styles }) {
+  return (
+    <div {...styles.base} />
+  )
+}
+
+export default withStyles(theme => ({
+  base: style({
+    background: theme.primaryColor
+  })
+}))(MyThemedComponent)

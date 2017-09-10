@@ -1,0 +1,15 @@
+// MyThemedComponent.js
+
+import { withStyles } from 'theme-provider'
+
+function MyThemedComponent({ styles }) {
+  return (
+    <div style={styles.base} />
+  )
+}
+
+export default withStyles(theme => ({
+  base: {
+    background: theme.primaryColor
+  }
+}))(MyThemedComponent)

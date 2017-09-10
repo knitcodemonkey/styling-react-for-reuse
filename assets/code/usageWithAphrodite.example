@@ -1,0 +1,16 @@
+// MyThemedComponent.js
+
+import { StyleSheet, css } from 'aphrodite'
+import { withStyles } from 'theme-provider'
+
+function MyThemedComponent({ styles }) {
+  return (
+    <div className={css(styles.base)} />
+  )
+}
+
+export default withStyles(theme => StyleSheet.create({
+  base: {
+    background: theme.primaryColor
+  }
+}))(MyThemedComponent)
