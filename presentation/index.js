@@ -59,6 +59,7 @@ const images = {
   daenerys: require("../assets/daenerys.png"),
   JenniferVan: require("../assets/JenniferVan.jpg"),
   cssInJs: require("../assets/cssInJs.jpg"),
+  playground: require("../assets/playground.png"),
   firstRuleOfAria: require("../assets/first-rule-of-aria.png"),
   samuelSmiles: require("../assets/Samuel_Smiles_by_Sir_George_Reid.jpg"),
   brickBg: require("../assets/backgrounds/brickBg.jpg"),
@@ -523,6 +524,12 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
 
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+          <Heading textColor="primary" fit caps>Want to compare libraries?</Heading>
+          <Image src={images.playground} style={{maxHeight: 800, maxWidth: 1400, margin: '40px 0'}} />
+          <Text textColor="primary"><a style={{color: themeColors.dktertiary}} href="https://css-in-js-playground.com">CSS-in-JS Playground</a> by <a style={{color: themeColors.dktertiary}} href="https://twitter.com/SchauDustin">@SchauDustin</a></Text>
+        </Slide>
+
 
         <Slide fit bgImage={images.brickBg} bgDarken={0.7} notes="This is an interesting question">
           <Heading textColor="quartenary" size={3}>Question: </Heading>
@@ -549,20 +556,36 @@ export default class Presentation extends React.Component {
 
         <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
           <Layout>
-            <Fill>
+            {/* <Fill>
               <Heading></Heading>
-              <Text></Text>
+              <CodePane
+                lang="js"
+                source={require("raw-loader!../assets/code/usageWithCSS.example")}
+                margin="0px auto"
+                textSize="0.73em"
+              />
+            </Fill> */}
+            <Fill style={{ width: '51%', flex: '1 1 51%', marginRight: '3%' }}>
+              <Heading textColor="primary" style={{marginBottom: 40}}>Aphrodite</Heading>
+              <CodePane
+                lang="js"
+                source={require("raw-loader!../assets/code/usageWithAphrodite.example")}
+                margin="0px auto"
+                textSize="0.73em"
+              />
             </Fill>
-            <Fill>
-              <Heading></Heading>
-              <Text></Text>
-            </Fill>
-            <Fill>
-              <Heading></Heading>
-              <Text></Text>
+            <Fill style={{ width: '45%', flex: '1 1 45%', marginLeft: '1%' }}>
+              <Heading textColor="primary" style={{marginBottom: 40}}>Glamor</Heading>
+              <CodePane
+                lang="js"
+                source={require("raw-loader!../assets/code/usageWithGlamor.example")}
+                margin="0px auto"
+                textSize="0.73em"
+              />
             </Fill>
           </Layout>
         </Slide>
+
       </Deck >
     );
   }
