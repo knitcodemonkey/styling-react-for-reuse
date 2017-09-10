@@ -79,7 +79,7 @@ const themeColors = {
   tertiary: "#981804",
   dktertiary: "#e2777a",
   quartenary: "#FAFAFA",
-  faded: "#AAAAAA",
+  faded: "#BBBBBB",
 
   background: "linear-gradient(#F8FAFA, #D8DADA)",
 };
@@ -366,19 +366,19 @@ export default class Presentation extends React.Component {
       {/* The Good: Living style guide */}
       <Slide 
         bgImage={images.success} 
-        bgDarken={0.85} 
+        bgDarken={0.6} 
         style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}
         notes="We had some successes, like our shiny new living style guide that dynamically updates itself based on changes made to the git repo. Kristie Giles will tell you more about better alternatives to the icon fonts."
       >
         <Heading caps textColor="primary" size={2} style={{ textAlign: 'center', marginBottom: 40 }}>The Good</Heading>
         <hr />
         <Layout style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%', position: 'relative', marginTop: 40 }}>
-          <Fill style={{ flex: '1 0 45%', width: '40%' }}>
+          <Fill style={{ flex: '1 0 47%', width: '47%' }}>
             <Image src={images.livingStyleGuide} style={{ textAlign: 'left', width: '100%', margin: '0px auto' }} />
           </Fill>
-          <Fill style={{ flex: '1 1 10%', width: '10%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}><Heading textColor="primary"> = </Heading></Fill>
-          <Fill style={{ flex: '1 0 45%', width: '40%' }}>
-            <Image src={images.famous} style={{ textAlign: 'left', width: '100%', margin: '0px auto' }} />
+          <Fill style={{ flex: '1 1 6%', width: '6%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}><Heading textColor="primary"> &nbsp; </Heading></Fill>
+          <Fill style={{ flex: '1 0 48%', width: '48%' }}>
+            <Image src={images.famous} style={{ textAlign: 'left', width: '100%', margin: '0px auto', border: '5px solid #333', boxShadow: "0px 5px" + " 10px #111" }} />
           </Fill>
         </Layout>
       </Slide>
@@ -387,7 +387,7 @@ export default class Presentation extends React.Component {
         <Slide bgImage={images.mistakes} bgDarken={0.80} notes="And we had some failures">
 
           <Layout style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Fill style={{ textAlign: 'left', width: '55%', flex: '1 1 55%', position: 'relative' }}>
+            <Fill style={{ textAlign: 'left', width: '55%', flex: '1 1 55%', position: 'relative', boxShadow: "0px 5px" + " 10px #111" }}>
               <CodePane
                 lang="html"
                 source={require("raw-loader!../assets/code/badModal.example")}
@@ -466,8 +466,8 @@ export default class Presentation extends React.Component {
             </Fill>
         </Slide>
 
-        {/* The Ugly: Just a Header */}
-        <Slide bgColor="primary" notes="It turns out our header included dropdown menus, responsive hamburger menus, modals, dynamic login detection, dynamic menu resizing on scroll, weather modules with geolocation, icon fonts, and a search bar. It was huge, required jQuery, and came with a whole host of webpack/bower/gulp build process complexity that none of us knew anything about. As we coded, our designers, and the technology, continued to innovate. We were learning (and refactoring) a lot, but the old Manhattan Hardcore Components were still in circulation, and as we completed the new header components, those were being incorporated into various websites, as well.">
+        {/* The Ugly: Just the Header */}
+        <Slide bgImage={images.mistakesBlurred} bgDarken={0.65} bgColor="primary" style={{transform: 'scale(0)'}} notes="It turns out our header included dropdown menus, responsive hamburger menus, modals, dynamic login detection, dynamic menu resizing on scroll, weather modules with geolocation, icon fonts, and a search bar. It was huge, required jQuery, and came with a whole host of webpack/bower/gulp build process complexity that none of us knew anything about. As we coded, our designers, and the technology, continued to innovate. We were learning (and refactoring) a lot, but the old Manhattan Hardcore Components were still in circulation, and as we completed the new header components, those were being incorporated into various websites, as well.">
           <Layout>
             <Fill style={{ textAlign: 'left', width: '60%', flex: '1 1 60%' }}>
               <CodePane
@@ -477,7 +477,7 @@ export default class Presentation extends React.Component {
                 textSize="0.73em"
               />
             </Fill>
-            <Fill style={{ textAlign: 'left', width: '39%', flex: '1 1 40%', marginLeft: '0.5%' }}>
+            <Fill style={{ textAlign: 'left', width: '39%', flex: '1 1 39%', marginLeft: '1%' }}>
               <CodePane
                 lang="js"
                 source={require("raw-loader!../assets/code/header2.example")}
@@ -486,14 +486,14 @@ export default class Presentation extends React.Component {
               />
             </Fill>
           </Layout>
-          <Heading margin="60px auto 0px auto" textColor="secondary" textFont="primary" size={4} style={{ fontWeight: 'normal' }}>"Just the header," we said</Heading>
+          <Heading margin="60px auto 0px auto" textColor="primary" size={4} style={{ fontWeight: 'normal' }}>"Just the header," we said</Heading>
         </Slide>
 
         {/* Important Rabbits */}
-        <Slide notes="This time, we learned that when you are explicit about your css and js transitions, you end up needing a lot of !important tags.">
-          <Layout style={{ display: 'block' }}>
-            <Fill style={{ width: '100%', height: '100%', position: 'relative' }}>
-              <Image src={images.importantRabbits} style={{ maxWidth: 1768, maxHeight: 852, width: 'auto', margin: '0 auto' }} />
+        <Slide bgColor="faded" notes="This time, we learned that when you are explicit about your css and js transitions, you end up needing a lot of !important tags.">
+          <Layout style={{ display: 'inline-block' }}>
+            <Fill>
+              <Image src={images.importantRabbits} style={{ maxHeight: 852, margin: '0 auto' }} />
             </Fill>
           </Layout>
         </Slide>
@@ -509,14 +509,16 @@ export default class Presentation extends React.Component {
         </Slide>
 
         {/* One True Answer */}
-        <Slide>
+        <Slide bgColor="faded">
           <Text>the</Text>
           <Heading size={1} textColor="tertiary" caps>one true answer</Heading>
           <Text>to all our problems is...</Text>
         </Slide>
 
         {/* Be Kind */}
-        <Slide>
+        <Slide notes="I know, from experience, that getting a library change and refactor prioritized is next to impossible when compared with roadmap items that are profitable in the short term. Slow, long term tech debt ROI just doesn't stand a chance next to quick, profitable wins. I’m not here to tell you what to use. I’m here to share how you can use the tools you already have.
+
+I would also like to say that when choosing a technology, the best answer is usually to go with what your team members already know and with what your team members are most comfortable.">
           <Layout style={{ display: 'block' }}>
             <Fill style={{ width: '100%', height: '100%', position: 'relative' }}>
               <Image src={images.beKind} style={{ maxWidth: 1768, maxHeight: 852, width: 'auto', margin: '0 auto' }} />
@@ -526,7 +528,7 @@ export default class Presentation extends React.Component {
 
         <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
           <Heading textColor="primary" fit caps>Want to compare libraries?</Heading>
-          <Image src={images.playground} style={{maxHeight: 800, maxWidth: 1400, margin: '40px 0'}} />
+          <Image src={images.playground} style={{maxHeight: 800, maxWidth: 1400, margin: 40, boxShadow: "0px 0px" + " 20px #444"}} />
           <Text textColor="primary"><a style={{color: themeColors.dktertiary}} href="https://css-in-js-playground.com">CSS-in-JS Playground</a> by <a style={{color: themeColors.dktertiary}} href="https://twitter.com/SchauDustin">@SchauDustin</a></Text>
         </Slide>
 
@@ -586,6 +588,20 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
 
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+        <Heading></Heading>
+        </Slide>
+        
+        {/* branding recap slide */}
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+        <Heading>Branding recap slide placeholder</Heading>
+        </Slide>
+        
+        {/* Final thank you slide */}
+        <Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+            <Heading>Final Slide placeholder</Heading>
+        </Slide>
+        
       </Deck >
     );
   }
