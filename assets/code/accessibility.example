@@ -1,5 +1,5 @@
 <!--  This is a button -->
-<button type="submit">submit this form</button>
+<button type="button" onClick="clickme()">Click me</button>
 
 <!-- this is a link -->
 <a href="./nextPage.html">Go to the next page</a>

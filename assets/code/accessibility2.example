@@ -1,17 +1,33 @@
 <html>
+<head>
+<style></style>
+<script>
+  function handleBtnKeyPress(event) {
+    // Check to see if space or enter were pressed
+    if (event.keyCode === 32 || event.keyCode === 13) {
+      // Prevent the default action to stop scrolling when space is pressed
+      event.preventDefault();
+      toggleButton(event.target);
+    }
+  }
+
+  function toggleButton(element) {
+    // Check to see if the button is pressed
+    var pressed = (element.getAttribute("aria-pressed") === "true");
+    // Change aria-pressed to the opposite state
+    element.setAttribute("aria-pressed", !pressed);
+  }
+</script>
+</head>
 <body>
-  <form action="test.php" method="post">
-    <fieldset>
-      <legend>Choose a Fruit</legend>
-      <input type="radio" id="appleRadio" value="apple" />
-      <label for="raappleRadiodio">Apple</label>
+  <button 
+    type="button" 
+    aria-pressed="false"
+    onClick="clickme()"
+  >submit this form</button>
 
-      <input type="radio" id="bananaRadio" value="banana" />
-      <label for="bananaRadio">Banana</label>
-
-      <input type="radio" id="pearRadio" value="pear" />
-      <label for="pearRadio">Pear</label>
-    </fieldset>
-  </form>
+  <div id="showMe">
+    <p>I've been opened</p>
+  </div>
 </body>
 </html>
