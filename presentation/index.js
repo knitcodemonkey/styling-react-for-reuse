@@ -262,11 +262,13 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				{/* Learn from Failure */}
-				<Slide
-					bgImage={images.mistakesBlurred}
-					bgDarken={0.65}
-					notes="Say Quote: 'We learn from failure much more than from success; we often discover what we will do by finding out what we will not do; and probably he who never made a mistake never made a discovery.' My department decided it was time to break up our one, very large classified product into several, smaller, vertical-based products such as cars, homes, jobs, services, and general classifieds. We realized that in order to maintain branding across all these new products, we would need to figure out a way of sharing UI elements. We started researching methods and technologies for creating independent components we could share."
-				>
+				<Slide bgImage={images.mistakesBlurred} bgDarken={0.65}>
+					<Notes>
+						Say Quote: 'We learn from failure much more than from
+						success; we often discover what we will do by finding
+						out what we will not do; and probably he who never made
+						a mistake never made a discovery.'
+					</Notes>
 					<Layout style={{ marginTop: -80 }}>
 						<Fill
 							style={{
@@ -311,6 +313,13 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						I propose that in order to say a component is reusable,
+						it must also be accessible. In this day and age, we know
+						to add these features, and the last thing we want to do
+						is perpetuate code that doesn't have accessibility
+						features built in.
+					</Notes>
 					<Heading textColor="primary" caps fit>
 						What makes a component reusable?
 					</Heading>
@@ -346,8 +355,33 @@ export default class Presentation extends React.Component {
 				<Slide
 					bgColor="#000000"
 					style={{ width: '100%', position: 'relative' }}
-					notes="<ul><li>repetetive stress injuries: tennis elbow or carpel tunnel</li><li>had your eyes dilated</li><li>tried to type while holding a baby</li><li>watched a video, in a loud room</li><li>watched a film in a language you didn't know</li><li>mouse batteries died, and too lazy to use laptop mouse?</li></ul>"
 				>
+					<Notes>
+						How many of you have had one of these experiences?
+						<ul>
+							<li>
+								repetetive stress injuries: tennis elbow or
+								carpel tunnel
+							</li>
+							<li>had your eyes dilated</li>
+							<li>tried to type while holding a baby</li>
+							<li>watched a video, in a loud room</li>
+							<li>
+								watched a film in a language you didn't know
+							</li>
+							<li>
+								mouse batteries died, and too lazy to use laptop
+								mouse?
+							</li>
+							<li>
+								had a computer read game text to a child too
+								young, or inexperienced to read
+							</li>
+						</ul>
+						How many of you interacted with your phone, watched tv,
+						or otherwise interacted with technology during those
+						experiences?
+					</Notes>
 					<Heading
 						textColor="quartenary"
 						style={{
@@ -377,6 +411,20 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide bgImage={images.wheelchair} bgDarken={0.7}>
+					<Notes>
+						<p>
+							Imagine for a moment that subtitles, zooming, large
+							buttons, color contrast and keyboard shortcuts
+							didn't exist. Could you have interacted with that
+							technology?
+						</p>
+						<p>
+							When we think of Accessibility features, we focus
+							too much on those whose experiences are permanent.
+							Though it is important to remember them, they aren't
+							the only ones who need those features.
+						</p>
+					</Notes>
 					<Layout style={{ marginTop: -120 }}>
 						<Fill
 							style={{
@@ -451,8 +499,24 @@ export default class Presentation extends React.Component {
 					bgImage={images.wheelchair}
 					bgDarken={0.85}
 					textColor="primary"
-					notes="<ul><li>Make sure to bring up the a11y project checklist and show how it'd make things easier.</li><li>talk about deque labs axe chrome and firefox plugins for testing existing sites.</li><li>explain deque labs has a bunch of other cool resources, including ios and android implementations on their github page</li></ul>"
 				>
+					<Notes>
+						<ul>
+							<li>
+								Make sure to bring up the a11y project checklist
+								and show how it'd make things easier.
+							</li>
+							<li>
+								talk about deque labs axe chrome and firefox
+								plugins for testing existing sites.
+							</li>
+							<li>
+								explain deque labs has a bunch of other cool
+								resources, including ios and android
+								implementations on their github page
+							</li>
+						</ul>
+					</Notes>
 					<Heading
 						fit
 						caps
@@ -596,6 +660,10 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						Isolated, but not too isolated? I want to share a story
+						that explains what I mean.
+					</Notes>
 					<Heading textColor="primary" caps fit>
 						What makes a component reusable?
 					</Heading>
@@ -628,10 +696,34 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				{/* Grouce Github Image */}
-				<Slide
-					bgColor="secondary"
-					notes="This diagram is a visual representation of our codebase committed to Git around that time. It doesn’t include any additional code brought in through Composer. <br /><br />*click * <br /> <br />Each dot is an individual file, and the little, tiny structure inside the yellow hexagram is our API.When I say we just wanted a little consistency; not another framework, This is why: <br /> <br />*click * <br /> <br />We were a PHP shop with Zend Framework, jQuery - ui development bundle, and an aging, custom - built, CMS.We had a whole lot of infrastructure to support an equally large amount of information; all of which was being funneled through a very small api.We figured good ole’ javascript and php would be good enough for us. <br /><br />We chose a designer, project manager, and a few developers, and started our pilot Front End Development Team with the sole purpose of building reusable components."
-				>
+				<Slide bgColor="secondary" notes="">
+					<Notes>
+						<ul>
+							<li>
+								Company decided to break up one mega-product
+								into smaller, componentized products.
+							</li>
+							<li>
+								This diagram is a visual representation of our
+								codebase committed to Git around that time.
+							</li>
+							<li>
+								Each dot is an individual file, and the little,
+								tiny structure inside the yellow hexagram is our
+								API.When I say we just wanted a little
+								consistency; not another framework, This is why:
+							</li>
+							<li>
+								We were a PHP shop with Zend Framework, jQuery -
+								ui development bundle, and an aging, custom -
+								built, CMS.We had a whole lot of infrastructure
+								to support an equally large amount of
+								information; all of which was being funneled
+								through a very small api.We figured good ole’
+								javascript and php would be good enough for us.
+							</li>
+						</ul>
+					</Notes>
 					<Layout style={{ display: 'block' }}>
 						<Fill
 							style={{
@@ -702,10 +794,19 @@ export default class Presentation extends React.Component {
 					</Text>
 				</Slide>
 
-				<Slide
-					bgImage={images.mhpNuke}
-					notes="We named ourselves the MANHATTAN HARDCORE PROJECT (because we were going to make Atomic Components, hehe). Clearly we thought highly of ourselves. We had big ideas, and were going to make a big impact on the way we reused code. As soon as we started coding, the lessons started piling in. Clearly, failure was going to be our path to success."
-				/>
+				<Slide bgImage={images.mhpNuke} notes="" />
+				<Notes>
+					<p>
+						We named our new component-building team the MANHATTAN
+						HARDCORE PROJECT (because we were going to make Atomic
+						Components, hehe).
+					</p>
+					<p>
+						As soon as we started coding, the lessons started piling
+						in. Clearly, failure was going to be our path to
+						success.
+					</p>
+				</Notes>
 
 				{/* The Good: Living style guide */}
 				<Slide
@@ -717,8 +818,12 @@ export default class Presentation extends React.Component {
 						justifyContent: 'space-between',
 						height: '100%',
 					}}
-					notes="We had some successes, like our shiny new living style guide that dynamically updates itself based on changes made to the git repo. Kristie Giles will tell you more about better alternatives to the icon fonts."
 				>
+					<Notes>
+						We had some successes, like our shiny new living style
+						guide that dynamically updates itself based on changes
+						made to the git repo.
+					</Notes>
 					<Heading
 						caps
 						textColor="primary"
@@ -781,6 +886,29 @@ export default class Presentation extends React.Component {
 					bgDarken={0.8}
 					notes="And we had some failures"
 				>
+					<Notes>
+						<ul>
+							<li>The bad - Too much isolation</li>
+							<li>modal requred entire template</li>
+							<li>Changed that structure for other components</li>
+							<li>No accessibility testing</li>
+							<li>
+								we chose to use svg icon fonts.
+								<ul>
+									<li>Requires Node v0.12</li>
+									<li>
+										Have to use names that alphabetically
+										come after "triangle" (zarrow-left,
+										weighted-heart, and z-thumbs-up)
+									</li>
+								</ul>
+							</li>
+							<li>
+								Kristie Giles will tell you more about better
+								alternatives to the icon fonts.
+							</li>
+						</ul>
+					</Notes>
 					<Layout
 						style={{
 							display: 'flex',
@@ -884,6 +1012,10 @@ export default class Presentation extends React.Component {
 					bgDarken={0.8}
 					textAlign="left"
 				>
+					<Notes>
+						The ugly: Used ideal data. Short names, ideal text to
+						determine length, and height, etc.
+					</Notes>
 					<Heading
 						caps
 						textColor="primary"
@@ -1019,11 +1151,12 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				{/* React Week */}
-				<Slide
-					bgImage={images.reactWeek}
-					bgDarken={0.2}
-					notes="So we took those lessons, got a little training, and iterated again."
-				>
+				<Slide bgImage={images.reactWeek} bgDarken={0.2}>
+					<Notes>
+						So we took those lessons, got a little training, and
+						tried again, this time, with a front-end dev on each
+						team.
+					</Notes>
 					<Heading
 						textColor="primary"
 						fit
@@ -1059,8 +1192,29 @@ export default class Presentation extends React.Component {
 					bgDarken={0.65}
 					bgColor="primary"
 					style={{ transform: 'scale(0)' }}
-					notes="It turns out our header included dropdown menus, responsive hamburger menus, modals, dynamic login detection, dynamic menu resizing on scroll, weather modules with geolocation, icon fonts, and a search bar. It was huge, required jQuery, and came with a whole host of webpack/bower/gulp build process complexity that none of us knew anything about. As we coded, our designers, and the technology, continued to innovate. We were learning (and refactoring) a lot, but the old Manhattan Hardcore Components were still in circulation, and as we completed the new header components, those were being incorporated into various websites, as well."
 				>
+					<Notes>
+						It turns out our header included
+						<ul>
+							<li>dropdown menus</li>
+							<li>responsive hamburger menus</li>
+							<li>modals</li>
+							<li>dynamic login detection</li>
+							<li>dynamic menu resizing on scroll</li>
+							<li>wather modules with geolocation</li>
+							<li>icon fonts</li>
+							<li>search bar</li>
+						</ul>
+						<p>
+							It was huge, required jQuery, and came with a whole
+							host of webpack/bower/gulp build process complexity
+							that none of us knew anything about.
+						</p>
+						We decided that instead of making one isolated package,
+						we would require each component to be included on each
+						page so that the resources could be reused without
+						bringing in duplicate versions of those components.
+					</Notes>
 					<Layout>
 						<Fill
 							style={{
@@ -1103,10 +1257,14 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				{/* Important Rabbits */}
-				<Slide
-					bgColor="faded"
-					notes="This time, we learned that when you are explicit about your css and js transitions, you end up needing a lot of !important tags."
-				>
+				<Slide bgColor="faded" notes="">
+					<Notes>
+						This time, we didn't isolate enough. Pages that only
+						needed the header had included every resource, and if we
+						decided to make a modification to the css of any of
+						those resources, we had to use !important tags. This led
+						to a LOT of !important tags.
+					</Notes>
 					<Layout style={{ display: 'inline-block' }}>
 						<Fill>
 							<Image
@@ -1139,7 +1297,7 @@ export default class Presentation extends React.Component {
 									textShadow: '1px 1px' + ' 6px #111',
 								}}
 							>
-								Component should be a complete package
+								Component should be a complete, dist package
 							</Heading>
 						</Fill>
 						<Fill>
@@ -1172,6 +1330,9 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						Making a component match the company brand specs.
+					</Notes>
 					<Heading textColor="primary" caps fit>
 						What makes a component reusable?
 					</Heading>
@@ -1204,6 +1365,13 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						<p>
+							If you are looking to compare the different
+							CSS-in-JS libraries, the css-in-js playground is a
+							fantastic resource.
+						</p>
+					</Notes>
 					<Heading textColor="primary" fit caps>
 						Want to compare libraries?
 					</Heading>
@@ -1239,6 +1407,11 @@ export default class Presentation extends React.Component {
 					bgDarken={0.7}
 					notes="This is an interesting question"
 				>
+					<Notes>
+						I asked the twitterverse for what reusable means to
+						them, and what they'd like to learn. I got some
+						interesting responses, but this one really struck me.
+					</Notes>
 					<Heading textColor="quartenary" size={3}>
 						Question:
 					</Heading>
@@ -1255,13 +1428,12 @@ export default class Presentation extends React.Component {
 					style={{ position: 'relative', height: '100%' }}
 					notes="Oh right. That's why. Posted by @mfpiccolo"
 				/>
-
+				<Notes>It made me think </Notes>
 				<Slide
 					fit
 					bgImage={images.brickBg}
 					bgDarken={0.7}
 					style={{ position: 'relative', height: '100%' }}
-					notes="<ul><li>Nearly all the css-in-js libs use a form of ThemeProvider</li><li>If you're not using a css-in-js lib, you can still use ThemeProvider</li></ul>"
 				>
 					<Heading
 						textColor="primary"
@@ -1353,6 +1525,18 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						<ul>
+							<li>
+								Nearly all the css-in-js libs use a form of
+								ThemeProvider
+							</li>
+							<li>
+								If you're not using a css-in-js lib, you can
+								still use ThemeProvider
+							</li>
+						</ul>
+					</Notes>
 					<Layout>
 						<Fill
 							style={{
@@ -1398,7 +1582,7 @@ export default class Presentation extends React.Component {
 					</Layout>
 					<Link
 						textColor="dktertiary"
-						style={{ marginTop: 80, display: 'block' }}
+						style={{ marginTop: 40, display: 'block' }}
 						href="https://github.com/jschr/theme-provider/blob/master/README.md"
 					>
 						withTheme/ThemeProvider
@@ -1441,7 +1625,7 @@ export default class Presentation extends React.Component {
 					<Notes>
 						Above all, remember that everyone you know is fighting
 						Javascript. Let's do what we can to make it a little
-						easier for everyone.
+						easier for everyone. Thank you.
 					</Notes>
 					<Layout style={{ display: 'block' }}>
 						<Fill
