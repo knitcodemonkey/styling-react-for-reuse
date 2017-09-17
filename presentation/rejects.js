@@ -380,6 +380,15 @@ export default class Presentation extends React.Component {
 						A simpler guide on how you really publish npm packages
 					</Link>
 				</Slide>
+
+				{/* One True Answer */}
+				<Slide bgColor="faded">
+					<Text>the</Text>
+					<Heading size={1} textColor="tertiary" caps>
+						one true answer
+					</Heading>
+					<Text>to all our problems is...</Text>
+				</Slide>
 			</Deck>
 		);
 	}

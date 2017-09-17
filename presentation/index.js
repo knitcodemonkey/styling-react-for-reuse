@@ -52,7 +52,7 @@ const images = {
 	globalization: require('../assets/Globalization.jpg'),
 	stylingWithoutStyling: require('../assets/stylingWithoutStyling.png'),
 	programmer: require('../assets/programmer.jpg'),
-	daenerys: require('../assets/daenerys.png'),
+	daenerys: require('../assets/daenerys-targaryen.jpg'),
 	JenniferVan: require('../assets/JenniferVan.jpg'),
 	cssInJs: require('../assets/cssInJs.jpg'),
 	playground: require('../assets/playground.png'),
@@ -73,7 +73,7 @@ const themeColors = {
 	primary: '#FAFAFA',
 	secondary: '#191919',
 	tertiary: '#981804',
-	dktertiary: '#e2777a',
+	dktertiary: 'deepskyblue',
 	quartenary: '#FAFAFA',
 	faded: '#CCCCCC',
 	background: 'linear-gradient(#F8FAFA, #D8DADA)',
@@ -104,7 +104,16 @@ const styles = {
 	standardText: {
 		fontSize: '3rem',
 		lineHeight: '3.4rem',
-		textShadow: '1px 1px' + ' 6px #000',
+		textShadow: '1px 1px' + ' 6px #111',
+	},
+	smallText: {
+		fontSize: '2rem',
+		lineHeight: '2.4rem',
+		textShadow: '1px 1px' + ' 4px #111',
+	},
+	bulletLinks: {
+		lineHeight: '1.6em',
+		marginBottom: 4,
 	},
 };
 
@@ -134,22 +143,19 @@ export default class Presentation extends React.Component {
 					<Layout style={styles.flexCol}>
 						<Fill style={styles.spacePlease}>
 							<Heading
-								size={2}
 								caps
-								fit
-								lineHeight={1}
+								size={1}
 								textColor="primary"
-								style={{ textShadow: '0px 0px' + ' 6px #000' }}
+								style={{ textShadow: '1px 1px' + ' 6px #111' }}
 							>
 								Styling React for Reuse
 							</Heading>
 							<Heading
 								margin="10px 0 0"
-								fit
 								textColor="dktertiary"
-								size={4}
+								size={3}
 								bold
-								style={{ textShadow: '0px 0px' + ' 6px #000' }}
+								style={{ textShadow: '1px 1px' + ' 6px #111' }}
 							>
 								for those that already have a product
 							</Heading>
@@ -157,7 +163,7 @@ export default class Presentation extends React.Component {
 						<Fill style={styles.spacePlease}>
 							<Link
 								textColor="dktertiary"
-								style={styles.standardText}
+								style={styles.smallText}
 								href="http://styling-react-for-reuse.surge.sh"
 							>
 								Follow along with the slides:
@@ -184,7 +190,7 @@ export default class Presentation extends React.Component {
 								style={{
 									maxWidth: '80%',
 									borderRadius: '50%',
-									boxShadow: '0px 0px' + ' 10px #333',
+									boxShadow: '0px 0px' + ' 10px #222',
 								}}
 							/>
 						</Fill>
@@ -197,8 +203,8 @@ export default class Presentation extends React.Component {
 						>
 							<Heading
 								size={1}
-								textFont="primary"
-								style={{ textShadow: '1px 1px' + ' 6px #000' }}
+								textColor="dktertiary"
+								style={{ textShadow: '1px 1px' + ' 6px #222' }}
 							>
 								Jen Luker
 							</Heading>
@@ -245,7 +251,7 @@ export default class Presentation extends React.Component {
 						<Fill>
 							<Link
 								textColor="dktertiary"
-								style={styles.standardText}
+								style={styles.smallText}
 								href="http://styling-react-for-reuse.surge.sh"
 							>
 								Follow along with the slides:
@@ -277,7 +283,7 @@ export default class Presentation extends React.Component {
 									borderRadius: '50%',
 									marginTop: -70,
 									marginRight: 20,
-									boxShadow: '0px 0px' + ' 20px #333',
+									boxShadow: '0px 0px' + ' 20px #222',
 								}}
 							/>
 						</Fill>
@@ -316,6 +322,7 @@ export default class Presentation extends React.Component {
 								fontSize: '3em',
 								marginBottom: 30,
 								fontWeight: 'bold',
+								textShadow: '1px 1px' + ' 6px #222',
 							}}
 						>
 							Accessibility
@@ -474,7 +481,7 @@ export default class Presentation extends React.Component {
 												A11y Project: Checklist
 											</Link>
 										</li>
-										<li style={{ lineHeight: '1.5em' }}>
+										<li style={{ lineHeight: '1.4em' }}>
 											<Link
 												textColor="dktertiary"
 												href="http://romeo.elsevier.com/accessibility_checklist/"
@@ -606,6 +613,7 @@ export default class Presentation extends React.Component {
 								fontSize: '3em',
 								marginBottom: 30,
 								fontWeight: 'bold',
+								textShadow: '1px 1px' + ' 6px #222',
 							}}
 						>
 							Isolated, but not too isolated
@@ -759,7 +767,7 @@ export default class Presentation extends React.Component {
 									textAlign: 'left',
 									width: '100%',
 									margin: '0px auto',
-									border: '5px solid #333',
+									border: '5px solid #222',
 									boxShadow: '0px 5px' + ' 10px #111',
 								}}
 							/>
@@ -1018,10 +1026,13 @@ export default class Presentation extends React.Component {
 				>
 					<Heading
 						textColor="primary"
-						size={1}
+						fit
+						caps
 						style={{
-							textShadow: '0px 0px 20px #000',
-							textAlign: 'right',
+							marginTop: -380,
+							marginBottom: 380,
+							padding: '5px 20px 0px 20px',
+							background: 'rgba(0, 0, 0, 0.5)',
 						}}
 					>
 						React Week
@@ -1030,28 +1041,14 @@ export default class Presentation extends React.Component {
 						<Text
 							textColor="primary"
 							style={{
-								fontSize: '1.8em',
-								textShadow: '0px 0px 20px #000',
+								fontSize: '1.0em',
+								textShadow: '1px 1px' + ' 6px #111',
 								fontWeight: 'bold',
-								marginTop: 160,
-								marginLeft: -190,
+								marginLeft: '-220px',
+								marginTop: 420,
 							}}
 						>
 							It's me!
-						</Text>
-						<Text
-							textColor="primary"
-							style={{
-								fontSize: '1.0em',
-								textShadow: '0px 0px 20px #000',
-								fontWeight: 'bold',
-								marginTop: 240,
-								marginBottom: 130,
-								marginLeft: '-15px',
-							}}
-						>
-							{' '}
-							&uarr; my coffee (very important)
 						</Text>
 					</Fill>
 				</Slide>
@@ -1122,26 +1119,53 @@ export default class Presentation extends React.Component {
 
 				<Slide bgImage={images.success} bgDarken={0.7}>
 					<Notes />
-					<Layout>
+					<Layout style={{ flexDirection: 'column' }}>
 						<Fill>
 							<Heading
-								fit
+								size={1}
 								textColor="primary"
-								style={{ paddingBottom: 20 }}
+								style={{
+									paddingBottom: 20,
+									textShadow: '1px 1px' + ' 6px #111',
+								}}
 							>
-								1. Component is a complete package
+								Isolated,
 							</Heading>
-
 							<Heading
-								fit
-								textColor="primary"
-								style={{ paddingBottom: 20 }}
+								size={3}
+								textColor="dktertiary"
+								style={{
+									paddingBottom: 20,
+									textShadow: '1px 1px' + ' 6px #111',
+								}}
 							>
-								2. Users will change look and content
+								Component should be a complete package
 							</Heading>
-
-							<Heading fit textColor="primary">
-								3. Documentation is the key to success
+						</Fill>
+						<Fill>
+							<Heading size={1}>&nbsp;</Heading>
+						</Fill>
+						<Fill>
+							<Heading
+								size={1}
+								textColor="primary"
+								style={{
+									paddingBottom: 20,
+									textShadow: '1px 1px' + ' 6px #111',
+								}}
+							>
+								but not too Isolated
+							</Heading>
+							<Heading
+								size={3}
+								textColor="dktertiary"
+								style={{
+									paddingBottom: 20,
+									textShadow: '1px 1px' + ' 6px #111',
+								}}
+							>
+								Users need to adapt your<br />
+								component to suit their needs
 							</Heading>
 						</Fill>
 					</Layout>
@@ -1171,45 +1195,12 @@ export default class Presentation extends React.Component {
 								fontSize: '3em',
 								marginBottom: 30,
 								fontWeight: 'bold',
+								textShadow: '1px 1px' + ' 6px #222',
 							}}
 						>
 							Brandable
 						</ListItem>
 					</List>
-				</Slide>
-
-				{/* One True Answer */}
-				<Slide bgColor="faded">
-					<Text>the</Text>
-					<Heading size={1} textColor="tertiary" caps>
-						one true answer
-					</Heading>
-					<Text>to all our problems is...</Text>
-				</Slide>
-
-				{/* Be Kind */}
-				<Slide notes="I know, from experience, that getting a library change and refactor prioritized is next to impossible when compared with roadmap items that are profitable in the short term. Slow, long term tech debt ROI just doesn't stand a chance next to quick, profitable wins. I’m not here to tell you what to use. I’m here to share how you can use the tools you already have.
-
-I would also like to say that when choosing a technology, the best answer is usually to go with what your team members already know and with what your team members are most comfortable.">
-					<Layout style={{ display: 'block' }}>
-						<Fill
-							style={{
-								width: '100%',
-								height: '100%',
-								position: 'relative',
-							}}
-						>
-							<Image
-								src={images.beKind}
-								style={{
-									maxWidth: 1768,
-									maxHeight: 852,
-									width: 'auto',
-									margin: '0 auto',
-								}}
-							/>
-						</Fill>
-					</Layout>
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
@@ -1230,7 +1221,7 @@ I would also like to say that when choosing a technology, the best answer is usu
 							style={{ color: themeColors.dktertiary }}
 							href="https://css-in-js-playground.com"
 						>
-							CSS-in-JS Playground
+							css-in-js-playground.com
 						</a>{' '}
 						by{' '}
 						<a
@@ -1272,10 +1263,15 @@ I would also like to say that when choosing a technology, the best answer is usu
 					style={{ position: 'relative', height: '100%' }}
 					notes="<ul><li>Nearly all the css-in-js libs use a form of ThemeProvider</li><li>If you're not using a css-in-js lib, you can still use ThemeProvider</li></ul>"
 				>
-					<Heading textColor="primary" fit caps>
-						It doesn't matter!
+					<Heading
+						textColor="primary"
+						fit
+						caps
+						style={{ paddingBottom: 2 }}
+					>
+						It doesn't matter
 					</Heading>
-					<Heading textColor="primary" fit caps>
+					<Heading textColor="dktertiary" fit caps>
 						The styles inside and outside are mutually exclusive
 					</Heading>
 				</Slide>
@@ -1411,12 +1407,61 @@ I would also like to say that when choosing a technology, the best answer is usu
 
 				{/* branding recap slide */}
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
-					<Heading>Branding recap slide placeholder</Heading>
+					<Heading
+						size={1}
+						textColor="primary"
+						style={{
+							marginBottom: 40,
+							textShadow: '1px 1px' + ' 6px #222',
+						}}
+					>
+						Documentation is Important
+					</Heading>
+					<hr />
+					<Layout style={{ flexDirection: 'row' }}>
+						<Heading
+							size={3}
+							textColor="dktertiary"
+							style={{ textShadow: '1px 1px' + ' 6px #222' }}
+						>
+							Example file
+						</Heading>
+						<Heading
+							size={3}
+							textColor="dktertiary"
+							style={{ textShadow: '1px 1px' + ' 6px #222' }}
+						>
+							Readme.md
+						</Heading>
+					</Layout>
 				</Slide>
 
-				{/* Final thank you slide */}
-				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
-					<Heading>Final Slide placeholder</Heading>
+				{/* Be Kind */}
+				<Slide notes="">
+					<Notes>
+						Above all, remember that everyone you know is fighting
+						Javascript. Let's do what we can to make it a little
+						easier for everyone.
+					</Notes>
+					<Layout style={{ display: 'block' }}>
+						<Fill
+							style={{
+								width: '100%',
+								height: '100%',
+								position: 'relative',
+							}}
+						>
+							<Image
+								src={images.beKind}
+								style={{
+									maxWidth: 1768,
+									maxHeight: 852,
+									width: 'auto',
+									margin: '0 auto',
+								}}
+							/>
+						</Fill>
+					</Layout>
 				</Slide>
 			</Deck>
 		);
