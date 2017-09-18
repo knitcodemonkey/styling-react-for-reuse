@@ -65,6 +65,7 @@ const images = {
 	success: require('../assets/backgrounds/success.jpg'),
 	discoverableComponents: require('../assets/discoverableComponents.png'),
 	JenDevDesk: require('../assets/JenDevDesk.png'),
+	DamianConway: require('../assets/DamianConway.png'),
 };
 
 preloader(images);
@@ -114,6 +115,11 @@ const styles = {
 	bulletLinks: {
 		lineHeight: '1.6em',
 		marginBottom: 4,
+	},
+	accessibilityLinks: {
+		fontSize: '1.2em',
+		lineHeight: '1.2em',
+		padding: '12px 0px',
 	},
 };
 
@@ -297,7 +303,7 @@ export default class Presentation extends React.Component {
 							}}
 						>
 							<BlockQuote>
-								<Quote style={{ marginBottom: 80 }}>
+								<Quote>
 									We learn from failure much more than from
 									success; we often discover what we will do
 									by finding out what we will not do; and
@@ -537,7 +543,7 @@ export default class Presentation extends React.Component {
 										Best Practices & Resources
 									</Text>
 									<ul>
-										<li style={{ lineHeight: '1.6em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="http://a11yproject.com/checklist.html"
@@ -545,7 +551,7 @@ export default class Presentation extends React.Component {
 												A11y Project: Checklist
 											</Link>
 										</li>
-										<li style={{ lineHeight: '1.4em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="http://romeo.elsevier.com/accessibility_checklist/"
@@ -555,7 +561,7 @@ export default class Presentation extends React.Component {
 											</Link>
 										</li>
 
-										<li style={{ lineHeight: '1.6em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="https://www.webaccessibility.com/best_practices.php"
@@ -564,7 +570,7 @@ export default class Presentation extends React.Component {
 												Practices
 											</Link>
 										</li>
-										<li style={{ lineHeight: '1.6em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="https://www.usability.gov/what-and-why/accessibility.html"
@@ -573,7 +579,7 @@ export default class Presentation extends React.Component {
 												Basics
 											</Link>
 										</li>
-										<li style={{ lineHeight: '1.6em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="https://www.microsoft.com/en-us/design/inclusive"
@@ -597,7 +603,7 @@ export default class Presentation extends React.Component {
 										Platform & Automated Testing
 									</Text>
 									<ul>
-										<li style={{ lineHeight: '1.6em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="https://github.com/dequelabs"
@@ -605,7 +611,7 @@ export default class Presentation extends React.Component {
 												Deque Labs Github:
 											</Link>
 										</li>
-										<li style={{ lineHeight: '1.6em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="https://www.deque.com/products/axe/"
@@ -614,7 +620,7 @@ export default class Presentation extends React.Component {
 												Firefox extensions
 											</Link>
 										</li>
-										<li style={{ lineHeight: '1.6em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="https://www.boia.org/products/a11y-tool/"
@@ -634,7 +640,7 @@ export default class Presentation extends React.Component {
 										Capability Loss Simulation Tools
 									</Text>
 									<ul>
-										<li style={{ lineHeight: '1.6em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="http://www.inclusivedesigntoolkit.com/"
@@ -643,7 +649,7 @@ export default class Presentation extends React.Component {
 												Inclusive Design Toolkit
 											</Link>
 										</li>
-										<li style={{ lineHeight: '1.6em' }}>
+										<li style={styles.accessibilityLinks}>
 											<Link
 												textColor="dktertiary"
 												href="https://www.toptal.com/designers/colorfilter"
@@ -794,19 +800,20 @@ export default class Presentation extends React.Component {
 					</Text>
 				</Slide>
 
-				<Slide bgImage={images.mhpNuke} notes="" />
-				<Notes>
-					<p>
-						We named our new component-building team the MANHATTAN
-						HARDCORE PROJECT (because we were going to make Atomic
-						Components, hehe).
-					</p>
-					<p>
-						As soon as we started coding, the lessons started piling
-						in. Clearly, failure was going to be our path to
-						success.
-					</p>
-				</Notes>
+				<Slide bgImage={images.mhpNuke}>
+					<Notes>
+						<p>
+							We named our new component-building team the
+							MANHATTAN HARDCORE PROJECT (because we were going to
+							make Atomic Components, hehe).
+						</p>
+						<p>
+							As soon as we started coding, the lessons started
+							piling in. Clearly, failure was going to be our path
+							to success.
+						</p>
+					</Notes>
+				</Slide>
 
 				{/* The Good: Living style guide */}
 				<Slide
@@ -1297,7 +1304,8 @@ export default class Presentation extends React.Component {
 									textShadow: '1px 1px' + ' 6px #111',
 								}}
 							>
-								Component should be a complete, dist package
+								Component should be a<br />
+								complete, dist package
 							</Heading>
 						</Fill>
 						<Fill>
@@ -1427,8 +1435,10 @@ export default class Presentation extends React.Component {
 					bgDarken={0.0}
 					style={{ position: 'relative', height: '100%' }}
 					notes="Oh right. That's why. Posted by @mfpiccolo"
-				/>
-				<Notes>It made me think </Notes>
+				>
+					<Notes>It made me think </Notes>
+				</Slide>
+
 				<Slide
 					fit
 					bgImage={images.brickBg}
@@ -1465,16 +1475,15 @@ export default class Presentation extends React.Component {
 						caps
 						style={{ paddingBottom: 40 }}
 					>
-						Composables
+						Style Prop
 					</Heading>
-
 					<Heading
 						textColor="primary"
 						size={1}
 						caps
 						style={{ paddingBottom: 40 }}
 					>
-						Extends
+						Composables
 					</Heading>
 
 					<Heading
@@ -1589,39 +1598,79 @@ export default class Presentation extends React.Component {
 					</Link>
 				</Slide>
 
-				{/* branding recap slide */}
-				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
-					<Heading
-						size={1}
-						textColor="primary"
-						style={{
-							marginBottom: 40,
-							textShadow: '1px 1px' + ' 6px #222',
-						}}
-					>
-						Documentation is Important
-					</Heading>
-					<hr />
-					<Layout style={{ flexDirection: 'row' }}>
-						<Heading
-							size={3}
-							textColor="dktertiary"
-							style={{ textShadow: '1px 1px' + ' 6px #222' }}
+				<Slide bgImage={images.mistakesBlurred} bgDarken={0.65}>
+					<Notes>
+						<p>
+							Damian Conway said, "Documentation is a love letter
+							you write to your future self."
+						</p>
+						<p>
+							It's also a love letter you write to your users. If
+							you don't tell your users how to use your component,
+							they'll think it's bad.
+						</p>
+					</Notes>
+					<Layout style={{ marginTop: -80 }}>
+						<Fill
+							style={{
+								flex: '1 1 38%',
+								display: 'flex',
+								alignItems: 'center',
+							}}
 						>
-							Example file
-						</Heading>
-						<Heading
-							size={3}
-							textColor="dktertiary"
-							style={{ textShadow: '1px 1px' + ' 6px #222' }}
+							<Image
+								src={images.DamianConway}
+								style={{
+									width: 500,
+									height: 500,
+									borderRadius: '50%',
+									marginTop: -70,
+									marginRight: 20,
+									boxShadow: '0px 0px' + ' 20px #222',
+								}}
+							/>
+						</Fill>
+						<Fill
+							style={{
+								flex: '1 1 62%',
+								display: 'flex',
+								alignItems: 'center',
+							}}
 						>
-							Readme.md
-						</Heading>
+							<BlockQuote>
+								<Quote>
+									Documentation is a love letter you write to
+									your future self.
+								</Quote>
+								<Cite textColor="dktertiary">
+									Damian Conway
+								</Cite>
+							</BlockQuote>
+						</Fill>
+					</Layout>
+				</Slide>
+
+				<Slide>
+					<Layout>
+						<Fill>
+							<Heading>
+								Accept a prop for style composition/theming
+							</Heading>
+						</Fill>
+						<Fill>
+							<Heading>Document!</Heading>
+						</Fill>
+						<Fill>
+							<Heading>
+								Global styles for website, component styles for
+								components
+							</Heading>
+						</Fill>
 					</Layout>
 				</Slide>
 
 				{/* Be Kind */}
-				<Slide notes="">
+				<Slide>
 					<Notes>
 						Above all, remember that everyone you know is fighting
 						Javascript. Let's do what we can to make it a little
