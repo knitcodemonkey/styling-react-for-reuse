@@ -163,7 +163,7 @@ export default class Presentation extends React.Component {
 								bold
 								style={{ textShadow: '1px 1px' + ' 6px #111' }}
 							>
-								for those that already have a product
+								exploring reusability
 							</Heading>
 						</Fill>
 						<Fill style={styles.spacePlease}>
@@ -174,6 +174,15 @@ export default class Presentation extends React.Component {
 							>
 								Follow along with the slides:
 								http://styling-react-for-reuse.surge.sh
+							</Link>
+							<br />
+							<Link
+								textColor="dktertiary"
+								style={styles.smallText}
+								href="http://styling-react-for-reuse.surge.sh"
+							>
+								Video is available on YouTube:
+								https://youtu.be/1H8TO1fVuLY
 							</Link>
 						</Fill>
 					</Layout>
@@ -262,6 +271,15 @@ export default class Presentation extends React.Component {
 							>
 								Follow along with the slides:
 								http://styling-react-for-reuse.surge.sh
+							</Link>
+							<br />
+							<Link
+								textColor="dktertiary"
+								style={styles.smallText}
+								href="http://styling-react-for-reuse.surge.sh"
+							>
+								Video is available on YouTube:
+								https://youtu.be/1H8TO1fVuLY
 							</Link>
 						</Fill>
 					</Layout>
@@ -1650,22 +1668,18 @@ export default class Presentation extends React.Component {
 					</Layout>
 				</Slide>
 
-				<Slide>
-					<Layout>
-						<Fill>
-							<Heading>
-								Accept a prop for style composition/theming
-							</Heading>
-						</Fill>
-						<Fill>
-							<Heading>Document!</Heading>
-						</Fill>
-						<Fill>
-							<Heading>
-								Global styles for website, component styles for
-								components
-							</Heading>
-						</Fill>
+				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Layout style={{ flexDirection: 'column' }}>
+						<Heading fit textColor="primary">
+							Accept a prop for <br />styles/composition/theming
+						</Heading>
+						<hr style={{ margin: '40px 0' }} />
+						<Heading textColor="primary">Document!</Heading>
+						<hr style={{ margin: '40px 0' }} />
+						<Heading fit textColor="primary">
+							Global styles for website, <br />component styles
+							for components
+						</Heading>
 					</Layout>
 				</Slide>
 
