@@ -1,5 +1,6 @@
 // Import React
 import React from 'react';
+import {AboutMe, Formidable } from './aboutme'
 
 // Import Spectacle Core tags
 import {
@@ -189,102 +190,9 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				{/* Jen Luker Intro */}
-				<Slide
-					bgColor="faded"
-					bgImage={images.JenDevDesk}
-					bgDarken={0.7}
-				>
-					<Notes>
-						Software engineer, professionally, for over 10 years
-					</Notes>
-					<Layout>
-						<Fill>
-							<Image
-								margin="0"
-								src={images.me}
-								style={{
-									maxWidth: '80%',
-									borderRadius: '50%',
-									boxShadow: '0px 0px' + ' 10px #222',
-								}}
-							/>
-						</Fill>
-						<Fill
-							style={{
-								display: 'flex',
-								justifyContent: 'center',
-								flexDirection: 'column',
-							}}
-						>
-							<Heading
-								size={1}
-								textColor="dktertiary"
-								style={{ textShadow: '1px 1px' + ' 6px #222' }}
-							>
-								Jen Luker
-							</Heading>
-							<hr textFont="secondary" />
-							<Text
-								style={styles.standardText}
-								textColor="primary"
-							>
-								Team Lead Software Engineer
-							</Text>
-							<Text
-								style={styles.standardText}
-								textColor="primary"
-							>
-								with Deseret Digital Media
-							</Text>
-							<hr textFont="primary" />
-							<Link
-								textColor="dktertiary"
-								href="http://jenluker.com"
-							>
-								<Text
-									textColor="dktertiary"
-									style={styles.standardText}
-								>
-									http://jenluker.com
-								</Text>
-							</Link>
-							<Text
-								style={styles.standardText}
-								textColor="primary"
-							>
-								Github: @knittingcodemonkey
-							</Text>
-							<Text
-								style={styles.standardText}
-								textColor="primary"
-							>
-								Twitter: @knitcodemonkey
-							</Text>
-						</Fill>
-					</Layout>
-					<Layout style={styles.spacePlease}>
-						<Fill>
-							<Link
-								textColor="dktertiary"
-								style={styles.smallText}
-								href="http://styling-react-for-reuse.surge.sh"
-							>
-								Follow along with the slides:
-								http://styling-react-for-reuse.surge.sh
-							</Link>
-							<br />
-							<Link
-								textColor="dktertiary"
-								style={styles.smallText}
-								href="http://styling-react-for-reuse.surge.sh"
-							>
-								Video is available on YouTube:
-								https://youtu.be/1H8TO1fVuLY
-							</Link>
-						</Fill>
-					</Layout>
-				</Slide>
-
+				<AboutMe />
+				<Formidable />
+				
 				{/* Learn from Failure */}
 				<Slide bgImage={images.mistakesBlurred} bgDarken={0.65}>
 					<Notes>
