@@ -22,34 +22,33 @@ import {
 import createTheme from "spectacle/lib/themes/default";
 
 // Import image preloader util
-import preloader from 'spectacle/lib/utils/preloader';
+import preloader from "spectacle/lib/utils/preloader";
+import styles from "../styles";
 const images = {
-  me: require('../../assets/aboutme/JenLuker.jpg'),
-  JenDevDesk: require('../../assets/aboutme/JensDesk.jpg'),
-}
+  me: require("../../assets/aboutme/JenLuker.jpg"),
+  JenDevDesk: require("../../assets/aboutme/JensDesk.jpg")
+};
 preloader(images);
 
 // Require CSS
 require("normalize.css");
-import styles from '../styles';
 const meStyles = {
-  ...styles, 
+  ...styles,
   myFace: {
-    maxWidth: '80%',
-    borderRadius: '50%',
-    boxShadow: '0px 0px' + ' 10px #222',
-  },
+    maxWidth: "80%",
+    borderRadius: "50%",
+    boxShadow: "0px 0px" + " 10px #222"
+  }
 };
 
 export default class AboutMe extends React.Component {
   render() {
     return (
 				<Slide
-        bgColor="faded"
-        bgImage={images.JenDevDesk}
-        bgDarken={0.7}
-        
-      >
+  bgColor="faded"
+  bgImage={images.JenDevDesk}
+  bgDarken={0.7}
+				>
         <Notes>
           Software engineer, professionally, for over 10 years
         </Notes>
@@ -63,29 +62,29 @@ export default class AboutMe extends React.Component {
           </Fill>
           <Fill
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              flexDirection: 'column',
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column"
             }}
           >
             <Heading
               size={2}
               textColor="dktertiary"
-              style={{ textShadow: '1px 1px' + ' 6px #222' }}
+              style={{ textShadow: "1px 1px" + " 6px #222" }}
             >
               Jen Luker
             </Heading>
 
-            <hr textfont="secondary" style={{width: '100%'}}/>
-            
+            <hr textfont="secondary" style={{ width: "100%" }}/>
+
             <Text
-              style={[meStyles.standardText, {fontSize: '2.9rem'}]}
+              style={[meStyles.standardText, { fontSize: "2.9rem" }]}
               textColor="primary"
             >
               Lead Software Engineer
             </Text>
-            
-            <hr textfont="secondary" style={{width: '100%'}} />
+
+            <hr textfont="secondary" style={{ width: "100%" }} />
 
             <Link
               textColor="dktertiary"
@@ -111,22 +110,22 @@ export default class AboutMe extends React.Component {
 
         <Layout style={styles.spacePlease}>
           <Fill style={{
-              display: 'flex',
-              justifyContent: 'center',
-              flexDirection: 'row',
-              alignItems: 'center'
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "row",
+            alignItems: "center"
 
-            }}
+          }}
           >
             <Text
               textColor="primary"
-              style={[styles.smallText, {padding: 0}]}
+              style={[styles.smallText, { padding: 0 }]}
             >Follow along with the slides:</Text>
             <Link
               textColor="dktertiary"
-              style={styles.smallText}
+              style={[styles.smallText, { textDecoration: "underline" }]}
               href="http://a11y-sprint-filler.surge.sh"
-            >http://a11y-sprint-filler.surge.sh</Link>
+            >http://styling-react-for-reuse.surge.sh</Link>
             {/* <br />
             <Link
               textColor="dktertiary"

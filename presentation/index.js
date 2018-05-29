@@ -1,6 +1,7 @@
 // Import React
 import React from 'react';
-import {AboutMe, Formidable } from './aboutme'
+import {AboutMe, Formidable } from './aboutme';
+import { Why, WhyBusiness1, WhyBusiness2, WhyBusiness3, A11yResources } from './aboutA11y'
 
 // Import Spectacle Core tags
 import {
@@ -66,7 +67,7 @@ const images = {
 	success: require('../assets/backgrounds/success.jpg'),
 	discoverableComponents: require('../assets/discoverableComponents.png'),
 	JenDevDesk: require('../assets/JenDevDesk.png'),
-	DamianConway: require('../assets/DamianConway.png'),
+	DamianConway: require('../assets/DamianConway.jpeg'),
 };
 
 preloader(images);
@@ -131,8 +132,7 @@ export default class Presentation extends React.Component {
 				transition={['fade']}
 				transitionDuration={100}
 				theme={theme}
-				contentWidth="1768"
-				contentHeight="932"
+
 			>
 				{/* <Deck transition={["fade"]} transitionDuration={100} theme={theme}> */}
 
@@ -151,7 +151,7 @@ export default class Presentation extends React.Component {
 						<Fill style={styles.spacePlease}>
 							<Heading
 								caps
-								size={1}
+								size={2}
 								textColor="primary"
 								style={{ textShadow: '1px 1px' + ' 6px #111' }}
 							>
@@ -167,82 +167,41 @@ export default class Presentation extends React.Component {
 								exploring reusability
 							</Heading>
 						</Fill>
-						<Fill style={styles.spacePlease}>
-							<Link
-								textColor="dktertiary"
-								style={styles.smallText}
-								href="http://styling-react-for-reuse.surge.sh"
-							>
-								Follow along with the slides:
-								http://styling-react-for-reuse.surge.sh
-							</Link>
-							<br />
-							<Link
-								textColor="dktertiary"
-								style={styles.smallText}
-								href="http://styling-react-for-reuse.surge.sh"
-							>
-								Video is available on YouTube:
-								https://youtu.be/1H8TO1fVuLY
-							</Link>
-						</Fill>
+						<Layout style={styles.spacePlease}>
+          <Fill style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "row",
+            alignItems: "center"
+
+          }}
+          >
+            <Text
+              textColor="primary"
+              style={[styles.smallText, { padding: 0 }]}
+            >Follow along with the slides:</Text>
+            <Link
+              textColor="dktertiary"
+              style={[styles.smallText, { textDecoration: "underline" }]}
+              href="http://a11y-sprint-filler.surge.sh"
+            >http://styling-react-for-reuse.surge.sh</Link>
+            {/* <br />
+            <Link
+              textColor="dktertiary"
+              style={styles.smallText}
+              href="https://youtu.be/1H8TO1fVuLY"
+            >
+              Video is available on YouTube:
+              https://youtu.be/1H8TO1fVuLY
+            </Link> */}
+          </Fill>
+        </Layout>
 					</Layout>
 				</Slide>
 
 				{/* Jen Luker Intro */}
 				<AboutMe />
 				<Formidable />
-				
-				{/* Learn from Failure */}
-				<Slide bgImage={images.mistakesBlurred} bgDarken={0.65}>
-					<Notes>
-						Say Quote: 'We learn from failure much more than from
-						success; we often discover what we will do by finding
-						out what we will not do; and probably he who never made
-						a mistake never made a discovery.'
-					</Notes>
-					<Layout style={{ marginTop: -80 }}>
-						<Fill
-							style={{
-								flex: '1 1 25%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								src={images.samuelSmiles}
-								style={{
-									width: 500,
-									height: 500,
-									borderRadius: '50%',
-									marginTop: -70,
-									marginRight: 20,
-									boxShadow: '0px 0px' + ' 20px #222',
-								}}
-							/>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 75%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<BlockQuote>
-								<Quote>
-									We learn from failure much more than from
-									success; we often discover what we will do
-									by finding out what we will not do; and
-									probably he who never made a mistake never
-									made a discovery.
-								</Quote>
-								<Cite textColor="dktertiary">
-									Samuel Smiles
-								</Cite>
-							</BlockQuote>
-						</Fill>
-					</Layout>
-				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
@@ -260,7 +219,7 @@ export default class Presentation extends React.Component {
 						<ListItem
 							textColor="dktertiary"
 							style={{
-								fontSize: '3em',
+								fontSize: '2.4em',
 								marginBottom: 30,
 								fontWeight: 'bold',
 								textShadow: '1px 1px' + ' 6px #222',
@@ -270,13 +229,13 @@ export default class Presentation extends React.Component {
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '2.0em', marginBottom: 30 }}
 						>
 							Isolated, but not too isolated
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '2.0em', marginBottom: 30 }}
 						>
 							Brandable
 						</ListItem>
@@ -342,254 +301,12 @@ export default class Presentation extends React.Component {
 					</Link>
 				</Slide>
 
-				<Slide bgImage={images.wheelchair} bgDarken={0.7}>
-					<Notes>
-						<p>
-							Imagine for a moment that subtitles, zooming, large
-							buttons, color contrast and keyboard shortcuts
-							didn't exist. Could you have interacted with that
-							technology?
-						</p>
-						<p>
-							When we think of Accessibility features, we focus
-							too much on those whose experiences are permanent.
-							Though it is important to remember them, they aren't
-							the only ones who need those features.
-						</p>
-					</Notes>
-					<Layout style={{ marginTop: -120 }}>
-						<Fill
-							style={{
-								flex: '1 1 25%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								src={images.JenniferVan}
-								style={{
-									width: 400,
-									height: 400,
-									borderRadius: '50%',
-									marginTop: -70,
-									marginRight: 20,
-									boxShadow: '0px 0px' + ' 20px #444',
-								}}
-							/>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 75%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<BlockQuote>
-								<Quote>
-									I would say like 90% of your day is dictated
-									by technology, and if you, as a person, are
-									not <br />included in that technology,
-									what's the point if your<br /> app is fast?
-								</Quote>
-								<Cite textColor="dktertiary">
-									Jennifer Van, React Rally 2017
-								</Cite>
-							</BlockQuote>
-						</Fill>
-					</Layout>
-				</Slide>
+				<Why />
+				<WhyBusiness1 />
+				<WhyBusiness2 />
+				<WhyBusiness3 />
+				<A11yResources />
 
-				<Slide bgColor="secondary">
-					<Layout style={{ display: 'block', marginBottom: 20 }}>
-						<Fill>
-							<CodePane
-								lang="html"
-								source={require('raw-loader!../assets/code/accessibility.example')}
-								margin="0px auto"
-								textSize="1.4em"
-							/>
-						</Fill>
-					</Layout>
-					<Link
-						textColor="tertiary"
-						href="https://codepen.io/knittingcodemonkey/pen/yomQBr"
-					>
-						Let's look at what we have to do to make a div
-						accessible
-					</Link>
-				</Slide>
-
-				<Slide bgImage={images.wheelchair} bgDarken={0.7}>
-					<Image
-						src={images.firstRuleOfAria}
-						style={{ maxHeight: 852 }}
-					/>
-				</Slide>
-
-				{/* Accessibility links */}
-				<Slide
-					bgImage={images.wheelchair}
-					bgDarken={0.85}
-					textColor="primary"
-				>
-					<Notes>
-						<ul>
-							<li>
-								Make sure to bring up the a11y project checklist
-								and show how it'd make things easier.
-							</li>
-							<li>
-								talk about deque labs axe chrome and firefox
-								plugins for testing existing sites.
-							</li>
-							<li>
-								explain deque labs has a bunch of other cool
-								resources, including ios and android
-								implementations on their github page
-							</li>
-						</ul>
-					</Notes>
-					<Heading
-						fit
-						caps
-						textColor="primary"
-						style={{ textAlign: 'center' }}
-					>
-						Accessibility Tools, Testing, and Integrations
-					</Heading>
-					<hr />
-					<Layout>
-						<Fill style={{ textAlign: 'left', marginRight: 10 }}>
-							<ul style={{ listStyleType: 'none' }}>
-								<li style={[styles.li, { marginTop: 0 }]}>
-									<Text
-										textColor="primary"
-										style={styles.liLargeText}
-									>
-										Best Practices & Resources
-									</Text>
-									<ul>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="http://a11yproject.com/checklist.html"
-											>
-												A11y Project: Checklist
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="http://romeo.elsevier.com/accessibility_checklist/"
-											>
-												Elsevier: Web Content
-												Accessibility Guidelines 2.0
-											</Link>
-										</li>
-
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.webaccessibility.com/best_practices.php"
-											>
-												WEB Accessibility: Best
-												Practices
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.usability.gov/what-and-why/accessibility.html"
-											>
-												Usability.gov: Accessibility
-												Basics
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.microsoft.com/en-us/design/inclusive"
-											>
-												Inclusive Design at Microsoft
-												Toolkit: Downloadable PDFs,
-												Videos
-											</Link>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</Fill>
-						<Fill style={{ textAlign: 'left', marginLeft: 10 }}>
-							<ul style={{ listStyleType: 'none' }}>
-								<li style={[styles.li, { marginTop: 0 }]}>
-									<Text
-										textColor="primary"
-										style={styles.liLargeText}
-									>
-										Platform & Automated Testing
-									</Text>
-									<ul>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://github.com/dequelabs"
-											>
-												Deque Labs Github:
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.deque.com/products/axe/"
-											>
-												Deque Labs aXe Chrome and
-												Firefox extensions
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.boia.org/products/a11y-tool/"
-											>
-												Bureau of Internet
-												Accessibility: A11y Testing
-												Platform
-											</Link>
-										</li>
-									</ul>
-								</li>
-								<li style={[styles.li, { marginTop: 30 }]}>
-									<Text
-										textColor="primary"
-										style={styles.liLargeText}
-									>
-										Capability Loss Simulation Tools
-									</Text>
-									<ul>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="http://www.inclusivedesigntoolkit.com/"
-											>
-												University of Cambridge:
-												Inclusive Design Toolkit
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.toptal.com/designers/colorfilter"
-											>
-												Toptal: Colorblind Web Page
-												Filter
-											</Link>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</Fill>
-					</Layout>
-				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
