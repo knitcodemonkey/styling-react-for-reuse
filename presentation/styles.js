@@ -2,10 +2,10 @@
 const Styles = {
   li: {
     margin: "40px 0 0 0",
-    lineHeight: "2em"
+    lineHeight: "1.0rem"
   },
   liLargeText: {
-    fontSize: "1.5em",
+    fontSize: "1.8rem",
     fontWeight: "bold"
   },
   flexCol: {
@@ -45,8 +45,8 @@ const Styles = {
     marginBottom: 4
   },
   accessibilityLinks: {
-    fontSize: "1.2em",
-    lineHeight: "1.2em",
+    fontSize: "1.4rem",
+    lineHeight: "1.6rem",
     padding: "12px 0px"
   }
 };

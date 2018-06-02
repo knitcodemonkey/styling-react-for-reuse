@@ -20,7 +20,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
-    loaders: [{
+    rules: [{
       test: /\.md$/,
       loader: "html-loader!markdown-loader?gfm=false"
     }, {

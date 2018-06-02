@@ -1,14 +1,14 @@
 // Import React
 import React from 'react';
 import {AboutMe, Formidable } from './aboutme';
-import { Why, WhyBusiness1, WhyBusiness2, WhyBusiness3, A11yResources } from './aboutA11y'
-
+import { A11yIntro, Why, WhyBusiness1, WhyBusiness2, WhyBusiness3, A11yResources } from './aboutA11y'
 // Import Spectacle Core tags
 import {
 	Appear,
 	BlockQuote,
 	Cite,
 	CodePane,
+	ComponentPlayground,
 	Deck,
 	Heading,
 	Image,
@@ -31,7 +31,7 @@ import createTheme from 'spectacle/lib/themes/default';
 
 // Require CSS
 require('normalize.css');
-require('spectacle/lib/themes/default/monokai.codemirror.css');
+require('spectacle/lib/themes/default');
 
 const images = {
 	me: require('../assets/KnittingCodeMonkey.jpg'),
@@ -66,7 +66,7 @@ const images = {
 	mistakesBlurred: require('../assets/backgrounds/mistakesBlurred.png'),
 	success: require('../assets/backgrounds/success.jpg'),
 	discoverableComponents: require('../assets/discoverableComponents.png'),
-	JenDevDesk: require('../assets/JenDevDesk.png'),
+	JenDevDesk: require('../assets/aboutme/JensDesk.jpg'),
 	DamianConway: require('../assets/DamianConway.jpeg'),
 };
 
@@ -140,7 +140,7 @@ export default class Presentation extends React.Component {
 				<Slide
 					bgColor="faded"
 					bgImage={images.JenDevDesk}
-					bgDarken={0.7}
+					bgDarken={0.8}
 				>
 					<Notes>
 						As speakers, we do our best, but sometimes slides are
@@ -242,76 +242,17 @@ export default class Presentation extends React.Component {
 					</List>
 				</Slide>
 
-				{/* Accessibility Summary Slide */}
-				<Slide
-					bgColor="#000000"
-					style={{ width: '100%', position: 'relative' }}
-				>
-					<Notes>
-						How many of you have had one of these experiences?
-						<ul>
-							<li>
-								repetetive stress injuries: tennis elbow or
-								carpel tunnel
-							</li>
-							<li>had your eyes dilated</li>
-							<li>tried to type while holding a baby</li>
-							<li>watched a video, in a loud room</li>
-							<li>
-								watched a film in a language you didn't know
-							</li>
-							<li>
-								mouse batteries died, and too lazy to use laptop
-								mouse?
-							</li>
-							<li>
-								had a computer read game text to a child too
-								young, or inexperienced to read
-							</li>
-						</ul>
-						How many of you interacted with your phone, watched tv,
-						or otherwise interacted with technology during those
-						experiences?
-					</Notes>
-					<Heading
-						textColor="quartenary"
-						style={{
-							marginBottom: -100,
-							zIndex: 10,
-							position: 'relative',
-						}}
-					>
-						Accessibility
-					</Heading>
-					<Image
-						src={images.accessibilityGif}
-						style={{
-							width: '100%',
-							marginBottom: -100,
-							zIndex: 0,
-							position: 'relative',
-						}}
-					/>
-					<Link
-						textColor="dktertiary"
-						style={{ zIndex: 10, position: 'relative' }}
-						href="https://www.microsoft.com/en-us/design/inclusive"
-					>
-						Image Credit: Inclusive Design at Microsoft
-					</Link>
-				</Slide>
-
+				{/* A11y Slides */}
+				<A11yIntro />
 				<Why />
 				<WhyBusiness1 />
 				<WhyBusiness2 />
 				<WhyBusiness3 />
 				<A11yResources />
 
-
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
-						Isolated, but not too isolated? I want to share a story
-						that explains what I mean.
+						Isolated but not too isolated
 					</Notes>
 					<Heading textColor="primary" caps fit>
 						What makes a component reusable?
@@ -320,14 +261,14 @@ export default class Presentation extends React.Component {
 					<List style={{ textAlign: 'left' }}>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '2.0em', marginBottom: 30 }}
 						>
 							Accessibility
 						</ListItem>
 						<ListItem
 							textColor="dktertiary"
 							style={{
-								fontSize: '3em',
+								fontSize: '2.4em',
 								marginBottom: 30,
 								fontWeight: 'bold',
 								textShadow: '1px 1px' + ' 6px #222',
@@ -337,12 +278,13 @@ export default class Presentation extends React.Component {
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '2.0em', marginBottom: 30 }}
 						>
 							Brandable
 						</ListItem>
 					</List>
 				</Slide>
+
 
 				{/* Grouce Github Image */}
 				<Slide bgColor="secondary" notes="">
@@ -398,9 +340,10 @@ export default class Presentation extends React.Component {
 							<Image
 								src={images.github1}
 								style={{
-									height: 780,
+									height: 'auto',
+									width: '100%',
 									position: 'absolute',
-									top: -40,
+									top: 100,
 									left: 0,
 									margin: 0,
 									zIndex: 1,
@@ -410,9 +353,10 @@ export default class Presentation extends React.Component {
 								<Image
 									src={images.github2}
 									style={{
-										height: 780,
+										height: 'auto',
+										width: '100%',
 										position: 'absolute',
-										top: -40,
+										top: 100,
 										left: 0,
 										margin: 0,
 										zIndex: 2,
@@ -423,9 +367,10 @@ export default class Presentation extends React.Component {
 								<Image
 									src={images.github3}
 									style={{
-										height: 780,
+										height: 'auto',
+									width: '100%',
 										position: 'absolute',
-										top: -40,
+										top: 100,
 										left: 0,
 										margin: 0,
 										zIndex: 3,
@@ -443,6 +388,7 @@ export default class Presentation extends React.Component {
 					</Text>
 				</Slide>
 
+
 				<Slide bgImage={images.mhpNuke}>
 					<Notes>
 						<p>
@@ -458,348 +404,6 @@ export default class Presentation extends React.Component {
 					</Notes>
 				</Slide>
 
-				{/* The Good: Living style guide */}
-				<Slide
-					bgImage={images.success}
-					bgDarken={0.6}
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						justifyContent: 'space-between',
-						height: '100%',
-					}}
-				>
-					<Notes>
-						We had some successes, like our shiny new living style
-						guide that dynamically updates itself based on changes
-						made to the git repo.
-					</Notes>
-					<Heading
-						caps
-						textColor="primary"
-						size={2}
-						style={{ textAlign: 'center', marginBottom: 40 }}
-					>
-						The Good
-					</Heading>
-					<hr />
-					<Layout
-						style={{
-							display: 'flex',
-							flexDirection: 'row',
-							justifyContent: 'space-around',
-							width: '100%',
-							position: 'relative',
-							marginTop: 40,
-						}}
-					>
-						<Fill style={{ flex: '1 0 47%', width: '47%' }}>
-							<Image
-								src={images.livingStyleGuide}
-								style={{
-									textAlign: 'left',
-									width: '100%',
-									margin: '0px auto',
-								}}
-							/>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 6%',
-								width: '6%',
-								display: 'flex',
-								flexDirection: 'column',
-								justifyContent: 'center',
-								alignItems: 'center',
-							}}
-						>
-							<Heading textColor="primary"> &nbsp; </Heading>
-						</Fill>
-						<Fill style={{ flex: '1 0 48%', width: '48%' }}>
-							<Image
-								src={images.famous}
-								style={{
-									textAlign: 'left',
-									width: '100%',
-									margin: '0px auto',
-									border: '5px solid #222',
-									boxShadow: '0px 5px' + ' 10px #111',
-								}}
-							/>
-						</Fill>
-					</Layout>
-				</Slide>
-
-				{/* The Bad: Mistakes */}
-				<Slide
-					bgImage={images.mistakes}
-					bgDarken={0.8}
-					notes="And we had some failures"
-				>
-					<Notes>
-						<ul>
-							<li>The bad - Too much isolation</li>
-							<li>modal requred entire template</li>
-							<li>Changed that structure for other components</li>
-							<li>No accessibility testing</li>
-							<li>
-								we chose to use svg icon fonts.
-								<ul>
-									<li>Requires Node v0.12</li>
-									<li>
-										Have to use names that alphabetically
-										come after "triangle" (zarrow-left,
-										weighted-heart, and z-thumbs-up)
-									</li>
-								</ul>
-							</li>
-							<li>
-								Kristie Giles will tell you more about better
-								alternatives to the icon fonts.
-							</li>
-						</ul>
-					</Notes>
-					<Layout
-						style={{
-							display: 'flex',
-							flexDirection: 'row',
-							justifyContent: 'space-between',
-							alignItems: 'center',
-						}}
-					>
-						<Fill
-							style={{
-								textAlign: 'left',
-								width: '55%',
-								flex: '1 1 55%',
-								position: 'relative',
-								boxShadow: '0px 5px' + ' 10px #111',
-							}}
-						>
-							<CodePane
-								lang="html"
-								source={require('raw-loader!../assets/code/badModal.example')}
-								margin="0px auto"
-								textSize="0.9em"
-							/>
-						</Fill>
-
-						<Fill
-							style={{
-								textAlign: 'left',
-								width: '42%',
-								flex: '1 1 42%',
-								marginLeft: '3%',
-							}}
-						>
-							<Heading
-								caps
-								textColor="primary"
-								size={2}
-								style={{
-									textAlign: 'center',
-									marginBottom: 40,
-								}}
-							>
-								The Bad
-							</Heading>
-							<hr />
-							<Text
-								textColor="primary"
-								style={{ fontSize: '1.8em', marginTop: 40 }}
-							>
-								&larr; Required{' '}
-								<span
-									style={{
-										fontStyle: 'italic',
-										textDecoration: 'underline',
-									}}
-								>
-									for a modal
-								</span>
-							</Text>
-							<ul textColor="primary">
-								<Appear>
-									<li
-										style={{
-											color: themeColors.primary,
-											paddingTop: 70,
-											fontSize: '1.8em',
-										}}
-									>
-										Immediately changed that structure
-									</li>
-								</Appear>
-								<Appear>
-									<li
-										style={{
-											color: themeColors.primary,
-											paddingTop: 70,
-											fontSize: '1.8em',
-										}}
-									>
-										No accessibility testing
-									</li>
-								</Appear>
-								<Appear>
-									<li
-										style={{
-											color: themeColors.primary,
-											paddingTop: 70,
-											fontSize: '1.8em',
-										}}
-									>
-										SVG icon font
-									</li>
-								</Appear>
-							</ul>
-						</Fill>
-					</Layout>
-				</Slide>
-
-				<Slide
-					bgImage={images.mistakes}
-					bgDarken={0.8}
-					textAlign="left"
-				>
-					<Notes>
-						The ugly: Used ideal data. Short names, ideal text to
-						determine length, and height, etc.
-					</Notes>
-					<Heading
-						caps
-						textColor="primary"
-						size={2}
-						style={{ textAlign: 'center', marginBottom: 40 }}
-					>
-						The Ugly
-					</Heading>
-					<hr />
-					<Layout style={{ padding: '30px 0 0 0' }}>
-						<Fill style={{ flex: '1 1 90%' }}>
-							<BlockQuote
-								style={{ display: 'block', textAlign: 'right' }}
-							>
-								<Quote
-									style={{
-										fontSize: '1.6em',
-										fontWeight: 'normal',
-										borderLeft: 0,
-										paddingLeft: 0,
-										borderRight:
-											'1px solid rgb(250, 250, 250)',
-										paddingRight: 40,
-									}}
-								>
-									Name field: &nbsp; "John Snow"
-								</Quote>
-								<Cite textColor="dktertiary">Dev</Cite>
-							</BlockQuote>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 10%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								margin="0"
-								src={images.me}
-								style={{
-									width: 150,
-									height: 150,
-									borderRadius: '50%',
-									marginLeft: 20,
-									marginTop: -30,
-								}}
-							/>
-						</Fill>
-					</Layout>
-
-					<Layout>
-						<Fill
-							style={{
-								flex: '1 1 10%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								margin="0"
-								src={images.daenerys}
-								style={{
-									width: 400,
-									height: 400,
-									borderRadius: '50%',
-									marginRight: 20,
-									marginTop: -40,
-								}}
-							/>
-						</Fill>
-						<Fill style={{ flex: '1 1 90%' }}>
-							<BlockQuote style={{ display: 'block' }}>
-								<Quote
-									style={{
-										fontSize: '1.6em',
-										fontWeight: 'normal',
-										marginRight: 150,
-									}}
-								>
-									Name field: &nbsp; "Daenerys Stormborn of
-									the House Targaryen, First of Her Name, the
-									Unburnt, Queen of the Andals and the First
-									Men, Khaleesi of the Great Grass Sea,<br />Breaker
-									of Chains, and Mother of Dragons"
-								</Quote>
-								<Cite textColor="dktertiary">The QA Team</Cite>
-							</BlockQuote>
-						</Fill>
-					</Layout>
-
-					<Layout style={{ marginTop: -20 }}>
-						<Fill style={{ flex: '1 1 90%' }}>
-							<BlockQuote
-								style={{ display: 'block', textAlign: 'right' }}
-							>
-								<Quote
-									style={{
-										fontSize: '1.6em',
-										fontWeight: 'normal',
-										borderLeft: 0,
-										paddingLeft: 0,
-										borderRight:
-											'1px solid rgb(250, 250, 250)',
-										paddingRight: 40,
-									}}
-								>
-									Oh.
-								</Quote>
-								<Cite textColor="dktertiary">Dev</Cite>
-							</BlockQuote>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 10%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								margin="0"
-								src={images.me}
-								style={{
-									width: 150,
-									height: 150,
-									borderRadius: '50%',
-									marginLeft: 20,
-									marginTop: -30,
-								}}
-							/>
-						</Fill>
-					</Layout>
-				</Slide>
-
 				{/* React Week */}
 				<Slide bgImage={images.reactWeek} bgDarken={0.2}>
 					<Notes>
@@ -812,9 +416,8 @@ export default class Presentation extends React.Component {
 						fit
 						caps
 						style={{
-							marginTop: -380,
-							marginBottom: 380,
-							padding: '5px 20px 0px 20px',
+							marginTop: -230,
+							padding: '4px 20px 0 20px',
 							background: 'rgba(0, 0, 0, 0.5)',
 						}}
 					>
@@ -827,8 +430,8 @@ export default class Presentation extends React.Component {
 								fontSize: '1.0em',
 								textShadow: '1px 1px' + ' 6px #111',
 								fontWeight: 'bold',
-								marginLeft: '-220px',
-								marginTop: 420,
+								marginLeft: '-170px',
+								paddingTop: 350,
 							}}
 						>
 							It's me!
@@ -877,7 +480,7 @@ export default class Presentation extends React.Component {
 								lang="js"
 								source={require('raw-loader!../assets/code/header.example')}
 								margin="0px auto"
-								textSize="0.73em"
+								textSize="0.8rem"
 							/>
 						</Fill>
 						<Fill
@@ -892,7 +495,7 @@ export default class Presentation extends React.Component {
 								lang="js"
 								source={require('raw-loader!../assets/code/header2.example')}
 								margin="0px auto"
-								textSize="0.73em"
+								textSize="0.8rem"
 							/>
 						</Fill>
 					</Layout>
@@ -919,7 +522,7 @@ export default class Presentation extends React.Component {
 						<Fill>
 							<Image
 								src={images.importantRabbits}
-								style={{ maxHeight: 852, margin: '0 auto' }}
+								style={{ maxHeight: '75vh', margin: '0 auto' }}
 							/>
 						</Fill>
 					</Layout>
@@ -930,7 +533,7 @@ export default class Presentation extends React.Component {
 					<Layout style={{ flexDirection: 'column' }}>
 						<Fill>
 							<Heading
-								size={1}
+								size={4}
 								textColor="primary"
 								style={{
 									paddingBottom: 20,
@@ -940,7 +543,7 @@ export default class Presentation extends React.Component {
 								Isolated,
 							</Heading>
 							<Heading
-								size={3}
+								size={5}
 								textColor="dktertiary"
 								style={{
 									paddingBottom: 20,
@@ -952,11 +555,11 @@ export default class Presentation extends React.Component {
 							</Heading>
 						</Fill>
 						<Fill>
-							<Heading size={1}>&nbsp;</Heading>
+							<Heading size={6}>&nbsp;</Heading>
 						</Fill>
 						<Fill>
 							<Heading
-								size={1}
+								size={4}
 								textColor="primary"
 								style={{
 									paddingBottom: 20,
@@ -966,7 +569,7 @@ export default class Presentation extends React.Component {
 								but not too Isolated
 							</Heading>
 							<Heading
-								size={3}
+								size={5}
 								textColor="dktertiary"
 								style={{
 									paddingBottom: 20,
@@ -991,20 +594,20 @@ export default class Presentation extends React.Component {
 					<List style={{ textAlign: 'left' }}>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '3.4rem', marginBottom: 30 }}
 						>
 							Accessibility
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '3.4rem', marginBottom: 30 }}
 						>
 							Isolated, but not too isolated
 						</ListItem>
 						<ListItem
 							textColor="dktertiary"
 							style={{
-								fontSize: '3em',
+								fontSize: '4rem',
 								marginBottom: 30,
 								fontWeight: 'bold',
 								textShadow: '1px 1px' + ' 6px #222',
@@ -1029,8 +632,8 @@ export default class Presentation extends React.Component {
 					<Image
 						src={images.playground}
 						style={{
-							maxHeight: 800,
-							maxWidth: 1400,
+							maxHeight: 'auto',
+							maxWidth: '60vw',
 							margin: 40,
 							boxShadow: '0px 0px' + ' 20px #444',
 						}}
@@ -1112,35 +715,33 @@ export default class Presentation extends React.Component {
 						and merge them with user-provided styles. The long and
 						short of it is that the component accepts a prop.
 					</Notes>
-					<Heading
-						textColor="primary"
-						size={1}
-						caps
-						style={{ paddingBottom: 40 }}
-					>
-						Style Prop
-					</Heading>
-					<Heading
-						textColor="primary"
-						size={1}
-						caps
-						style={{ paddingBottom: 40 }}
-					>
-						Composables
-					</Heading>
 
-					<Heading
-						textColor="primary"
-						size={1}
-						caps
-						style={{ paddingBottom: 80 }}
-					>
-						Theme
-					</Heading>
-
-					<Heading textColor="primary" size={2}>
+					<Heading textColor="primary" size={4}>
 						All ways to handle a passed prop
 					</Heading>
+					<hr />
+
+					<List
+						textColor="primary"
+						caps
+					>
+						Style Prop
+					</List>
+					<List
+						textColor="primary"
+						caps
+					>
+						Composition
+					</List>
+
+					<List
+						textColor="primary"
+						caps
+					>
+						Theme
+					</List>
+
+					
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
@@ -1151,29 +752,12 @@ export default class Presentation extends React.Component {
 						styles of fontSize: 4 and padding: 4. This new component
 						has a margin: 1, fontSize: 4 and padding: 4.
 					</Notes>
-					<Layout>
-						<Fill
-							style={{
-								width: '51%',
-								flex: '1 1 51%',
-								marginRight: '3%',
-							}}
-						>
-							<Heading
-								size={2}
-								textColor="primary"
-								style={{ marginBottom: 40 }}
-							>
-								Composables with Glamorous
-							</Heading>
-							<CodePane
-								lang="js"
-								source={require('raw-loader!../assets/code/compositionGlamorous.example')}
-								margin="0px auto"
-								textSize="1em"
-							/>
-						</Fill>
-					</Layout>
+					<CodePane
+						lang="js"
+						source={require('raw-loader!../assets/code/composition-emotion.example')}
+						margin="0px auto"
+						textSize="0.85em"
+					/>
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
@@ -1192,13 +776,13 @@ export default class Presentation extends React.Component {
 					<Layout>
 						<Fill
 							style={{
-								width: '55%',
-								flex: '1 1 55%',
-								marginRight: '1%',
+								width: '50%',
+								flex: '1 1 50%',
+								marginRight: '2%',
 							}}
 						>
 							<Heading
-								size={2}
+								size={3}
 								textColor="primary"
 								style={{ marginBottom: 40 }}
 							>
@@ -1208,17 +792,17 @@ export default class Presentation extends React.Component {
 								lang="js"
 								source={require('raw-loader!../assets/code/usageWithAphrodite.example')}
 								margin="0px auto"
-								textSize="0.85em"
+								textSize="0.5em"
 							/>
 						</Fill>
 						<Fill
 							style={{
-								width: '44%',
-								flex: '1 1 44%',
+								width: '48%',
+								flex: '1 1 48%',
 							}}
 						>
 							<Heading
-								size={2}
+								size={3}
 								textColor="primary"
 								style={{ marginBottom: 40 }}
 							>
@@ -1228,7 +812,7 @@ export default class Presentation extends React.Component {
 								lang="js"
 								source={require('raw-loader!../assets/code/usageWithGlamor.example')}
 								margin="0px auto"
-								textSize="0.85em"
+								textSize="0.5em"
 							/>
 						</Fill>
 					</Layout>
@@ -1264,10 +848,10 @@ export default class Presentation extends React.Component {
 							<Image
 								src={images.DamianConway}
 								style={{
-									width: 500,
-									height: 500,
+									width: 340,
+									height: 350,
 									borderRadius: '50%',
-									marginTop: -70,
+									marginTop: -50,
 									marginRight: 20,
 									boxShadow: '0px 0px' + ' 20px #222',
 								}}
@@ -1281,7 +865,7 @@ export default class Presentation extends React.Component {
 							}}
 						>
 							<BlockQuote>
-								<Quote>
+								<Quote style={{ fontSize: '4.4rem'}}>
 									Documentation is a love letter you write to
 									your future self.
 								</Quote>
@@ -1295,7 +879,7 @@ export default class Presentation extends React.Component {
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Layout style={{ flexDirection: 'column' }}>
-						<Heading fit textColor="primary">
+						<Heading fit textColor="primary" >
 							Accept a prop for <br />styles/composition/theming
 						</Heading>
 						<hr style={{ margin: '40px 0' }} />
@@ -1326,8 +910,8 @@ export default class Presentation extends React.Component {
 							<Image
 								src={images.beKind}
 								style={{
-									maxWidth: 1768,
-									maxHeight: 852,
+									maxWidth: '60vw',
+									maxHeight: '60vh',
 									width: 'auto',
 									margin: '0 auto',
 								}}

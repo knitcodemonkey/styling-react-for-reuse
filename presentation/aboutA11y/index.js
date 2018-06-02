@@ -1,3 +1,4 @@
+export { default as A11yIntro } from "./intro";
 export { default as Why } from "./why";
 export { default as WhyBusiness1 } from "./why-business-1";
 export { default as WhyBusiness2 } from "./why-business-2";

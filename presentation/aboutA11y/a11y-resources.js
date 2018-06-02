@@ -22,59 +22,17 @@ import {
 import createTheme from "spectacle/lib/themes/default";
 
 // Import image preloader util
-import preloader from 'spectacle/lib/utils/preloader';
-import styles from '../styles';
+import preloader from "spectacle/lib/utils/preloader";
+import styles from "../styles";
 const images = {
-  wheelchair: require('../../assets/backgrounds/access-wheelchair.jpg'),
-  JenniferVan: require('../../assets/JenniferVan.jpg'),
-}
-preloader(images);
-
-// Require CSS
-require("normalize.css");
-const meStyles = {
-  ...styles,
-  BlockQuote: {
-
-  },
-  Quote: {
-
-
-  }
+  wheelchair: require("../../assets/backgrounds/access-wheelchair.jpg"),
+  JenniferVan: require("../../assets/JenniferVan.jpg")
 };
+preloader(images);
 
 export default class Why extends React.Component {
   render() {
     return (
-      
-				<Slide bgColor="secondary">
-        <Layout style={{ display: 'block', marginBottom: 20 }}>
-          <Fill>
-            <CodePane
-              lang="html"
-              source={require('raw-loader!../assets/code/accessibility.example')}
-              margin="0px auto"
-              textSize="0.77em"
-            />
-          </Fill>
-        </Layout>
-        <Link
-          textColor="tertiary"
-          href="https://codepen.io/knittingcodemonkey/pen/yomQBr"
-        >
-          Let's look at what we have to do to make a div
-          accessible
-        </Link>
-      </Slide>
-
-      <Slide bgImage={images.wheelchair} bgDarken={0.7}>
-        <Image
-          src={images.firstRuleOfAria}
-          style={{ maxHeight: 852 }}
-        />
-      </Slide>
-
-      {/* Accessibility links */}
       <Slide
         bgImage={images.wheelchair}
         bgDarken={0.85}
@@ -101,14 +59,14 @@ export default class Why extends React.Component {
           fit
           caps
           textColor="primary"
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: "center" }}
         >
           Accessibility Tools, Testing, and Integrations
         </Heading>
         <hr />
         <Layout>
-          <Fill style={{ textAlign: 'left', marginRight: 10 }}>
-            <ul style={{ listStyleType: 'none' }}>
+          <Fill style={{ textAlign: "left", marginRight: 10, marginLeft: 0 }}>
+            <ul style={{ listStyleType: "none", marginLeft: 0 }}>
               <li style={[styles.li, { marginTop: 0 }]}>
                 <Text
                   textColor="primary"
@@ -163,12 +121,21 @@ export default class Why extends React.Component {
                       Videos
                     </Link>
                   </li>
+
+                  <li style={styles.accessibilityLinks}>
+                    <Link
+                      textColor="dktertiary"
+                      href="https://webaim.org/resources/contrastchecker/"
+                    >
+                      WebAIM Color Contrast Checker
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>
           </Fill>
-          <Fill style={{ textAlign: 'left', marginLeft: 10 }}>
-            <ul style={{ listStyleType: 'none' }}>
+          <Fill style={{ textAlign: "left", marginLeft: 0 }}>
+            <ul style={{ listStyleType: "none" }}>
               <li style={[styles.li, { marginTop: 0 }]}>
                 <Text
                   textColor="primary"
