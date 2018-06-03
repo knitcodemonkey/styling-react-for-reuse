@@ -56,7 +56,7 @@ const images = {
 	programmer: require('../assets/programmer.jpg'),
 	daenerys: require('../assets/daenerys-targaryen.jpg'),
 	JenniferVan: require('../assets/JenniferVan.jpg'),
-	cssInJs: require('../assets/cssInJs.jpg'),
+	cssInJs: require('../assets/distracted-girlfriend.jpg'),
 	playground: require('../assets/playground.png'),
 	firstRuleOfAria: require('../assets/first-rule-of-aria.png'),
 	samuelSmiles: require('../assets/Samuel_Smiles_by_Sir_George_Reid.jpg'),
@@ -654,6 +654,37 @@ export default class Presentation extends React.Component {
 					</List>
 				</Slide>
 
+				<Slide
+					fit
+					bgImage={images.brickBg}
+					bgDarken={0.7}
+					notes="This is an interesting question"
+				>
+					<Notes>
+						I asked the twitterverse for what reusable means to
+						them, and what they'd like to learn. I got some
+						interesting responses, but this one really struck me.
+					</Notes>
+					<Heading textColor="quartenary" size={3}>
+						Question:
+					</Heading>
+					<Image
+						src={images.stylingWithoutStyling}
+						style={{ width: '100%', marginTop: 40 }}
+					/>
+				</Slide>
+
+				<Slide
+					fit
+					bgImage={images.cssInJs}
+					bgDarken={0.0}
+					style={{ position: 'relative', height: '100%' }}
+					notes="Oh right. That's why."
+				>
+					<Notes>It made me think </Notes>
+				</Slide>
+
+
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
 						<p>
@@ -663,7 +694,7 @@ export default class Presentation extends React.Component {
 						</p>
 					</Notes>
 					<Heading textColor="primary" fit caps>
-						Want to compare libraries?
+						Comparing CSS-in-JS Libraries
 					</Heading>
 					<Image
 						src={images.playground}
@@ -695,38 +726,14 @@ export default class Presentation extends React.Component {
 					fit
 					bgImage={images.brickBg}
 					bgDarken={0.7}
-					notes="This is an interesting question"
+					style={{ position: 'relative', height: '100%' }}
 				>
-					<Notes>
-						I asked the twitterverse for what reusable means to
-						them, and what they'd like to learn. I got some
-						interesting responses, but this one really struck me.
-					</Notes>
-					<Heading textColor="quartenary" size={3}>
-						Question:
+					<Heading textColor="dktertiary" fit caps>
+						If overrides are documented,
 					</Heading>
-					<Image
-						src={images.stylingWithoutStyling}
-						style={{ width: '100%', marginTop: 40 }}
-					/>
-				</Slide>
-
-				<Slide
-					fit
-					bgImage={images.cssInJs}
-					bgDarken={0.0}
-					style={{ position: 'relative', height: '100%' }}
-					notes="Oh right. That's why. Posted by @mfpiccolo"
-				>
-					<Notes>It made me think </Notes>
-				</Slide>
-
-				<Slide
-					fit
-					bgImage={images.brickBg}
-					bgDarken={0.7}
-					style={{ position: 'relative', height: '100%' }}
-				>
+					<Heading textColor="dktertiary" fit caps>
+						
+					</Heading>
 					<Heading
 						textColor="primary"
 						fit
@@ -735,9 +742,7 @@ export default class Presentation extends React.Component {
 					>
 						It doesn't matter
 					</Heading>
-					<Heading textColor="dktertiary" fit caps>
-						The styles inside and outside are mutually exclusive
-					</Heading>
+					
 				</Slide>
 
 				<Slide
@@ -747,32 +752,30 @@ export default class Presentation extends React.Component {
 					style={{ position: 'relative', height: '100%' }}
 				>
 					<Notes>
-						These are all super cool ways to take default styles,
-						and merge them with user-provided styles. The long and
-						short of it is that the component accepts a prop.
+						Everytime I visit this site, there are more.
 					</Notes>
 
-					<Heading textColor="primary" size={4}>
-						All ways to handle a passed prop
+					<Heading textColor="dktertiary" caps fit>
+						Ways to override component CSS
 					</Heading>
 					<hr />
 						<List
 							textColor="primary"
-							style={{fontSize: '2em', margin: '10px'}}
+							style={{fontSize: '2em', margin: '15px'}}
 						>
 							className or style Prop
 						</List>
 
 						<List
 							textColor="primary"
-							style={{fontSize: '2em', margin: '10px'}}
+							style={{fontSize: '2em', margin: '15px'}}
 						>
 							Composition
 						</List>
 
 						<List
 							textColor="primary"
-							style={{fontSize: '2em', margin: '10px'}}
+							style={{fontSize: '2em', margin: '15px'}}
 						>
 							withTheme/ThemeProvider
 						</List>
@@ -781,17 +784,39 @@ export default class Presentation extends React.Component {
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
-						Notice how we start with a margin of 1, fontSize of 1,
-						and padding of 1. We then create a new styled div, using
-						the first one as a param, then pass in the overriding
-						styles of fontSize: 4 and padding: 4. This new component
-						has a margin: 1, fontSize: 4 and padding: 4.
+
 					</Notes>
+					<Heading
+								size={3}
+								textColor="primary"
+								style={{ marginBottom: 40 }}
+							>
+								Props with emotion
+							</Heading>
 					<CodePane
 						lang="js"
 						source={require('raw-loader!../assets/code/composition-emotion.example')}
 						margin="0px auto"
-						textSize="0.85em"
+						textSize="0.6em"
+					/>
+				</Slide>
+
+				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						Did you know you can use composition with CSS Modules?
+					</Notes>
+					<Heading
+								textColor="primary"
+								style={{ paddingBottom: '5px' }}
+								fit
+							>
+								Composition with CSS Modules
+							</Heading>
+					<CodePane
+						lang="css"
+						source={require('raw-loader!../assets/code/composition-cssModules.example')}
+						margin="0px auto"
+						textSize="0.8em"
 					/>
 				</Slide>
 
@@ -799,8 +824,8 @@ export default class Presentation extends React.Component {
 					<Notes>
 						<ul>
 							<li>
-								Nearly all the css-in-js libs use a form of
-								ThemeProvider
+								Nearly all the css-in-js libs have a form of
+								ThemeProvider available
 							</li>
 							<li>
 								If you're not using a css-in-js lib, you can
@@ -922,9 +947,8 @@ export default class Presentation extends React.Component {
 							you write to your future self."
 						</p>
 						<p>
-							It's also a love letter you write to your users. If
-							you don't tell your users how to use your component,
-							they'll think it's bad.
+							In a month, or even a week from now, you'll have moved onto other projects. 
+							You'll barely remember what this component does. 
 						</p>
 					</Notes>
 					<Layout style={{ marginTop: -80 }}>
@@ -968,7 +992,14 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide fit bgImage={images.Library} bgDarken={0.7}>
-					<Heading textColor="primary">How most of us evolved as programmers:</Heading>
+					<Notes>
+						
+					</Notes>
+					<Heading textColor="primary" style={{lineHeight: '1.2em'}}>What if you wrote documentation for your past self?</Heading>
+				</Slide>
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Heading textColor="primary" style={{lineHeight: '1.2em'}}>How most of us evolved as programmers:</Heading>
 				</Slide>
 
 				<Slide fit bgImage={images.Library} bgDarken={0.7}>
@@ -984,7 +1015,20 @@ export default class Presentation extends React.Component {
 
 				<Slide fit bgImage={images.Library} bgDarken={0.7}>
 					<Notes>
-							If you write in best practice, including accessibility into every example you put online, 
+						You wrote it and you can't remember all the details. 
+						You can't expect your users to intuitively know it. If
+						you don't tell your users how to use your component,
+						they'll think it's bad, regardless of its actual quality.
+					</Notes>
+					<Heading size="3" textColor="primary" style={{lineHeight: '1.2em'}}>
+						What if every available parameter, marked with `required` or `optional` was in your example?
+					</Heading>
+				</Slide>
+
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Notes>
+							If you write in best practices, including accessibility, into every example you put online, 
 							into documentation, and into your live code, we will all spend less time fixing what others 
 							(including ourselves) have forgotten, or failed to realize they needed to include. 
 							By helping others, we help ourselves, and our future tech debt. 
@@ -996,6 +1040,61 @@ export default class Presentation extends React.Component {
 					<Heading size="4" textColor="primary">
 						Accessibility would be standard because "that's how it works."
 					</Heading>
+				</Slide>
+
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Notes>
+						<p>
+							Damian Conway said, "Documentation is a love letter
+							you write to your future self."
+						</p>
+						<p>
+							Now that you've written the documentation you wish you'd had: it's both accessible, 
+							and easy to identify all the possible parameters, Let's look at this quote again.
+
+							Imagine all the tech debt you won't have in the future because everyone that came after you 
+							copied and pasted those code examples.
+						</p>
+					</Notes>
+					<Layout style={{ marginTop: -80 }}>
+						<Fill
+							style={{
+								flex: '1 1 38%',
+								display: 'flex',
+								alignItems: 'center',
+							}}
+						>
+							<Image
+								src={images.DamianConway}
+								style={{
+									width: 340,
+									height: 350,
+									borderRadius: '50%',
+									marginTop: -50,
+									marginRight: 20,
+									boxShadow: '0px 0px' + ' 20px #222',
+								}}
+							/>
+						</Fill>
+						<Fill
+							style={{
+								flex: '1 1 62%',
+								display: 'flex',
+								alignItems: 'center',
+							}}
+						>
+							<BlockQuote>
+								<Quote style={{ fontSize: '4.4rem'}}>
+									Documentation is a love letter you write to
+									your future self.
+								</Quote>
+								<Cite textColor="dktertiary">
+									Damian Conway
+								</Cite>
+							</BlockQuote>
+						</Fill>
+					</Layout>
 				</Slide>
 
 				{/* Be Kind */}
