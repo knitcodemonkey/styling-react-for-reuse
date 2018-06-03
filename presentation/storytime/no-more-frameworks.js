@@ -12,9 +12,6 @@ import {
   Appear
 } from "spectacle";
 
-// Import theme
-import createTheme from "spectacle/lib/themes/default";
-
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
 const images = {

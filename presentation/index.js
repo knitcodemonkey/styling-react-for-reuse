@@ -68,6 +68,10 @@ const images = {
 	discoverableComponents: require('../assets/discoverableComponents.png'),
 	JenDevDesk: require('../assets/aboutme/JensDesk.jpg'),
 	DamianConway: require('../assets/DamianConway.jpeg'),
+	GoodQuestions: require('../assets/good-questions.jpeg'),
+	CPDrivenDev: require('../assets/copy-paste-driven-development.png'),
+	CopyPaste: require('../assets/copying_and_pasting.jpg'),
+	Library: require('../assets/library-at-trinity-college.jpg')
 };
 
 preloader(images);
@@ -85,6 +89,8 @@ const themeColors = {
 const theme = createTheme(themeColors, {
 	primary: 'Raleway',
 });
+
+
 
 const styles = {
 	li: {
@@ -123,6 +129,21 @@ const styles = {
 		lineHeight: '1.2em',
 		padding: '12px 0px',
 	},
+	
+	triangleTopleft: {
+		width: 0,
+		height: 0,
+		borderTop: '60vh solid deepskyblue',
+		borderRight: '60vw solid transparent',
+	},
+
+	triangleBottomRight: {
+		width: 0,
+		height: 0,
+		borderBottom: '60vh solid white',
+		borderLeft: '60vw solid transparent',
+		marginTop: '-59vh'
+	},
 };
 
 export default class Presentation extends React.Component {
@@ -134,7 +155,6 @@ export default class Presentation extends React.Component {
 				theme={theme}
 
 			>
-				{/* <Deck transition={["fade"]} transitionDuration={100} theme={theme}> */}
 
 				{/* Title Screen */}
 				<Slide
@@ -219,25 +239,30 @@ export default class Presentation extends React.Component {
 						<ListItem
 							textColor="dktertiary"
 							style={{
-								fontSize: '2.4em',
-								marginBottom: 30,
+								fontSize: '2em',
+								marginBottom: 20,
 								fontWeight: 'bold',
-								textShadow: '1px 1px' + ' 6px #222',
 							}}
 						>
 							Accessibility
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.0em', marginBottom: 30 }}
+							style={{ fontSize: '2em', marginBottom: 20 }}
 						>
-							Isolated, but not too isolated
+							Encapsulated, but not isolated
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.0em', marginBottom: 30 }}
+							style={{ fontSize: '2em', marginBottom: 20 }}
 						>
 							Brandable
+						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Documentation
 						</ListItem>
 					</List>
 				</Slide>
@@ -261,26 +286,30 @@ export default class Presentation extends React.Component {
 					<List style={{ textAlign: 'left' }}>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.0em', marginBottom: 30 }}
+							style={{
+								fontSize: '2em',
+								marginBottom: 20
+							}}
 						>
 							Accessibility
 						</ListItem>
 						<ListItem
 							textColor="dktertiary"
-							style={{
-								fontSize: '2.4em',
-								marginBottom: 30,
-								fontWeight: 'bold',
-								textShadow: '1px 1px' + ' 6px #222',
-							}}
+							style={{ fontSize: '2em', marginBottom: 20, fontWeight: 'bold' }}
 						>
-							Isolated, but not too isolated
+							Encapsulated, but not isolated
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.0em', marginBottom: 30 }}
+							style={{ fontSize: '2em', marginBottom: 20 }}
 						>
 							Brandable
+						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Documentation
 						</ListItem>
 					</List>
 				</Slide>
@@ -439,6 +468,7 @@ export default class Presentation extends React.Component {
 					</Fill>
 				</Slide>
 
+
 				{/* The Ugly: Just the Header */}
 				<Slide
 					bgImage={images.mistakesBlurred}
@@ -538,9 +568,10 @@ export default class Presentation extends React.Component {
 								style={{
 									paddingBottom: 20,
 									textShadow: '1px 1px' + ' 6px #111',
+									textAlign: 'left'
 								}}
 							>
-								Isolated,
+								Encapsulated,
 							</Heading>
 							<Heading
 								size={5}
@@ -548,15 +579,14 @@ export default class Presentation extends React.Component {
 								style={{
 									paddingBottom: 20,
 									textShadow: '1px 1px' + ' 6px #111',
+									textAlign: 'left'
 								}}
 							>
 								Component should be a<br />
 								complete, dist package
 							</Heading>
 						</Fill>
-						<Fill>
-							<Heading size={6}>&nbsp;</Heading>
-						</Fill>
+						
 						<Fill>
 							<Heading
 								size={4}
@@ -564,9 +594,10 @@ export default class Presentation extends React.Component {
 								style={{
 									paddingBottom: 20,
 									textShadow: '1px 1px' + ' 6px #111',
+									textAlign: 'right'
 								}}
 							>
-								but not too Isolated
+								but not Isolated
 							</Heading>
 							<Heading
 								size={5}
@@ -574,6 +605,7 @@ export default class Presentation extends React.Component {
 								style={{
 									paddingBottom: 20,
 									textShadow: '1px 1px' + ' 6px #111',
+									textAlign: 'right'
 								}}
 							>
 								Users need to adapt your<br />
@@ -594,26 +626,30 @@ export default class Presentation extends React.Component {
 					<List style={{ textAlign: 'left' }}>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '3.4rem', marginBottom: 30 }}
+							style={{
+								fontSize: '2em',
+								marginBottom: 20
+							}}
 						>
 							Accessibility
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '3.4rem', marginBottom: 30 }}
+							style={{ fontSize: '2em', marginBottom: 20 }}
 						>
-							Isolated, but not too isolated
+							Encapsulated, but not isolated
 						</ListItem>
 						<ListItem
 							textColor="dktertiary"
-							style={{
-								fontSize: '4rem',
-								marginBottom: 30,
-								fontWeight: 'bold',
-								textShadow: '1px 1px' + ' 6px #222',
-							}}
+							style={{ fontSize: '2em', marginBottom: 20, fontWeight: 'bold' }}
 						>
 							Brandable
+						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Documentation
 						</ListItem>
 					</List>
 				</Slide>
@@ -720,27 +756,26 @@ export default class Presentation extends React.Component {
 						All ways to handle a passed prop
 					</Heading>
 					<hr />
+						<List
+							textColor="primary"
+							style={{fontSize: '2em', margin: '10px'}}
+						>
+							className or style Prop
+						</List>
 
-					<List
-						textColor="primary"
-						caps
-					>
-						Style Prop
-					</List>
-					<List
-						textColor="primary"
-						caps
-					>
-						Composition
-					</List>
+						<List
+							textColor="primary"
+							style={{fontSize: '2em', margin: '10px'}}
+						>
+							Composition
+						</List>
 
-					<List
-						textColor="primary"
-						caps
-					>
-						Theme
-					</List>
-
+						<List
+							textColor="primary"
+							style={{fontSize: '2em', margin: '10px'}}
+						>
+							withTheme/ThemeProvider
+						</List>
 					
 				</Slide>
 
@@ -825,7 +860,62 @@ export default class Presentation extends React.Component {
 					</Link>
 				</Slide>
 
-				<Slide bgImage={images.mistakesBlurred} bgDarken={0.65}>
+
+				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Heading size="4" textColor="primary">
+						Global styles are included in page head for website branding
+					</Heading>
+					<hr />
+					<Heading size="4" textColor="dktertiary">
+						Component styles are imported into encapsulated components
+					</Heading>
+				</Slide>
+
+
+				{/* DOCUMENTATION BONUS CHAPTER */}
+
+				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						Making a component match the company brand specs.
+					</Notes>
+					<Heading textColor="primary" caps fit>
+						What makes a component reusable?
+					</Heading>
+					<hr />
+					<List style={{ textAlign: 'left' }}>
+						<ListItem
+							textColor="primary"
+							style={{
+								fontSize: '2em',
+								marginBottom: 20
+							}}
+						>
+							Accessibility
+						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Encapsulated, but not isolated
+						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Brandable
+						</ListItem>
+						<ListItem
+							textColor="dktertiary"
+							style={{ fontSize: '2em', marginBottom: 20, fontWeight: 'bold' }}
+						>
+							Documentation
+						</ListItem>
+					</List>
+				</Slide>
+
+
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
 					<Notes>
 						<p>
 							Damian Conway said, "Documentation is a love letter
@@ -877,19 +967,35 @@ export default class Presentation extends React.Component {
 					</Layout>
 				</Slide>
 
-				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
-					<Layout style={{ flexDirection: 'column' }}>
-						<Heading fit textColor="primary" >
-							Accept a prop for <br />styles/composition/theming
-						</Heading>
-						<hr style={{ margin: '40px 0' }} />
-						<Heading textColor="primary">Document!</Heading>
-						<hr style={{ margin: '40px 0' }} />
-						<Heading fit textColor="primary">
-							Global styles for website, <br />component styles
-							for components
-						</Heading>
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Heading textColor="primary">How most of us evolved as programmers:</Heading>
+				</Slide>
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Layout style={{justifyContent: 'space-between'}}>
+						<Link href="https://www.reddit.com/r/orlybooks/comments/4htnwb/copy_paste_driven_development/">
+							<Image style={{height: '80vh', width: 'auto'}} src={images.CPDrivenDev}/>
+						</Link>
+						<Link href="https://effectivesoftwaredesign.com/2016/05/22/copy-and-paste-programming/">
+							<Image style={{height: '80vh', width: 'auto'}} src={images.CopyPaste}/>
+						</Link>
 					</Layout>
+				</Slide>
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Notes>
+							If you write in best practice, including accessibility into every example you put online, 
+							into documentation, and into your live code, we will all spend less time fixing what others 
+							(including ourselves) have forgotten, or failed to realize they needed to include. 
+							By helping others, we help ourselves, and our future tech debt. 
+					</Notes>
+					<Heading size="3" textColor="dktertiary">
+						What if every code example was accessible?
+					</Heading>
+					<hr />
+					<Heading size="4" textColor="primary">
+						Accessibility would be standard because "that's how it works."
+					</Heading>
 				</Slide>
 
 				{/* Be Kind */}

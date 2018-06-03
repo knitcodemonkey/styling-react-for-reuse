@@ -5,42 +5,27 @@ import React from "react";
 import {
   BlockQuote,
   Cite,
-  Heading,
-  ListItem,
-  List,
   Quote,
   Slide,
-  Text,
   Notes,
   Layout,
   Fill,
-  Link,
   Image
 } from "spectacle";
 
-// Import theme
-import createTheme from "spectacle/lib/themes/default";
-
 // Import image preloader util
-import preloader from 'spectacle/lib/utils/preloader';
-import styles from '../styles';
+import preloader from "spectacle/lib/utils/preloader";
+import styles from "../styles";
 const images = {
-  wheelchair: require('../../assets/backgrounds/access-wheelchair.jpg'),
-  JenniferVan: require('../../assets/JenniferVan.jpg'),
-}
+  wheelchair: require("../../assets/backgrounds/access-wheelchair.jpg"),
+  JenniferVan: require("../../assets/JenniferVan.jpg")
+};
 preloader(images);
 
 // Require CSS
 require("normalize.css");
 const meStyles = {
-  ...styles,
-  BlockQuote: {
-
-  },
-  Quote: {
-
-
-  }
+  ...styles
 };
 
 export default class Why extends React.Component {

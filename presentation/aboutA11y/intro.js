@@ -3,23 +3,12 @@ import React from "react";
 
 // Import Spectacle Core tags
 import {
-  BlockQuote,
-  Cite,
   Heading,
-  ListItem,
-  List,
-  Quote,
   Slide,
-  Text,
   Notes,
-  Layout,
-  Fill,
   Link,
   Image
 } from "spectacle";
-
-// Import theme
-import createTheme from "spectacle/lib/themes/default";
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
