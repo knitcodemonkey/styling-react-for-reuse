@@ -23,12 +23,12 @@ import {
 import createTheme from "spectacle/lib/themes/default";
 
 // Import image preloader util
-import preloader from 'spectacle/lib/utils/preloader';
-import styles from '../styles';
+import preloader from "spectacle/lib/utils/preloader";
+import styles from "../styles";
 const images = {
-  wheelchair: require('../../assets/backgrounds/access-wheelchair.jpg'),
-  JenniferVan: require('../../assets/JenniferVan.jpg'),
-}
+  wheelchair: require("../../assets/backgrounds/access-wheelchair.jpg"),
+  JenniferVan: require("../../assets/JenniferVan.jpg")
+};
 preloader(images);
 
 // Require CSS
@@ -43,13 +43,15 @@ export default class WhyBusiness extends React.Component {
             So, what is disability?
           </p>
         </Notes>
-
-        <Text textColor="primary" style={[styles.largeText, styles.littleSpacePlease]}>
-          At any given time, 20% of the population qualifies as permanently, temporarily, or circumstantially disabled
-        </Text>
+        <Fill style={styles.littleSpacePlease}>
+          <Text textColor="primary" style={[styles.largeText ]}>
+            Nearly 1 in 5 people had a disability in the U.S. in 2012
+          </Text>
+        </Fill>
         <Text textColor="dktertiary" style={[styles.standardText, styles.littleSpacePlease]}>
-          20% more engagement ≈ 20% more money
+          ~ 20% more engagement = ~ 20% more money
         </Text>
+        <Link textColor="dktertiary" style={[styles.extraSmallText, { textDecoration: "underline" }, styles.littleSpacePlease ]} src="https://www.census.gov/newsroom/releases/archives/miscellaneous/cb12-134.html">United States Census Bureau Report CB12-134</Link>
       </Slide>
     );
   }

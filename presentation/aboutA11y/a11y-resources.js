@@ -77,6 +77,7 @@ export default class Why extends React.Component {
                 <ul>
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="http://a11yproject.com/checklist.html"
                     >
@@ -85,6 +86,7 @@ export default class Why extends React.Component {
                   </li>
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="http://romeo.elsevier.com/accessibility_checklist/"
                     >
@@ -95,6 +97,7 @@ export default class Why extends React.Component {
 
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="https://www.webaccessibility.com/best_practices.php"
                     >
@@ -104,6 +107,7 @@ export default class Why extends React.Component {
                   </li>
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="https://www.usability.gov/what-and-why/accessibility.html"
                     >
@@ -113,6 +117,7 @@ export default class Why extends React.Component {
                   </li>
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="https://www.microsoft.com/en-us/design/inclusive"
                     >
@@ -124,6 +129,7 @@ export default class Why extends React.Component {
 
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="https://webaim.org/resources/contrastchecker/"
                     >
@@ -146,6 +152,7 @@ export default class Why extends React.Component {
                 <ul>
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="https://github.com/dequelabs"
                     >
@@ -154,6 +161,7 @@ export default class Why extends React.Component {
                   </li>
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="https://www.deque.com/products/axe/"
                     >
@@ -163,6 +171,7 @@ export default class Why extends React.Component {
                   </li>
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="https://www.boia.org/products/a11y-tool/"
                     >
@@ -183,6 +192,7 @@ export default class Why extends React.Component {
                 <ul>
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="http://www.inclusivedesigntoolkit.com/"
                     >
@@ -192,6 +202,7 @@ export default class Why extends React.Component {
                   </li>
                   <li style={styles.accessibilityLinks}>
                     <Link
+                      style={{ textDecoration: "underline" }}
                       textColor="dktertiary"
                       href="https://www.toptal.com/designers/colorfilter"
                     >

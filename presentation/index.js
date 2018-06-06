@@ -665,9 +665,7 @@ export default class Presentation extends React.Component {
 						them, and what they'd like to learn. I got some
 						interesting responses, but this one really struck me.
 					</Notes>
-					<Heading textColor="quartenary" size={3}>
-						Question:
-					</Heading>
+					
 					<Image
 						src={images.stylingWithoutStyling}
 						style={{ width: '100%', marginTop: 40 }}
