@@ -1,0 +1,9 @@
+.default-component-className {
+  color: green;
+  background: red;
+}
+
+.user-defined-className {
+  composes: default-component-className;
+  color: yellow;
+}

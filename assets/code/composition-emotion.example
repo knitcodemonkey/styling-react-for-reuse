@@ -1,0 +1,14 @@
+import styled, { css } from 'react-emotion';
+
+const dynamicStyle = props =>
+  css`
+    color: ${props.color};
+  `;
+
+const Container = styled('div')(dynamicStyle);
+
+render(
+  <Container color="red">
+    This is lightgreen.
+  </Container>
+)

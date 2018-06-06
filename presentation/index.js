@@ -1,12 +1,14 @@
 // Import React
 import React from 'react';
-
+import {AboutMe, Formidable } from './aboutme';
+import { A11yIntro, Why, WhyBusiness1, WhyBusiness2, WhyBusiness3, A11yResources } from './aboutA11y'
 // Import Spectacle Core tags
 import {
 	Appear,
 	BlockQuote,
 	Cite,
 	CodePane,
+	ComponentPlayground,
 	Deck,
 	Heading,
 	Image,
@@ -29,7 +31,7 @@ import createTheme from 'spectacle/lib/themes/default';
 
 // Require CSS
 require('normalize.css');
-require('spectacle/lib/themes/default/monokai.codemirror.css');
+require('spectacle/lib/themes/default');
 
 const images = {
 	me: require('../assets/KnittingCodeMonkey.jpg'),
@@ -54,7 +56,7 @@ const images = {
 	programmer: require('../assets/programmer.jpg'),
 	daenerys: require('../assets/daenerys-targaryen.jpg'),
 	JenniferVan: require('../assets/JenniferVan.jpg'),
-	cssInJs: require('../assets/cssInJs.jpg'),
+	cssInJs: require('../assets/distracted-girlfriend.jpg'),
 	playground: require('../assets/playground.png'),
 	firstRuleOfAria: require('../assets/first-rule-of-aria.png'),
 	samuelSmiles: require('../assets/Samuel_Smiles_by_Sir_George_Reid.jpg'),
@@ -64,8 +66,12 @@ const images = {
 	mistakesBlurred: require('../assets/backgrounds/mistakesBlurred.png'),
 	success: require('../assets/backgrounds/success.jpg'),
 	discoverableComponents: require('../assets/discoverableComponents.png'),
-	JenDevDesk: require('../assets/JenDevDesk.png'),
-	DamianConway: require('../assets/DamianConway.png'),
+	JenDevDesk: require('../assets/aboutme/JensDesk.jpg'),
+	DamianConway: require('../assets/DamianConway.jpeg'),
+	GoodQuestions: require('../assets/good-questions.jpeg'),
+	CPDrivenDev: require('../assets/copy-paste-driven-development.png'),
+	CopyPaste: require('../assets/copying_and_pasting.jpg'),
+	Library: require('../assets/library-at-trinity-college.jpg')
 };
 
 preloader(images);
@@ -83,6 +89,8 @@ const themeColors = {
 const theme = createTheme(themeColors, {
 	primary: 'Raleway',
 });
+
+
 
 const styles = {
 	li: {
@@ -121,6 +129,21 @@ const styles = {
 		lineHeight: '1.2em',
 		padding: '12px 0px',
 	},
+	
+	triangleTopleft: {
+		width: 0,
+		height: 0,
+		borderTop: '60vh solid deepskyblue',
+		borderRight: '60vw solid transparent',
+	},
+
+	triangleBottomRight: {
+		width: 0,
+		height: 0,
+		borderBottom: '60vh solid white',
+		borderLeft: '60vw solid transparent',
+		marginTop: '-59vh'
+	},
 };
 
 export default class Presentation extends React.Component {
@@ -130,16 +153,14 @@ export default class Presentation extends React.Component {
 				transition={['fade']}
 				transitionDuration={100}
 				theme={theme}
-				contentWidth="1768"
-				contentHeight="932"
+
 			>
-				{/* <Deck transition={["fade"]} transitionDuration={100} theme={theme}> */}
 
 				{/* Title Screen */}
 				<Slide
 					bgColor="faded"
 					bgImage={images.JenDevDesk}
-					bgDarken={0.7}
+					bgDarken={0.8}
 				>
 					<Notes>
 						As speakers, we do our best, but sometimes slides are
@@ -150,7 +171,7 @@ export default class Presentation extends React.Component {
 						<Fill style={styles.spacePlease}>
 							<Heading
 								caps
-								size={1}
+								size={2}
 								textColor="primary"
 								style={{ textShadow: '1px 1px' + ' 6px #111' }}
 							>
@@ -166,175 +187,41 @@ export default class Presentation extends React.Component {
 								exploring reusability
 							</Heading>
 						</Fill>
-						<Fill style={styles.spacePlease}>
-							<Link
-								textColor="dktertiary"
-								style={styles.smallText}
-								href="http://styling-react-for-reuse.surge.sh"
-							>
-								Follow along with the slides:
-								http://styling-react-for-reuse.surge.sh
-							</Link>
-							<br />
-							<Link
-								textColor="dktertiary"
-								style={styles.smallText}
-								href="http://styling-react-for-reuse.surge.sh"
-							>
-								Video is available on YouTube:
-								https://youtu.be/1H8TO1fVuLY
-							</Link>
-						</Fill>
+						<Layout style={styles.spacePlease}>
+          <Fill style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "row",
+            alignItems: "center"
+
+          }}
+          >
+            <Text
+              textColor="primary"
+              style={[styles.smallText, { padding: 0 }]}
+            >Follow along with the slides:</Text>
+            <Link
+              textColor="dktertiary"
+              style={[styles.smallText, { textDecoration: "underline" }]}
+              href="http://a11y-sprint-filler.surge.sh"
+            >http://styling-react-for-reuse.surge.sh</Link>
+            {/* <br />
+            <Link
+              textColor="dktertiary"
+              style={styles.smallText}
+              href="https://youtu.be/1H8TO1fVuLY"
+            >
+              Video is available on YouTube:
+              https://youtu.be/1H8TO1fVuLY
+            </Link> */}
+          </Fill>
+        </Layout>
 					</Layout>
 				</Slide>
 
 				{/* Jen Luker Intro */}
-				<Slide
-					bgColor="faded"
-					bgImage={images.JenDevDesk}
-					bgDarken={0.7}
-				>
-					<Notes>
-						Software engineer, professionally, for over 10 years
-					</Notes>
-					<Layout>
-						<Fill>
-							<Image
-								margin="0"
-								src={images.me}
-								style={{
-									maxWidth: '80%',
-									borderRadius: '50%',
-									boxShadow: '0px 0px' + ' 10px #222',
-								}}
-							/>
-						</Fill>
-						<Fill
-							style={{
-								display: 'flex',
-								justifyContent: 'center',
-								flexDirection: 'column',
-							}}
-						>
-							<Heading
-								size={1}
-								textColor="dktertiary"
-								style={{ textShadow: '1px 1px' + ' 6px #222' }}
-							>
-								Jen Luker
-							</Heading>
-							<hr textFont="secondary" />
-							<Text
-								style={styles.standardText}
-								textColor="primary"
-							>
-								Team Lead Software Engineer
-							</Text>
-							<Text
-								style={styles.standardText}
-								textColor="primary"
-							>
-								with Deseret Digital Media
-							</Text>
-							<hr textFont="primary" />
-							<Link
-								textColor="dktertiary"
-								href="http://jenluker.com"
-							>
-								<Text
-									textColor="dktertiary"
-									style={styles.standardText}
-								>
-									http://jenluker.com
-								</Text>
-							</Link>
-							<Text
-								style={styles.standardText}
-								textColor="primary"
-							>
-								Github: @knittingcodemonkey
-							</Text>
-							<Text
-								style={styles.standardText}
-								textColor="primary"
-							>
-								Twitter: @knitcodemonkey
-							</Text>
-						</Fill>
-					</Layout>
-					<Layout style={styles.spacePlease}>
-						<Fill>
-							<Link
-								textColor="dktertiary"
-								style={styles.smallText}
-								href="http://styling-react-for-reuse.surge.sh"
-							>
-								Follow along with the slides:
-								http://styling-react-for-reuse.surge.sh
-							</Link>
-							<br />
-							<Link
-								textColor="dktertiary"
-								style={styles.smallText}
-								href="http://styling-react-for-reuse.surge.sh"
-							>
-								Video is available on YouTube:
-								https://youtu.be/1H8TO1fVuLY
-							</Link>
-						</Fill>
-					</Layout>
-				</Slide>
-
-				{/* Learn from Failure */}
-				<Slide bgImage={images.mistakesBlurred} bgDarken={0.65}>
-					<Notes>
-						Say Quote: 'We learn from failure much more than from
-						success; we often discover what we will do by finding
-						out what we will not do; and probably he who never made
-						a mistake never made a discovery.'
-					</Notes>
-					<Layout style={{ marginTop: -80 }}>
-						<Fill
-							style={{
-								flex: '1 1 25%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								src={images.samuelSmiles}
-								style={{
-									width: 500,
-									height: 500,
-									borderRadius: '50%',
-									marginTop: -70,
-									marginRight: 20,
-									boxShadow: '0px 0px' + ' 20px #222',
-								}}
-							/>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 75%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<BlockQuote>
-								<Quote>
-									We learn from failure much more than from
-									success; we often discover what we will do
-									by finding out what we will not do; and
-									probably he who never made a mistake never
-									made a discovery.
-								</Quote>
-								<Cite textColor="dktertiary">
-									Samuel Smiles
-								</Cite>
-							</BlockQuote>
-						</Fill>
-					</Layout>
-				</Slide>
+				<AboutMe />
+				<Formidable />
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
@@ -352,341 +239,45 @@ export default class Presentation extends React.Component {
 						<ListItem
 							textColor="dktertiary"
 							style={{
-								fontSize: '3em',
-								marginBottom: 30,
+								fontSize: '2em',
+								marginBottom: 20,
 								fontWeight: 'bold',
-								textShadow: '1px 1px' + ' 6px #222',
 							}}
 						>
 							Accessibility
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '2em', marginBottom: 20 }}
 						>
-							Isolated, but not too isolated
+							Encapsulated, but not isolated
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '2em', marginBottom: 20 }}
 						>
 							Brandable
+						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Documentation
 						</ListItem>
 					</List>
 				</Slide>
 
-				{/* Accessibility Summary Slide */}
-				<Slide
-					bgColor="#000000"
-					style={{ width: '100%', position: 'relative' }}
-				>
-					<Notes>
-						How many of you have had one of these experiences?
-						<ul>
-							<li>
-								repetetive stress injuries: tennis elbow or
-								carpel tunnel
-							</li>
-							<li>had your eyes dilated</li>
-							<li>tried to type while holding a baby</li>
-							<li>watched a video, in a loud room</li>
-							<li>
-								watched a film in a language you didn't know
-							</li>
-							<li>
-								mouse batteries died, and too lazy to use laptop
-								mouse?
-							</li>
-							<li>
-								had a computer read game text to a child too
-								young, or inexperienced to read
-							</li>
-						</ul>
-						How many of you interacted with your phone, watched tv,
-						or otherwise interacted with technology during those
-						experiences?
-					</Notes>
-					<Heading
-						textColor="quartenary"
-						style={{
-							marginBottom: -100,
-							zIndex: 10,
-							position: 'relative',
-						}}
-					>
-						Accessibility
-					</Heading>
-					<Image
-						src={images.accessibilityGif}
-						style={{
-							width: '100%',
-							marginBottom: -100,
-							zIndex: 0,
-							position: 'relative',
-						}}
-					/>
-					<Link
-						textColor="dktertiary"
-						style={{ zIndex: 10, position: 'relative' }}
-						href="https://www.microsoft.com/en-us/design/inclusive"
-					>
-						Image Credit: Inclusive Design at Microsoft
-					</Link>
-				</Slide>
-
-				<Slide bgImage={images.wheelchair} bgDarken={0.7}>
-					<Notes>
-						<p>
-							Imagine for a moment that subtitles, zooming, large
-							buttons, color contrast and keyboard shortcuts
-							didn't exist. Could you have interacted with that
-							technology?
-						</p>
-						<p>
-							When we think of Accessibility features, we focus
-							too much on those whose experiences are permanent.
-							Though it is important to remember them, they aren't
-							the only ones who need those features.
-						</p>
-					</Notes>
-					<Layout style={{ marginTop: -120 }}>
-						<Fill
-							style={{
-								flex: '1 1 25%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								src={images.JenniferVan}
-								style={{
-									width: 400,
-									height: 400,
-									borderRadius: '50%',
-									marginTop: -70,
-									marginRight: 20,
-									boxShadow: '0px 0px' + ' 20px #444',
-								}}
-							/>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 75%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<BlockQuote>
-								<Quote>
-									I would say like 90% of your day is dictated
-									by technology, and if you, as a person, are
-									not <br />included in that technology,
-									what's the point if your<br /> app is fast?
-								</Quote>
-								<Cite textColor="dktertiary">
-									Jennifer Van, React Rally 2017
-								</Cite>
-							</BlockQuote>
-						</Fill>
-					</Layout>
-				</Slide>
-
-				<Slide bgColor="secondary">
-					<Layout style={{ display: 'block', marginBottom: 20 }}>
-						<Fill>
-							<CodePane
-								lang="html"
-								source={require('raw-loader!../assets/code/accessibility.example')}
-								margin="0px auto"
-								textSize="1.4em"
-							/>
-						</Fill>
-					</Layout>
-					<Link
-						textColor="tertiary"
-						href="https://codepen.io/knittingcodemonkey/pen/yomQBr"
-					>
-						Let's look at what we have to do to make a div
-						accessible
-					</Link>
-				</Slide>
-
-				<Slide bgImage={images.wheelchair} bgDarken={0.7}>
-					<Image
-						src={images.firstRuleOfAria}
-						style={{ maxHeight: 852 }}
-					/>
-				</Slide>
-
-				{/* Accessibility links */}
-				<Slide
-					bgImage={images.wheelchair}
-					bgDarken={0.85}
-					textColor="primary"
-				>
-					<Notes>
-						<ul>
-							<li>
-								Make sure to bring up the a11y project checklist
-								and show how it'd make things easier.
-							</li>
-							<li>
-								talk about deque labs axe chrome and firefox
-								plugins for testing existing sites.
-							</li>
-							<li>
-								explain deque labs has a bunch of other cool
-								resources, including ios and android
-								implementations on their github page
-							</li>
-						</ul>
-					</Notes>
-					<Heading
-						fit
-						caps
-						textColor="primary"
-						style={{ textAlign: 'center' }}
-					>
-						Accessibility Tools, Testing, and Integrations
-					</Heading>
-					<hr />
-					<Layout>
-						<Fill style={{ textAlign: 'left', marginRight: 10 }}>
-							<ul style={{ listStyleType: 'none' }}>
-								<li style={[styles.li, { marginTop: 0 }]}>
-									<Text
-										textColor="primary"
-										style={styles.liLargeText}
-									>
-										Best Practices & Resources
-									</Text>
-									<ul>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="http://a11yproject.com/checklist.html"
-											>
-												A11y Project: Checklist
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="http://romeo.elsevier.com/accessibility_checklist/"
-											>
-												Elsevier: Web Content
-												Accessibility Guidelines 2.0
-											</Link>
-										</li>
-
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.webaccessibility.com/best_practices.php"
-											>
-												WEB Accessibility: Best
-												Practices
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.usability.gov/what-and-why/accessibility.html"
-											>
-												Usability.gov: Accessibility
-												Basics
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.microsoft.com/en-us/design/inclusive"
-											>
-												Inclusive Design at Microsoft
-												Toolkit: Downloadable PDFs,
-												Videos
-											</Link>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</Fill>
-						<Fill style={{ textAlign: 'left', marginLeft: 10 }}>
-							<ul style={{ listStyleType: 'none' }}>
-								<li style={[styles.li, { marginTop: 0 }]}>
-									<Text
-										textColor="primary"
-										style={styles.liLargeText}
-									>
-										Platform & Automated Testing
-									</Text>
-									<ul>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://github.com/dequelabs"
-											>
-												Deque Labs Github:
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.deque.com/products/axe/"
-											>
-												Deque Labs aXe Chrome and
-												Firefox extensions
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.boia.org/products/a11y-tool/"
-											>
-												Bureau of Internet
-												Accessibility: A11y Testing
-												Platform
-											</Link>
-										</li>
-									</ul>
-								</li>
-								<li style={[styles.li, { marginTop: 30 }]}>
-									<Text
-										textColor="primary"
-										style={styles.liLargeText}
-									>
-										Capability Loss Simulation Tools
-									</Text>
-									<ul>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="http://www.inclusivedesigntoolkit.com/"
-											>
-												University of Cambridge:
-												Inclusive Design Toolkit
-											</Link>
-										</li>
-										<li style={styles.accessibilityLinks}>
-											<Link
-												textColor="dktertiary"
-												href="https://www.toptal.com/designers/colorfilter"
-											>
-												Toptal: Colorblind Web Page
-												Filter
-											</Link>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</Fill>
-					</Layout>
-				</Slide>
+				{/* A11y Slides */}
+				<A11yIntro />
+				<Why />
+				<WhyBusiness1 />
+				<WhyBusiness2 />
+				<WhyBusiness3 />
+				<A11yResources />
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
-						Isolated, but not too isolated? I want to share a story
-						that explains what I mean.
+						Isolated but not too isolated
 					</Notes>
 					<Heading textColor="primary" caps fit>
 						What makes a component reusable?
@@ -695,29 +286,34 @@ export default class Presentation extends React.Component {
 					<List style={{ textAlign: 'left' }}>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{
+								fontSize: '2em',
+								marginBottom: 20
+							}}
 						>
 							Accessibility
 						</ListItem>
 						<ListItem
 							textColor="dktertiary"
-							style={{
-								fontSize: '3em',
-								marginBottom: 30,
-								fontWeight: 'bold',
-								textShadow: '1px 1px' + ' 6px #222',
-							}}
+							style={{ fontSize: '2em', marginBottom: 20, fontWeight: 'bold' }}
 						>
-							Isolated, but not too isolated
+							Encapsulated, but not isolated
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '2em', marginBottom: 20 }}
 						>
 							Brandable
 						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Documentation
+						</ListItem>
 					</List>
 				</Slide>
+
 
 				{/* Grouce Github Image */}
 				<Slide bgColor="secondary" notes="">
@@ -773,9 +369,10 @@ export default class Presentation extends React.Component {
 							<Image
 								src={images.github1}
 								style={{
-									height: 780,
+									height: 'auto',
+									width: '100%',
 									position: 'absolute',
-									top: -40,
+									top: 100,
 									left: 0,
 									margin: 0,
 									zIndex: 1,
@@ -785,9 +382,10 @@ export default class Presentation extends React.Component {
 								<Image
 									src={images.github2}
 									style={{
-										height: 780,
+										height: 'auto',
+										width: '100%',
 										position: 'absolute',
-										top: -40,
+										top: 100,
 										left: 0,
 										margin: 0,
 										zIndex: 2,
@@ -798,9 +396,10 @@ export default class Presentation extends React.Component {
 								<Image
 									src={images.github3}
 									style={{
-										height: 780,
+										height: 'auto',
+									width: '100%',
 										position: 'absolute',
-										top: -40,
+										top: 100,
 										left: 0,
 										margin: 0,
 										zIndex: 3,
@@ -818,6 +417,7 @@ export default class Presentation extends React.Component {
 					</Text>
 				</Slide>
 
+
 				<Slide bgImage={images.mhpNuke}>
 					<Notes>
 						<p>
@@ -833,348 +433,6 @@ export default class Presentation extends React.Component {
 					</Notes>
 				</Slide>
 
-				{/* The Good: Living style guide */}
-				<Slide
-					bgImage={images.success}
-					bgDarken={0.6}
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						justifyContent: 'space-between',
-						height: '100%',
-					}}
-				>
-					<Notes>
-						We had some successes, like our shiny new living style
-						guide that dynamically updates itself based on changes
-						made to the git repo.
-					</Notes>
-					<Heading
-						caps
-						textColor="primary"
-						size={2}
-						style={{ textAlign: 'center', marginBottom: 40 }}
-					>
-						The Good
-					</Heading>
-					<hr />
-					<Layout
-						style={{
-							display: 'flex',
-							flexDirection: 'row',
-							justifyContent: 'space-around',
-							width: '100%',
-							position: 'relative',
-							marginTop: 40,
-						}}
-					>
-						<Fill style={{ flex: '1 0 47%', width: '47%' }}>
-							<Image
-								src={images.livingStyleGuide}
-								style={{
-									textAlign: 'left',
-									width: '100%',
-									margin: '0px auto',
-								}}
-							/>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 6%',
-								width: '6%',
-								display: 'flex',
-								flexDirection: 'column',
-								justifyContent: 'center',
-								alignItems: 'center',
-							}}
-						>
-							<Heading textColor="primary"> &nbsp; </Heading>
-						</Fill>
-						<Fill style={{ flex: '1 0 48%', width: '48%' }}>
-							<Image
-								src={images.famous}
-								style={{
-									textAlign: 'left',
-									width: '100%',
-									margin: '0px auto',
-									border: '5px solid #222',
-									boxShadow: '0px 5px' + ' 10px #111',
-								}}
-							/>
-						</Fill>
-					</Layout>
-				</Slide>
-
-				{/* The Bad: Mistakes */}
-				<Slide
-					bgImage={images.mistakes}
-					bgDarken={0.8}
-					notes="And we had some failures"
-				>
-					<Notes>
-						<ul>
-							<li>The bad - Too much isolation</li>
-							<li>modal requred entire template</li>
-							<li>Changed that structure for other components</li>
-							<li>No accessibility testing</li>
-							<li>
-								we chose to use svg icon fonts.
-								<ul>
-									<li>Requires Node v0.12</li>
-									<li>
-										Have to use names that alphabetically
-										come after "triangle" (zarrow-left,
-										weighted-heart, and z-thumbs-up)
-									</li>
-								</ul>
-							</li>
-							<li>
-								Kristie Giles will tell you more about better
-								alternatives to the icon fonts.
-							</li>
-						</ul>
-					</Notes>
-					<Layout
-						style={{
-							display: 'flex',
-							flexDirection: 'row',
-							justifyContent: 'space-between',
-							alignItems: 'center',
-						}}
-					>
-						<Fill
-							style={{
-								textAlign: 'left',
-								width: '55%',
-								flex: '1 1 55%',
-								position: 'relative',
-								boxShadow: '0px 5px' + ' 10px #111',
-							}}
-						>
-							<CodePane
-								lang="html"
-								source={require('raw-loader!../assets/code/badModal.example')}
-								margin="0px auto"
-								textSize="0.9em"
-							/>
-						</Fill>
-
-						<Fill
-							style={{
-								textAlign: 'left',
-								width: '42%',
-								flex: '1 1 42%',
-								marginLeft: '3%',
-							}}
-						>
-							<Heading
-								caps
-								textColor="primary"
-								size={2}
-								style={{
-									textAlign: 'center',
-									marginBottom: 40,
-								}}
-							>
-								The Bad
-							</Heading>
-							<hr />
-							<Text
-								textColor="primary"
-								style={{ fontSize: '1.8em', marginTop: 40 }}
-							>
-								&larr; Required{' '}
-								<span
-									style={{
-										fontStyle: 'italic',
-										textDecoration: 'underline',
-									}}
-								>
-									for a modal
-								</span>
-							</Text>
-							<ul textColor="primary">
-								<Appear>
-									<li
-										style={{
-											color: themeColors.primary,
-											paddingTop: 70,
-											fontSize: '1.8em',
-										}}
-									>
-										Immediately changed that structure
-									</li>
-								</Appear>
-								<Appear>
-									<li
-										style={{
-											color: themeColors.primary,
-											paddingTop: 70,
-											fontSize: '1.8em',
-										}}
-									>
-										No accessibility testing
-									</li>
-								</Appear>
-								<Appear>
-									<li
-										style={{
-											color: themeColors.primary,
-											paddingTop: 70,
-											fontSize: '1.8em',
-										}}
-									>
-										SVG icon font
-									</li>
-								</Appear>
-							</ul>
-						</Fill>
-					</Layout>
-				</Slide>
-
-				<Slide
-					bgImage={images.mistakes}
-					bgDarken={0.8}
-					textAlign="left"
-				>
-					<Notes>
-						The ugly: Used ideal data. Short names, ideal text to
-						determine length, and height, etc.
-					</Notes>
-					<Heading
-						caps
-						textColor="primary"
-						size={2}
-						style={{ textAlign: 'center', marginBottom: 40 }}
-					>
-						The Ugly
-					</Heading>
-					<hr />
-					<Layout style={{ padding: '30px 0 0 0' }}>
-						<Fill style={{ flex: '1 1 90%' }}>
-							<BlockQuote
-								style={{ display: 'block', textAlign: 'right' }}
-							>
-								<Quote
-									style={{
-										fontSize: '1.6em',
-										fontWeight: 'normal',
-										borderLeft: 0,
-										paddingLeft: 0,
-										borderRight:
-											'1px solid rgb(250, 250, 250)',
-										paddingRight: 40,
-									}}
-								>
-									Name field: &nbsp; "John Snow"
-								</Quote>
-								<Cite textColor="dktertiary">Dev</Cite>
-							</BlockQuote>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 10%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								margin="0"
-								src={images.me}
-								style={{
-									width: 150,
-									height: 150,
-									borderRadius: '50%',
-									marginLeft: 20,
-									marginTop: -30,
-								}}
-							/>
-						</Fill>
-					</Layout>
-
-					<Layout>
-						<Fill
-							style={{
-								flex: '1 1 10%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								margin="0"
-								src={images.daenerys}
-								style={{
-									width: 400,
-									height: 400,
-									borderRadius: '50%',
-									marginRight: 20,
-									marginTop: -40,
-								}}
-							/>
-						</Fill>
-						<Fill style={{ flex: '1 1 90%' }}>
-							<BlockQuote style={{ display: 'block' }}>
-								<Quote
-									style={{
-										fontSize: '1.6em',
-										fontWeight: 'normal',
-										marginRight: 150,
-									}}
-								>
-									Name field: &nbsp; "Daenerys Stormborn of
-									the House Targaryen, First of Her Name, the
-									Unburnt, Queen of the Andals and the First
-									Men, Khaleesi of the Great Grass Sea,<br />Breaker
-									of Chains, and Mother of Dragons"
-								</Quote>
-								<Cite textColor="dktertiary">The QA Team</Cite>
-							</BlockQuote>
-						</Fill>
-					</Layout>
-
-					<Layout style={{ marginTop: -20 }}>
-						<Fill style={{ flex: '1 1 90%' }}>
-							<BlockQuote
-								style={{ display: 'block', textAlign: 'right' }}
-							>
-								<Quote
-									style={{
-										fontSize: '1.6em',
-										fontWeight: 'normal',
-										borderLeft: 0,
-										paddingLeft: 0,
-										borderRight:
-											'1px solid rgb(250, 250, 250)',
-										paddingRight: 40,
-									}}
-								>
-									Oh.
-								</Quote>
-								<Cite textColor="dktertiary">Dev</Cite>
-							</BlockQuote>
-						</Fill>
-						<Fill
-							style={{
-								flex: '1 1 10%',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Image
-								margin="0"
-								src={images.me}
-								style={{
-									width: 150,
-									height: 150,
-									borderRadius: '50%',
-									marginLeft: 20,
-									marginTop: -30,
-								}}
-							/>
-						</Fill>
-					</Layout>
-				</Slide>
-
 				{/* React Week */}
 				<Slide bgImage={images.reactWeek} bgDarken={0.2}>
 					<Notes>
@@ -1187,9 +445,8 @@ export default class Presentation extends React.Component {
 						fit
 						caps
 						style={{
-							marginTop: -380,
-							marginBottom: 380,
-							padding: '5px 20px 0px 20px',
+							marginTop: -230,
+							padding: '4px 20px 0 20px',
 							background: 'rgba(0, 0, 0, 0.5)',
 						}}
 					>
@@ -1202,14 +459,15 @@ export default class Presentation extends React.Component {
 								fontSize: '1.0em',
 								textShadow: '1px 1px' + ' 6px #111',
 								fontWeight: 'bold',
-								marginLeft: '-220px',
-								marginTop: 420,
+								marginLeft: '-170px',
+								paddingTop: 350,
 							}}
 						>
 							It's me!
 						</Text>
 					</Fill>
 				</Slide>
+
 
 				{/* The Ugly: Just the Header */}
 				<Slide
@@ -1252,7 +510,7 @@ export default class Presentation extends React.Component {
 								lang="js"
 								source={require('raw-loader!../assets/code/header.example')}
 								margin="0px auto"
-								textSize="0.73em"
+								textSize="0.8rem"
 							/>
 						</Fill>
 						<Fill
@@ -1267,7 +525,7 @@ export default class Presentation extends React.Component {
 								lang="js"
 								source={require('raw-loader!../assets/code/header2.example')}
 								margin="0px auto"
-								textSize="0.73em"
+								textSize="0.8rem"
 							/>
 						</Fill>
 					</Layout>
@@ -1294,7 +552,7 @@ export default class Presentation extends React.Component {
 						<Fill>
 							<Image
 								src={images.importantRabbits}
-								style={{ maxHeight: 852, margin: '0 auto' }}
+								style={{ maxHeight: '75vh', margin: '0 auto' }}
 							/>
 						</Fill>
 					</Layout>
@@ -1305,47 +563,49 @@ export default class Presentation extends React.Component {
 					<Layout style={{ flexDirection: 'column' }}>
 						<Fill>
 							<Heading
-								size={1}
+								size={4}
 								textColor="primary"
 								style={{
 									paddingBottom: 20,
 									textShadow: '1px 1px' + ' 6px #111',
+									textAlign: 'left'
 								}}
 							>
-								Isolated,
+								Encapsulated,
 							</Heading>
 							<Heading
-								size={3}
+								size={5}
 								textColor="dktertiary"
 								style={{
 									paddingBottom: 20,
 									textShadow: '1px 1px' + ' 6px #111',
+									textAlign: 'left'
 								}}
 							>
 								Component should be a<br />
 								complete, dist package
 							</Heading>
 						</Fill>
-						<Fill>
-							<Heading size={1}>&nbsp;</Heading>
-						</Fill>
+						
 						<Fill>
 							<Heading
-								size={1}
+								size={4}
 								textColor="primary"
 								style={{
 									paddingBottom: 20,
 									textShadow: '1px 1px' + ' 6px #111',
+									textAlign: 'right'
 								}}
 							>
-								but not too Isolated
+								but not Isolated
 							</Heading>
 							<Heading
-								size={3}
+								size={5}
 								textColor="dktertiary"
 								style={{
 									paddingBottom: 20,
 									textShadow: '1px 1px' + ' 6px #111',
+									textAlign: 'right'
 								}}
 							>
 								Users need to adapt your<br />
@@ -1366,29 +626,62 @@ export default class Presentation extends React.Component {
 					<List style={{ textAlign: 'left' }}>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{
+								fontSize: '2em',
+								marginBottom: 20
+							}}
 						>
 							Accessibility
 						</ListItem>
 						<ListItem
 							textColor="primary"
-							style={{ fontSize: '2.4em', marginBottom: 30 }}
+							style={{ fontSize: '2em', marginBottom: 20 }}
 						>
-							Isolated, but not too isolated
+							Encapsulated, but not isolated
 						</ListItem>
 						<ListItem
 							textColor="dktertiary"
-							style={{
-								fontSize: '3em',
-								marginBottom: 30,
-								fontWeight: 'bold',
-								textShadow: '1px 1px' + ' 6px #222',
-							}}
+							style={{ fontSize: '2em', marginBottom: 20, fontWeight: 'bold' }}
 						>
 							Brandable
 						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Documentation
+						</ListItem>
 					</List>
 				</Slide>
+
+				<Slide
+					fit
+					bgImage={images.brickBg}
+					bgDarken={0.7}
+					notes="This is an interesting question"
+				>
+					<Notes>
+						I asked the twitterverse for what reusable means to
+						them, and what they'd like to learn. I got some
+						interesting responses, but this one really struck me.
+					</Notes>
+					
+					<Image
+						src={images.stylingWithoutStyling}
+						style={{ width: '100%', marginTop: 40 }}
+					/>
+				</Slide>
+
+				<Slide
+					fit
+					bgImage={images.cssInJs}
+					bgDarken={0.0}
+					style={{ position: 'relative', height: '100%' }}
+					notes="Oh right. That's why."
+				>
+					<Notes>It made me think </Notes>
+				</Slide>
+
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
@@ -1399,13 +692,13 @@ export default class Presentation extends React.Component {
 						</p>
 					</Notes>
 					<Heading textColor="primary" fit caps>
-						Want to compare libraries?
+						Comparing CSS-in-JS Libraries
 					</Heading>
 					<Image
 						src={images.playground}
 						style={{
-							maxHeight: 800,
-							maxWidth: 1400,
+							maxHeight: 'auto',
+							maxWidth: '60vw',
 							margin: 40,
 							boxShadow: '0px 0px' + ' 20px #444',
 						}}
@@ -1431,38 +724,14 @@ export default class Presentation extends React.Component {
 					fit
 					bgImage={images.brickBg}
 					bgDarken={0.7}
-					notes="This is an interesting question"
+					style={{ position: 'relative', height: '100%' }}
 				>
-					<Notes>
-						I asked the twitterverse for what reusable means to
-						them, and what they'd like to learn. I got some
-						interesting responses, but this one really struck me.
-					</Notes>
-					<Heading textColor="quartenary" size={3}>
-						Question:
+					<Heading textColor="dktertiary" fit caps>
+						If overrides are documented,
 					</Heading>
-					<Image
-						src={images.stylingWithoutStyling}
-						style={{ width: '100%', marginTop: 40 }}
-					/>
-				</Slide>
-
-				<Slide
-					fit
-					bgImage={images.cssInJs}
-					bgDarken={0.0}
-					style={{ position: 'relative', height: '100%' }}
-					notes="Oh right. That's why. Posted by @mfpiccolo"
-				>
-					<Notes>It made me think </Notes>
-				</Slide>
-
-				<Slide
-					fit
-					bgImage={images.brickBg}
-					bgDarken={0.7}
-					style={{ position: 'relative', height: '100%' }}
-				>
+					<Heading textColor="dktertiary" fit caps>
+						
+					</Heading>
 					<Heading
 						textColor="primary"
 						fit
@@ -1471,9 +740,7 @@ export default class Presentation extends React.Component {
 					>
 						It doesn't matter
 					</Heading>
-					<Heading textColor="dktertiary" fit caps>
-						The styles inside and outside are mutually exclusive
-					</Heading>
+					
 				</Slide>
 
 				<Slide
@@ -1483,80 +750,80 @@ export default class Presentation extends React.Component {
 					style={{ position: 'relative', height: '100%' }}
 				>
 					<Notes>
-						These are all super cool ways to take default styles,
-						and merge them with user-provided styles. The long and
-						short of it is that the component accepts a prop.
+						Everytime I visit this site, there are more.
 					</Notes>
-					<Heading
-						textColor="primary"
-						size={1}
-						caps
-						style={{ paddingBottom: 40 }}
-					>
-						Style Prop
-					</Heading>
-					<Heading
-						textColor="primary"
-						size={1}
-						caps
-						style={{ paddingBottom: 40 }}
-					>
-						Composables
-					</Heading>
 
-					<Heading
-						textColor="primary"
-						size={1}
-						caps
-						style={{ paddingBottom: 80 }}
-					>
-						Theme
+					<Heading textColor="dktertiary" caps fit>
+						Ways to override component CSS
 					</Heading>
+					<hr />
+						<List
+							textColor="primary"
+							style={{fontSize: '2em', margin: '15px'}}
+						>
+							className or style Prop
+						</List>
 
-					<Heading textColor="primary" size={2}>
-						All ways to handle a passed prop
-					</Heading>
+						<List
+							textColor="primary"
+							style={{fontSize: '2em', margin: '15px'}}
+						>
+							Composition
+						</List>
+
+						<List
+							textColor="primary"
+							style={{fontSize: '2em', margin: '15px'}}
+						>
+							withTheme/ThemeProvider
+						</List>
+					
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
-						Notice how we start with a margin of 1, fontSize of 1,
-						and padding of 1. We then create a new styled div, using
-						the first one as a param, then pass in the overriding
-						styles of fontSize: 4 and padding: 4. This new component
-						has a margin: 1, fontSize: 4 and padding: 4.
+
 					</Notes>
-					<Layout>
-						<Fill
-							style={{
-								width: '51%',
-								flex: '1 1 51%',
-								marginRight: '3%',
-							}}
-						>
-							<Heading
-								size={2}
+					<Heading
+								size={3}
 								textColor="primary"
 								style={{ marginBottom: 40 }}
 							>
-								Composables with Glamorous
+								Props with emotion
 							</Heading>
-							<CodePane
-								lang="js"
-								source={require('raw-loader!../assets/code/compositionGlamorous.example')}
-								margin="0px auto"
-								textSize="1em"
-							/>
-						</Fill>
-					</Layout>
+					<CodePane
+						lang="js"
+						source={require('raw-loader!../assets/code/composition-emotion.example')}
+						margin="0px auto"
+						textSize="0.6em"
+					/>
+				</Slide>
+
+				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						Did you know you can use composition with CSS Modules?
+					</Notes>
+					<Heading
+								textColor="primary"
+								style={{ paddingBottom: '5px' }}
+								fit
+							>
+								Composition with CSS Modules
+							</Heading>
+					<CodePane
+						lang="css"
+						source={require('raw-loader!../assets/code/composition-cssModules.example')}
+						margin="0px auto"
+						textSize="0.8em"
+					/>
 				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
 						<ul>
 							<li>
-								Nearly all the css-in-js libs use a form of
-								ThemeProvider
+								Nearly all the css-in-js libs have a form of
+								ThemeProvider available
 							</li>
 							<li>
 								If you're not using a css-in-js lib, you can
@@ -1567,13 +834,13 @@ export default class Presentation extends React.Component {
 					<Layout>
 						<Fill
 							style={{
-								width: '55%',
-								flex: '1 1 55%',
-								marginRight: '1%',
+								width: '50%',
+								flex: '1 1 50%',
+								marginRight: '2%',
 							}}
 						>
 							<Heading
-								size={2}
+								size={3}
 								textColor="primary"
 								style={{ marginBottom: 40 }}
 							>
@@ -1583,17 +850,17 @@ export default class Presentation extends React.Component {
 								lang="js"
 								source={require('raw-loader!../assets/code/usageWithAphrodite.example')}
 								margin="0px auto"
-								textSize="0.85em"
+								textSize="0.5em"
 							/>
 						</Fill>
 						<Fill
 							style={{
-								width: '44%',
-								flex: '1 1 44%',
+								width: '48%',
+								flex: '1 1 48%',
 							}}
 						>
 							<Heading
-								size={2}
+								size={3}
 								textColor="primary"
 								style={{ marginBottom: 40 }}
 							>
@@ -1603,7 +870,7 @@ export default class Presentation extends React.Component {
 								lang="js"
 								source={require('raw-loader!../assets/code/usageWithGlamor.example')}
 								margin="0px auto"
-								textSize="0.85em"
+								textSize="0.5em"
 							/>
 						</Fill>
 					</Layout>
@@ -1616,16 +883,70 @@ export default class Presentation extends React.Component {
 					</Link>
 				</Slide>
 
-				<Slide bgImage={images.mistakesBlurred} bgDarken={0.65}>
+
+				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Heading size="4" textColor="primary">
+						Global styles are included in page head for website branding
+					</Heading>
+					<hr />
+					<Heading size="4" textColor="dktertiary">
+						Component styles are imported into encapsulated components
+					</Heading>
+				</Slide>
+
+
+				{/* DOCUMENTATION BONUS CHAPTER */}
+
+				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						Making a component match the company brand specs.
+					</Notes>
+					<Heading textColor="primary" caps fit>
+						What makes a component reusable?
+					</Heading>
+					<hr />
+					<List style={{ textAlign: 'left' }}>
+						<ListItem
+							textColor="primary"
+							style={{
+								fontSize: '2em',
+								marginBottom: 20
+							}}
+						>
+							Accessibility
+						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Encapsulated, but not isolated
+						</ListItem>
+						<ListItem
+							textColor="primary"
+							style={{ fontSize: '2em', marginBottom: 20 }}
+						>
+							Brandable
+						</ListItem>
+						<ListItem
+							textColor="dktertiary"
+							style={{ fontSize: '2em', marginBottom: 20, fontWeight: 'bold' }}
+						>
+							Documentation
+						</ListItem>
+					</List>
+				</Slide>
+
+
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
 					<Notes>
 						<p>
 							Damian Conway said, "Documentation is a love letter
 							you write to your future self."
 						</p>
 						<p>
-							It's also a love letter you write to your users. If
-							you don't tell your users how to use your component,
-							they'll think it's bad.
+							In a month, or even a week from now, you'll have moved onto other projects. 
+							You'll barely remember what this component does. 
 						</p>
 					</Notes>
 					<Layout style={{ marginTop: -80 }}>
@@ -1639,10 +960,10 @@ export default class Presentation extends React.Component {
 							<Image
 								src={images.DamianConway}
 								style={{
-									width: 500,
-									height: 500,
+									width: 340,
+									height: 350,
 									borderRadius: '50%',
-									marginTop: -70,
+									marginTop: -50,
 									marginRight: 20,
 									boxShadow: '0px 0px' + ' 20px #222',
 								}}
@@ -1656,7 +977,7 @@ export default class Presentation extends React.Component {
 							}}
 						>
 							<BlockQuote>
-								<Quote>
+								<Quote style={{ fontSize: '4.4rem'}}>
 									Documentation is a love letter you write to
 									your future self.
 								</Quote>
@@ -1668,18 +989,109 @@ export default class Presentation extends React.Component {
 					</Layout>
 				</Slide>
 
-				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
-					<Layout style={{ flexDirection: 'column' }}>
-						<Heading fit textColor="primary">
-							Accept a prop for <br />styles/composition/theming
-						</Heading>
-						<hr style={{ margin: '40px 0' }} />
-						<Heading textColor="primary">Document!</Heading>
-						<hr style={{ margin: '40px 0' }} />
-						<Heading fit textColor="primary">
-							Global styles for website, <br />component styles
-							for components
-						</Heading>
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Notes>
+						
+					</Notes>
+					<Heading textColor="primary" style={{lineHeight: '1.2em'}}>What if you wrote documentation for your past self?</Heading>
+				</Slide>
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Heading textColor="primary" style={{lineHeight: '1.2em'}}>How most of us evolved as programmers:</Heading>
+				</Slide>
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Layout style={{justifyContent: 'space-between'}}>
+						<Link href="https://www.reddit.com/r/orlybooks/comments/4htnwb/copy_paste_driven_development/">
+							<Image style={{height: '80vh', width: 'auto'}} src={images.CPDrivenDev}/>
+						</Link>
+						<Link href="https://effectivesoftwaredesign.com/2016/05/22/copy-and-paste-programming/">
+							<Image style={{height: '80vh', width: 'auto'}} src={images.CopyPaste}/>
+						</Link>
+					</Layout>
+				</Slide>
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Notes>
+						You wrote it and you can't remember all the details. 
+						You can't expect your users to intuitively know it. If
+						you don't tell your users how to use your component,
+						they'll think it's bad, regardless of its actual quality.
+					</Notes>
+					<Heading size="3" textColor="primary" style={{lineHeight: '1.2em'}}>
+						What if every available parameter, marked with `required` or `optional` was in your example?
+					</Heading>
+				</Slide>
+
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Notes>
+							If you write in best practices, including accessibility, into every example you put online, 
+							into documentation, and into your live code, we will all spend less time fixing what others 
+							(including ourselves) have forgotten, or failed to realize they needed to include. 
+							By helping others, we help ourselves, and our future tech debt. 
+					</Notes>
+					<Heading size="3" textColor="dktertiary">
+						What if every code example was accessible?
+					</Heading>
+					<hr />
+					<Heading size="4" textColor="primary">
+						Accessibility would be standard because "that's how it works."
+					</Heading>
+				</Slide>
+
+
+				<Slide fit bgImage={images.Library} bgDarken={0.7}>
+					<Notes>
+						<p>
+							Damian Conway said, "Documentation is a love letter
+							you write to your future self."
+						</p>
+						<p>
+							Now that you've written the documentation you wish you'd had: it's both accessible, 
+							and easy to identify all the possible parameters, Let's look at this quote again.
+
+							Imagine all the tech debt you won't have in the future because everyone that came after you 
+							copied and pasted those code examples.
+						</p>
+					</Notes>
+					<Layout style={{ marginTop: -80 }}>
+						<Fill
+							style={{
+								flex: '1 1 38%',
+								display: 'flex',
+								alignItems: 'center',
+							}}
+						>
+							<Image
+								src={images.DamianConway}
+								style={{
+									width: 340,
+									height: 350,
+									borderRadius: '50%',
+									marginTop: -50,
+									marginRight: 20,
+									boxShadow: '0px 0px' + ' 20px #222',
+								}}
+							/>
+						</Fill>
+						<Fill
+							style={{
+								flex: '1 1 62%',
+								display: 'flex',
+								alignItems: 'center',
+							}}
+						>
+							<BlockQuote>
+								<Quote style={{ fontSize: '4.4rem'}}>
+									Documentation is a love letter you write to
+									your future self.
+								</Quote>
+								<Cite textColor="dktertiary">
+									Damian Conway
+								</Cite>
+							</BlockQuote>
+						</Fill>
 					</Layout>
 				</Slide>
 
@@ -1701,8 +1113,8 @@ export default class Presentation extends React.Component {
 							<Image
 								src={images.beKind}
 								style={{
-									maxWidth: 1768,
-									maxHeight: 852,
+									maxWidth: '60vw',
+									maxHeight: '60vh',
 									width: 'auto',
 									margin: '0 auto',
 								}}

@@ -1,5 +1,3 @@
-// MyThemedComponent.js
-
 import { StyleSheet, css } from 'aphrodite'
 import { withStyles } from 'theme-provider'
 
