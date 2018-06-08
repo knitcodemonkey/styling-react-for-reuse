@@ -1,0 +1,16 @@
+// brand colors
+$brand-pink: #A40E4C; 
+$brand-purple: #2C2C54
+$brand-green: #ACC3A6; 
+$brand-yellow: #F5D6BA;
+$brand-orange: #F49D6E;
+
+// Universal color uses
+$links: $brand-pink;
+$page_background: $brand-yellow;
+
+// Navigation tab colors
+$nav_tab: $brand-yellow;
+$nav_tab_text: $brand-purple;
+$nav_tab_active: $brand-purple;
+$nav_tab_active_text: $color-yellow;

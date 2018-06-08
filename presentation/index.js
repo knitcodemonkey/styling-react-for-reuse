@@ -782,25 +782,6 @@ export default class Presentation extends React.Component {
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
-
-					</Notes>
-					<Heading
-								size={3}
-								textColor="primary"
-								style={{ marginBottom: 40 }}
-							>
-								Props with emotion
-							</Heading>
-					<CodePane
-						lang="js"
-						source={require('raw-loader!../assets/code/composition-emotion.example')}
-						margin="0px auto"
-						textSize="0.6em"
-					/>
-				</Slide>
-
-				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
-					<Notes>
 						Did you know you can use composition with CSS Modules?
 					</Notes>
 					<Heading
@@ -820,69 +801,29 @@ export default class Presentation extends React.Component {
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Notes>
-						<ul>
-							<li>
-								Nearly all the css-in-js libs have a form of
-								ThemeProvider available
-							</li>
-							<li>
-								If you're not using a css-in-js lib, you can
-								still use ThemeProvider
-							</li>
-						</ul>
+						How not to name things
 					</Notes>
-					<Layout>
-						<Fill
-							style={{
-								width: '50%',
-								flex: '1 1 50%',
-								marginRight: '2%',
-							}}
-						>
-							<Heading
-								size={3}
-								textColor="primary"
-								style={{ marginBottom: 40 }}
-							>
-								Aphrodite
-							</Heading>
-							<CodePane
-								lang="js"
-								source={require('raw-loader!../assets/code/usageWithAphrodite.example')}
-								margin="0px auto"
-								textSize="0.5em"
-							/>
-						</Fill>
-						<Fill
-							style={{
-								width: '48%',
-								flex: '1 1 48%',
-							}}
-						>
-							<Heading
-								size={3}
-								textColor="primary"
-								style={{ marginBottom: 40 }}
-							>
-								Glamor
-							</Heading>
-							<CodePane
-								lang="js"
-								source={require('raw-loader!../assets/code/usageWithGlamor.example')}
-								margin="0px auto"
-								textSize="0.5em"
-							/>
-						</Fill>
-					</Layout>
-					<Link
-						textColor="dktertiary"
-						style={{ marginTop: 40, display: 'block' }}
-						href="https://github.com/jschr/theme-provider/blob/master/README.md"
-					>
-						withTheme/ThemeProvider
-					</Link>
+
+					<CodePane
+						lang="scss"
+						source={require('raw-loader!../assets/code/badCssVars.example')}
+						margin="0px auto"
+						textSize="1em"
+					/>
 				</Slide>
 
+				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
+					<Notes>
+						Much better way of controlling variables
+					</Notes>
+					
+					<CodePane
+						lang="scss"
+						source={require('raw-loader!../assets/code/goodCssVars.example')}
+						margin="0px auto"
+						textSize="0.8em"
+					/>
+				</Slide>
 
 				<Slide fit bgImage={images.brickBg} bgDarken={0.7}>
 					<Heading size="4" textColor="primary">

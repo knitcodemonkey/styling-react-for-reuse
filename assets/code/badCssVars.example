@@ -1,0 +1,11 @@
+// colors
+
+$purple: #ACC3A6;
+$lightGrey: #dedede;
+$grey: #ccc;
+$lightishDarkGrey: #999
+$darkGrey: #666;
+$extraDarkGrey: #333;
+$superExtraDarkGrey: #121212;
+$orange: #A40E4C;
+
